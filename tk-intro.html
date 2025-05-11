@@ -94,7 +94,16 @@
     <li><strong>Continuous Distribution:</strong> A random variable is said to be continuous if its CDF is continuous</li>
     <li><strong>Discrete Distributions:</strong> If the CDF of a random variable has all the properties of a CDF but is discontinuous, it is said to be discrete random variable</li>
     <li><strong>Density function:</strong> A function \(f : \mathbb{R} \to [0, \infty) \) is said to be the density function of some rv having CDF \(F\)  iff $$ \int_{-\infty}^{\infty} f(x)\, dx = 1 $$</li>
-  </p>
+    <li><strong>Probability Mass Function (PMF):</strong> Let \( X \) be a discrete random variable taking values \( x_1, x_2, \dots \) with probabilities \( p_1, p_2, \dots \). Then the probability mass function (PMF) of \( X \) is defined as \( p : \mathbb{R} \to [0, 1] \), where
+\[
+p(x) =
+  \begin{cases}
+    p_i & \text{if } x = x_i \\
+    0   & \text{otherwise.}
+  \end{cases}
+\]
+Clearly, \( \sum p_i = 1 \).
+</li>
 
   <h2>2. Key Concepts</h2>
   <ul>
