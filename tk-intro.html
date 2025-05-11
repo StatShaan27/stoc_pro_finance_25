@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stochastic Processes & Finance – Summer Reading Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #e0e0e0;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    section {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin: 2em 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Chapter 1: Introduction to Stochastic Processes</h1>
+  <p>Study notes and chapter summaries</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="topics.html">Topics</a>
+  <a href="notes.html">Notes</a>
+  <a href="projects.html">Programming</a>
+</nav>
+<section>
+  
+  <h2>1. What is a Stochastic Process?</h2>
+  <p>
+    A stochastic process is a collection of random variables indexed by time or space. Formally, a stochastic process is written as:
+  </p>
+  <p>$$ \{X_t : t \in T\} $$</p>
+  <p>
+    where \( T \) is the index set (often representing time), and \( X_t \) is a random variable representing the state at time \( t \).
+  </p>
+
+  <h2>2. Key Concepts</h2>
+  <ul>
+    <li><strong>State Space:</strong> Set of all possible values the process can take.</li>
+    <li><strong>Index Set:</strong> Usually time – can be discrete or continuous.</li>
+    <li><strong>Sample Path:</strong> A realization of the stochastic process.</li>
+  </ul>
+
+  <h2>3. Types of Stochastic Processes</h2>
+  <ul>
+    <li>Discrete-Time vs Continuous-Time</li>
+    <li>Discrete-State vs Continuous-State</li>
+    <li>Markov Processes</li>
+    <li>Poisson Processes</li>
+    <li>Brownian Motion</li>
+  </ul>
+
+  <h2>4. Applications</h2>
+  <p>Stochastic processes are used in:</p>
+  <ul>
+    <li>Financial modeling (e.g., stock prices)</li>
+    <li>Queueing theory</li>
+    <li>Population dynamics</li>
+    <li>Reliability and survival analysis</li>
+  </ul>
+
+  <h2>5. Illustration</h2>
+  <img src="../assets/images/random_walk.png" alt="Random Walk Illustration">
+
+  <h2>6. References</h2>
+  <ul>
+    <li>H. M. Taylor and S. Karlin, *An Introduction to Stochastic Modeling*, Chapter 1</li>
+    <li><a href="https://www.probabilitycourse.com/" target="_blank">ProbabilityCourse.com</a></li>
+  </ul>
+</section>
+
+<div class="nav-bottom">
+  <a href="ch0-preface.html">&larr; Previous Chapter</a>
+  <a href="tk-markov-chains1.html">Next Chapter &rarr;</a>
+</div>
+
+<footer>
+  &copy; 2025 Mohammad Shaan | This site is maintained on GitHub Pages.
+</footer>
+<!-- MathJax for LaTeX -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</body>
+</html>
