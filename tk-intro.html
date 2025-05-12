@@ -294,11 +294,15 @@ where \( \sum p_i = 1 \).
   <p>
     We can as well find \( Var[S_N] \) which turns out to be $$ Var[S_N] = \mu^2 \tau^2 + \nu\sigma^2 $$
   </p>
-  <button class="hint-button" onclick="toggleHint()">Show/Hide Hint</button>
-<div class="hint-text" id="hint">
-  Markov's inequality states that \( \mathbb{P}(X \geq a) \leq \frac{\mathbb{E}[X]}{a} \) for all \( a > 0 \).
-</div>
-  
+  <h3>8. The Distribution of a Random Sum</h3>
+  Consider the previous setup of sum of Random Variables. We are now interested in finding the distribution of their sum, given each of them have the density \(f(x)\). Then we know, 
+  $$ f_{S_1}(x) = f_{X_1}(x) = f(x) $$
+  $$ f_{S_2}(x) = f_{X_1 + X_2}(x) $$
+  which can be found using the transformation \(h(Y_1,Y_2)= (X_1,X_1+X_2) \)
+  this turns out to be 
+  $$ f_{S_2}(x) = int_{\infty}^{\infty} f(z)f(x-z) dz $$
+  Similarly, 
+  $$ f_{S_n}(x) = int_{\infty}^{\infty} f_{S_{n-1}}(x-z)f(z) dz $$
   <ul>
     <li>H. M. Taylor and S. Karlin, *An Introduction to Stochastic Modeling*, Chapter 1</li>
   </ul>
