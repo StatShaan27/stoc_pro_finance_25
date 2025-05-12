@@ -53,6 +53,29 @@
       color: #777;
       margin: 2em 0;
     }
+    .hint-text {
+      display: none;
+      margin-top: 0.5em;
+      background: #f0f0f0;
+      padding: 0.5em;
+      border-left: 4px solid #0077cc;
+      border-radius: 4px;
+    }
+
+    .hint-button {
+      margin-top: 1em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.4em 0.8em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .hint-button:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
@@ -269,8 +292,13 @@ where \( \sum p_i = 1 \).
     $$= \mu \nu $$
   </p>
   <p>
-    We can as well find \( Var[S_N] \) which turns out to be $$ Var[S_N] = \mu^2 \tau^2 + 
+    We can as well find \( Var[S_N] \) which turns out to be $$ Var[S_N] = \mu^2 \tau^2 + \nu\sigma^2 $$
   </p>
+  <button class="hint-button" onclick="toggleHint()">Show/Hide Hint</button>
+<div class="hint-text" id="hint">
+  Markov's inequality states that \( \mathbb{P}(X \geq a) \leq \frac{\mathbb{E}[X]}{a} \) for all \( a > 0 \).
+</div>
+  
   <ul>
     <li>H. M. Taylor and S. Karlin, *An Introduction to Stochastic Modeling*, Chapter 1</li>
   </ul>
@@ -289,6 +317,16 @@ where \( \sum p_i = 1 \).
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script>
+  function toggleHint() {
+    var hint = document.getElementById("hint");
+    if (hint.style.display === "none" || hint.style.display === "") {
+      hint.style.display = "block";
+    } else {
+      hint.style.display = "none";
+    }
+  }
 </script>
 
 </body>
