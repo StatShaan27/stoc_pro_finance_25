@@ -191,10 +191,24 @@ where \( \sum p_i = 1 \).
       <td>Not elementary in closed form</td>
     </tr>
     <tr>
-      <td> Cauchy </td>
-      <td></td>
-      <td></td>
+      <td>Cauchy</td>
+      <td>\( X \sim \mathrm{Cauchy}(x_0, \gamma) \)</td>
+      <td>\( f(x) = \frac{1}{\pi \gamma \left[1 + \left(\frac{x - x_0}{\gamma}\right)^2 \right]} \)</td>
+      <td>\( \varphi_X(t) = e^{i x_0 t - \gamma |t|} \)</td>
     </tr>
+    <tr>
+      <td>Normal (Univariate)</td>
+      <td>\( X \sim \mathcal{N}(\mu, \sigma^2) \)</td>
+      <td>\( f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{ -\frac{(x - \mu)^2}{2\sigma^2} } \)</td>
+      <td>\( \varphi_X(t) = e^{i \mu t - \frac{1}{2} \sigma^2 t^2} \)</td>
+    </tr>
+    <tr>
+      <td>Normal (Multivariate)</td>
+      <td>\( \mathbf{X} \sim \mathcal{N}_n(\boldsymbol{\mu}, \boldsymbol{\Sigma}) \)</td>
+      <td>\( f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} |\boldsymbol{\Sigma}|^{1/2}} \exp\left( -\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu}) \right) \)</td>
+      <td>\( \varphi_{\mathbf{X}}(\mathbf{t}) = \exp\left( i \mathbf{t}^\top \boldsymbol{\mu} - \frac{1}{2} \mathbf{t}^\top \boldsymbol{\Sigma} \mathbf{t} \right) \)</td>
+    </tr>
+
   </tbody>
   </table>
   
