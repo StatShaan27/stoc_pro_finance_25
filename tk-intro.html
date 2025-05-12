@@ -170,13 +170,13 @@ where \( \sum p_i = 1 \).
       <td>Uniform</td>
       <td>\( X \sim \mathrm{Unif}(a,b) \)</td>
       <td>\( f(x) = \frac{1} b-a,\ x \in [a,b] \)</td>
-      <td>\( \varphi_X(t) = \frac{e^{itb}-e^{ita}} it(b-a) \)</td>
+      <td>\( \varphi_X(t) = \frac{e^{itb}-e^{ita}} {it(b-a)} \)</td>
     </tr>
     <tr>
       <td>Exponential</td>
       <td>\( X \sim \mathrm{Exp}(\lambda) \)</td>
-      <td>\( f(x) = \lambda e^{-\lambda x} , \ x \req 0   \)</td>
-      <td>\( \varphi_X(t) = (1 - p + pe^{it})^n \)</td>
+      <td>\( f(x) = \lambda e^{-\lambda x} , \ x \geq 0   \)</td>
+      <td>\( \varphi_X(t) = \frac{\lambda}{\lambda -ib} \)</td>
     </tr>
     <tr>
       <td>Poisson</td>
