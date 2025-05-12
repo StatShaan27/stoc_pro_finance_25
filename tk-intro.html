@@ -113,15 +113,48 @@ where \( \sum p_i = 1 \).
   <h3>2.3. Moments and Expectations</h3>
   <p>
     If X is a discrete rv, its \(m\)-th moment is given by $$ E[X^m] = \sum_{i} x_i^m \, \Pr(X = x_i) $$
-    For continuous rv, the \(m\)-th moment is given by $$ E[X^m] = \int_{-\infty}^{\infty} x_i^m \, f(x) dx $$
+    For continuous rv, the \(m\)-th moment is given by $$ E[X^m] = \int_{-\infty}^{\infty} x^m \, f(x) dx $$
+    The \(m\)-th central moment is defined as the \(m\)-th order moment of the random variable \(X- \mu_x \), provided that \(\mu_x\) exists finitely.
+    
   </p>
-  <ul>
-    <li><strong>State Space:</strong> Set of all possible values the process can take.</li>
-    <li><strong>Index Set:</strong> Usually time – can be discrete or continuous.</li>
-    <li><strong>Sample Path:</strong> A realization of the stochastic process.</li>
-  </ul>
+  <h2>3. Some Discrete Distributions</h2>
+  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; margin: 2em auto; text-align: center;">
+  <thead style="background-color: #f0f0f0;">
+    <tr>
+      <th>Distribution</th>
+      <th>Notation</th>
+      <th>PMF / PDF</th>
+      <th>Characteristic Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bernoulli</td>
+      <td>\( X \sim \mathrm{Bern}(p) \)</td>
+      <td>\( p(x) = p^x(1-p)^{1-x},\ x \in \{0,1\} \)</td>
+      <td>\( \varphi_X(t) = 1 - p + pe^{it} \)</td>
+    </tr>
+    <tr>
+      <td>Binomial</td>
+      <td>\( X \sim \mathrm{Bin}(n, p) \)</td>
+      <td>\( p(x) = \binom{n}{x}p^x(1-p)^{n-x} \)</td>
+      <td>\( \varphi_X(t) = (1 - p + pe^{it})^n \)</td>
+    </tr>
+    <tr>
+      <td>Poisson</td>
+      <td>\( X \sim \mathrm{Pois}(\lambda) \)</td>
+      <td>\( p(x) = \frac{e^{-\lambda} \lambda^x}{x!} \)</td>
+      <td>\( \varphi_X(t) = \exp(\lambda(e^{it} - 1)) \)</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>\( X \sim \mathcal{N}(\mu, \sigma^2) \)</td>
+      <td>\( f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} \)</td>
+      <td>\( \varphi_X(t) = \exp(i\mu t - \tfrac{1}{2} \sigma^2 t^2) \)</td>
+    </tr>
+  </tbody>
+</table>
 
-  <h2>3. Types of Stochastic Processes</h2>
   <ul>
     <li>Discrete-Time vs Continuous-Time</li>
     <li>Discrete-State vs Continuous-State</li>
