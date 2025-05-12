@@ -123,7 +123,7 @@ where \( \sum p_i = 1 \).
     <tr>
       <th>Distribution</th>
       <th>Notation</th>
-      <th>PMF / PDF</th>
+      <th>PMF</th>
       <th>Characteristic Function</th>
     </tr>
   </thead>
@@ -149,21 +149,50 @@ where \( \sum p_i = 1 \).
     <tr>
       <td>Geometric</td>
       <td>\( X \sim \mathrm{Geom}(n, p) \)</td>
-      <td>\( f(x) = p(1-p)^{x-1}, \x \in \{1,2, \ldots\} \)</td>
+      <td>\( f(x) = p(1-p)^{x-1}, x \in \{1,2, \ldots\} \)</td>
       <td>\( \varphi_X(t) = \frac{pe^{it}}{1 - (1 - p)e^{it}} \)</td>
     </tr>
   </tbody>
-</table>
-
-  <ul>
-    <li>Discrete-Time vs Continuous-Time</li>
-    <li>Discrete-State vs Continuous-State</li>
-    <li>Markov Processes</li>
-    <li>Poisson Processes</li>
-    <li>Brownian Motion</li>
-  </ul>
-
-  <h2>4. Applications</h2>
+  </table>
+  
+  <h2>4. Some Continuous Distributions</h2>
+  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; margin: 2em auto; text-align: center;">
+  <thead style="background-color: #f0f0f0;">
+    <tr>
+      <th>Distribution</th>
+      <th>Notation</th>
+      <th>PDF</th>
+      <th>Characteristic Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Uniform</td>
+      <td>\( X \sim \mathrm{Unif}(a,b) \)</td>
+      <td>\( f(x) = \frac{1} b-a,\ x \in [a,b] \)</td>
+      <td>\( \varphi_X(t) = \frac{e^{itb}-e^{ita}} it(b-a) \)</td>
+    </tr>
+    <tr>
+      <td>Exponential</td>
+      <td>\( X \sim \mathrm{Exp}(\lambda) \)</td>
+      <td>\( f(x) = \lambda e^{-\lambda x} , \ x \req 0   \)</td>
+      <td>\( \varphi_X(t) = (1 - p + pe^{it})^n \)</td>
+    </tr>
+    <tr>
+      <td>Poisson</td>
+      <td>\( X \sim \mathrm{Pois}(\lambda) \)</td>
+      <td>\( p(x) = \frac{e^{-\lambda} \lambda^x}{x!} \)</td>
+      <td>\( \varphi_X(t) = \exp(\lambda(e^{it} - 1)) \)</td>
+    </tr>
+    <tr>
+      <td>Geometric</td>
+      <td>\( X \sim \mathrm{Geom}(n, p) \)</td>
+      <td>\( f(x) = p(1-p)^{x-1}, x \in \{1,2, \ldots\} \)</td>
+      <td>\( \varphi_X(t) = \frac{pe^{it}}{1 - (1 - p)e^{it}} \)</td>
+    </tr>
+  </tbody>
+  </table>
+  
   <p>Stochastic processes are used in:</p>
   <ul>
     <li>Financial modeling (e.g., stock prices)</li>
