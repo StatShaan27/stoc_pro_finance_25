@@ -169,7 +169,7 @@ where \( \sum p_i = 1 \).
     <tr>
       <td>Uniform</td>
       <td>\( X \sim \mathrm{Unif}(a,b) \)</td>
-      <td>\( f(x) = \frac{1} b-a,\ x \in [a,b] \)</td>
+      <td>\( f(x) = \frac{1} {b-a},\ x \in [a,b] \)</td>
       <td>\( \varphi_X(t) = \frac{e^{itb}-e^{ita}} {it(b-a)} \)</td>
     </tr>
     <tr>
@@ -179,10 +179,10 @@ where \( \sum p_i = 1 \).
       <td>\( \varphi_X(t) = \frac{\lambda}{\lambda -ib} \)</td>
     </tr>
     <tr>
-      <td>Poisson</td>
-      <td>\( X \sim \mathrm{Pois}(\lambda) \)</td>
-      <td>\( p(x) = \frac{e^{-\lambda} \lambda^x}{x!} \)</td>
-      <td>\( \varphi_X(t) = \exp(\lambda(e^{it} - 1)) \)</td>
+      <td>Gamma</td>
+      <td>\( X \sim \mathrm{Gamma}(p (rate parameter), \alpha (shape parameter)) \)</td>
+      <td>\( f(x) = \frac{p^{\alpha}x^{\alpha -1}e^{-px}}{\gamma(x)} , \ x > 0 \)</td>
+      <td>\( \varphi_X(t) = {\frac{p}{p-it}}^{\alpha} \)</td>
     </tr>
     <tr>
       <td>Geometric</td>
