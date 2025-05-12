@@ -229,19 +229,24 @@ where \( \sum p_i = 1 \).
     </tr>
   </tbody>
   </table>
-  
-  <p>Stochastic processes are used in:</p>
-  <ul>
-    <li>Financial modeling (e.g., stock prices)</li>
-    <li>Queueing theory</li>
-    <li>Population dynamics</li>
-    <li>Reliability and survival analysis</li>
-  </ul>
-
-  <h2>5. Illustration</h2>
-  <img src="../assets/images/random_walk.png" alt="Random Walk Illustration">
-
-  <h2>6. References</h2>
+  <h2>5. Inequalities at a glance</h2>
+  <h3>5.1 The Schwarz Inequality</h3>
+  <p>
+    Let X and Y have finite second moments. Then <strong>$$ {E[XY]}^2 \leq E[X^2]E[Y^2] $$</strong>
+  </p>
+  <h3>5.2 The Markov Inequality</h3>
+  <p>
+    Let X be a non-negative random variable, and t be a positive number. Then <strong>$$ P(X \geq t) \leq \frac{E[X]}{t} $$</strong>
+  </p>
+  <h3>5.3 The Chebyshev's Inequality</h3>
+  <p>
+    Let X be a random variable with mean \( \mu \) and finite variance \( (\sigma)^2 \) . Then for any real number t > 0  <strong>$$ P(|X- \mu| \geq t) \leq \frac{(\sigma)^2}{t^2} $$</strong>
+  </p>
+                                                                                                                                                                             
+  <h2>6. Random Sums</h2>
+  <p>
+    Let \( X_1 , X_2, \ldots \) be a sequence of IID random variables, and let N be a discrete random variable, independent of all \(X_i\)s, and having PMF \( p_N (n) = \Pr{N=n} for n= \(0,1,2, \ldot \) We define the random sum \(S_N\) as $$ S_N = \sum_{i=1}^{N} X_i, \ N>0 $$
+  </p>
   <ul>
     <li>H. M. Taylor and S. Karlin, *An Introduction to Stochastic Modeling*, Chapter 1</li>
   </ul>
