@@ -147,10 +147,10 @@ where \( \sum p_i = 1 \).
       <td>\( \varphi_X(t) = \exp(\lambda(e^{it} - 1)) \)</td>
     </tr>
     <tr>
-      <td>Normal</td>
-      <td>\( X \sim \mathcal{N}(\mu, \sigma^2) \)</td>
-      <td>\( f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} \)</td>
-      <td>\( \varphi_X(t) = \exp(i\mu t - \tfrac{1}{2} \sigma^2 t^2) \)</td>
+      <td>Geometric</td>
+      <td>\( X \sim \mathrm{Geom}(n, p) \)</td>
+      <td>\( f(x) = p(1-p)^{x-1}, \x \in \{1,2, \ldots\} \)</td>
+      <td>\( \varphi_X(t) = \frac{pe^{it}}{1 - (1 - p)e^{it}} \)</td>
     </tr>
   </tbody>
 </table>
