@@ -309,11 +309,18 @@ where \( \sum p_i = 1 \).
     Then Z = \(\sum_{i=1}^{N} X_i\), where \(X_i\) denotes the i-th transaction, each of which are independent , with a finite variance.
     As a result, CLT applies, suggesting it should be approximately normally distributed. This is the classical assumption used in many financial models. However, In real data, very small and very large changes happen more often than a normal distribution predicts, while medium-sized changes occur less often than expected.
     This might be because Z is rather a random sum, where N is random.
-    Let's assume \( N \sim \mathcal(Pois)(\lambda)\) and \( X_i \sim \mathbb(N)(0, \sigma^2) \) 
-    Then \( Z|n \sim \mathbb(N)(0, (n+1)\sigma^2)\) & \( p_N (n) = \frac{\lambda^n e^{-\lambda}}{n!} \)
+    Let's assume \( N \sim \mathcal(Pois)(\lambda)\) and \( X_i \sim \mathbb{N}(0, \sigma^2) \) 
+    Then \( Z|n \sim \mathbb{N}(0, (n+1)\sigma^2)\) & \( p_N (n) = \frac{\lambda^n e^{-\lambda}}{n!} \)
     Using this two equations, we get: 
     $$ f_Z(z) = \sum_{n=0}^{\infty} \frac{exp(\frac{z^2}{2(n+1)\sigma^2})}{\sqrt{2\pi(n+1)}\sigma} \frac{\lambda^n e^{-\lambda}}{n!}$$
+    The resulting distribution is not normal but still has mean 0 and finite variance. This model explains why we might see heavy tails (more extreme events) and sharper peaks in the distribution of stock price changes — without violating the independence or Gaussian assumptions per transaction. The only difference is adding randomness to how many such events happen per day.
+    This random-sum model produces a distribution that resembles real-world data better than the simple normal model. It's not a "proof" that transaction count randomness causes this — just that it’s a plausible explanation supported by the math
   </p>
+  <figure style="text-align: center;">
+    <img src="tk-intro1.png" alt="Stock Price Model" width="500">
+    <figcaption><em>Figure 1:</em> The dashed line (random sum model) is more peaked and heavier-tailed than the solid normal curve — matching real stock data more closely.</figcaption>
+  </figure>
+  
   <ul>
     <li>H. M. Taylor and S. Karlin, *An Introduction to Stochastic Modeling*, Chapter 1</li>
   </ul>
