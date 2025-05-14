@@ -482,7 +482,7 @@ where \( \sum p_i = 1 \).
 
     <h5>Analytical Proof</h5>
     <p>Let \(R_n\) be the number of red balls after the \(n\)th draw. Then the total number of balls is \(n + 2\). The fraction of red balls is:</p>
-    <pre class="math">X_n = R_n / (n + 2)</pre>
+    \(X_n = R_n / (n + 2)\)
 
     <p>At step \(n+1\):</p>
     <ul>
@@ -491,23 +491,23 @@ where \( \sum p_i = 1 \).
     </ul>
 
     <p>So the expected number of red balls after the next draw is:</p>
-    <pre class="math">E[R_{n+1} | X_n] = R_n + X_n</pre>
+    \(E[R_{n+1} | X_n] = R_n + X_n\)
 
     <p>Then:</p>
-    <pre class="math">
+    \(
 E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n] 
                 = (R_n + X_n) / (n + 3) 
                 = ((n + 2)X_n + X_n) / (n + 3) 
-                = X_n</pre>
+                = X_n\)
 
     <p>This confirms that \(X_n\) is a <strong>martingale</strong>.</p>
 
     <h5>Limit Distribution</h5>
     <p>Let us compute the probability distribution of \(R_n\). By iteratively applying the rules, we find:</p>
-    <pre class="math">P(R_n = k) = 1 / (n + 1), for k = 1, 2, ..., n + 1</pre>
+    \(P(R_n = k) = 1 / (n + 1), for k = 1, 2, ..., n + 1\)
 
     <p>Therefore, the values of \(X_n = k / (n + 2)\) are <strong>equally likely</strong>. In the limit as \(n &rarr; &infin;\), we get:</p>
-    <pre class="math">P(X = x) = x, for 0 &lt; x &lt; 1</pre>
+    \(P(X = x) = x, for 0 &lt; x &lt; 1\)
 
     <p>So the limit \(X\) is uniformly distributed over \((0, 1)\).</p>
 
