@@ -515,11 +515,42 @@ E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n]
     <p>This example shows how a simple probabilistic process can result in a complex and interesting distribution. It also illustrates the power of martingales in analyzing such processes, even though the randomness seems to grow over time.</p>
 <h4>10. Few Problems for revision:</h4>
 <h5>Question 1:</h5>
-
+<p>Use the law of total probability for conditional expectations to show:</p>
+<pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ] = E[ E[Xₙ₊₂ | X₀, ..., Xₙ₊₁] | X₀, ..., Xₙ ]
+</pre>
+<p>Conclude that if (Xₙ) is a martingale, then:</p>
+<pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ] = Xₙ
+</pre>
 <button class="hint-button" onclick="toggleHint('1')">Show/Hide Solution</button>
 <div class="hint-text" id="1">
   <h5>Solution</h5>
   <div class="solution">
+   <h5>Solution:</h5>
+  <p><strong>Step 1:</strong> By the law of total expectation (a.k.a. tower property):</p>
+  <pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ] = E[ E[Xₙ₊₂ | X₀, ..., Xₙ₊₁] | X₀, ..., Xₙ ]
+  </pre>
+
+  <p>This is a standard identity in probability theory, showing how conditioning on more and then fewer variables returns to the coarser level of conditioning.</p>
+
+  <p><strong>Step 2:</strong> If (Xₙ) is a martingale, then:</p>
+  <pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ₊₁] = Xₙ₊₁
+and
+E[Xₙ₊₁ | X₀, ..., Xₙ] = Xₙ
+  </pre>
+
+  <p>Using the result from step 1:</p>
+  <pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ] = E[Xₙ₊₁ | X₀, ..., Xₙ] = Xₙ
+  </pre>
+
+  <p><strong>Conclusion:</strong> If (Xₙ) is a martingale, then:</p>
+  <pre>
+E[Xₙ₊₂ | X₀, ..., Xₙ] = Xₙ
+  </pre> 
   </div>
 </div>
 
