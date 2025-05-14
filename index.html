@@ -132,7 +132,7 @@
   <div id="announcement-box">
   <button onclick="toggleProgress()" id="progress-toggle">📢 Show Recent Progress</button>
   <div id="progress-box" style="display: none;">
-  <h3>📢 Recent Progress</h4>
+  <h3>📢 Recent Progress</h3>
     <ul>
       <li>
         ✅ Completed <strong>Chapter 1</strong>: 
@@ -163,6 +163,17 @@
       hint.style.display = "block";
     } else {
       hint.style.display = "none";
+    }
+  }
+  function toggleProgress() {
+    const progressBox = document.getElementById("progress-box");
+    const toggleBtn = document.getElementById("progress-toggle");
+    if (progressBox.style.display === "none" || progressBox.style.display === "") {
+      progressBox.style.display = "block";
+      toggleBtn.textContent = "📢 Hide Recent Progress";
+    } else {
+      progressBox.style.display = "none";
+      toggleBtn.textContent = "📢 Show Recent Progress";
     }
   }
 </script>
