@@ -37,6 +37,30 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    #announcement-box {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+       width: 300px;
+      background-color: #eef6ff;
+      border-left: 5px solid #003366;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      z-index: 1000;
+      font-size: 0.95em;
+    }
+    #announcement-box h4 {
+       margin-top: 0;
+      color: #003366;
+    }
+    #announcement-box ul {
+      padding-left: 1.2em;
+    }
+    #announcement-box a {
+      color: #003366;
+      text-decoration: underline;
+    }
     footer {
       text-align: center;
       font-size: 0.9em;
@@ -69,13 +93,6 @@
      <strong>Email:</strong> mdsworld2006@gmail.com</p>
      <a href="cv.pdf" target="_blank">Resume</a>  
      | <a href="https://www.linkedin.com/in/mohammad-shaan-28ab88312/" target="_blank">Linkedin Profile</a></p>
-  div style="background-color: #eef6ff; border-left: 5px solid #003366; padding: 1em; margin-bottom: 1.5em; border-radius: 5px;">
-    <h3 style="margin-top: 0; color: #003366;">📢 Recent Progress</h3>
-    <p>
-      ✅ Completed <strong>Chapter 1: Introduction to Stochastic Processes</strong> – 
-      <a href="tk-intro.html" target="_blank">View Notes</a>
-    </p>
-  </div>
   <h3>Project Contents</h3>
   <ul>
     <li>📘 Fundamentals of Stochastic Processes</li>
@@ -89,7 +106,20 @@
     <li><em>"Foundations for Financial Economics"</em>  by Chi-fu Huang and Robert H. Litzenberger</li>
   </ul>
   <p><strong>Last updated:</strong> May 15, 2025</p>
-  
+  <div id="announcement-box">
+  <h3>📢 Recent Progress</h4>
+    <ul>
+      <li>
+        ✅ Completed <strong>Chapter 1</strong>: 
+        <a href="tk-intro.html">Introduction to Stochastic Processes</a>
+      </li>
+      <li>
+        🔄 Currently on <strong>Chapter 2</strong>: 
+        <a href="notes/tk-markov-chains1.html">Markov Chains</a>
+      </li>
+    </ul>
+  </div>
+
 </section>
 
 <footer>
