@@ -496,18 +496,18 @@ where \( \sum p_i = 1 \).
     <p>Then:</p>
     \(
 E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n] 
-                = (R_n + X_n) / (n + 3) 
-                = ((n + 2)X_n + X_n) / (n + 3) 
-                = X_n\)
+                = (R_n + X_n) / (n + 3) \)
+                <p> \(= ((n + 2)X_n + X_n) / (n + 3) 
+                = X_n\) </p>
 
     <p>This confirms that \(X_n\) is a <strong>martingale</strong>.</p>
 
     <h5>Limit Distribution</h5>
     <p>Let us compute the probability distribution of \(R_n\). By iteratively applying the rules, we find:</p>
-    \(P(R_n = k) = 1 / (n + 1), for k = 1, 2, ..., n + 1\)
+    \(P(R_n = k) = 1 / (n + 1), &forall; k = 1, 2, ..., n + 1\)
 
     <p>Therefore, the values of \(X_n = k / (n + 2)\) are <strong>equally likely</strong>. In the limit as \(n &rarr; &infin;\), we get:</p>
-    \(P(X = x) = x, for 0 &lt; x &lt; 1\)
+    \(P(X = x) = x, &forall; 0 &lt; x &lt; 1\)
 
     <p>So the limit \(X\) is uniformly distributed over \((0, 1)\).</p>
 
