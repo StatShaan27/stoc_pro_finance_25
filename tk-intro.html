@@ -515,56 +515,73 @@ E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n]
     <p>This example shows how a simple probabilistic process can result in a complex and interesting distribution. It also illustrates the power of martingales in analyzing such processes, even though the randomness seems to grow over time.</p>
 <h4>10. Few Problems for revision:</h4>
 <h5>Question 1:</h5>
+
+<button class="hint-button" onclick="toggleHint()">Show/Hide Solution</button>
+<div class="hint-text" id="hint">
+  <h5>Solution</h5>
+  <div class="solution">
+  </div>
+</div>
+
+
+
+
+
+
+      
+<h5>Question 2:</h5>
 <p>Consider a stochastic process that evolves according to the following rules:</p>
     <ul>
-      <li>If <code>X₀ = 0</code>, then <code>Xₙ = 0</code> for all <code>n ≥ 0</code>.</li>
-      <li>If <code>Xₙ > 0</code>, then
+      <li>If <code>\(X_0\) = 0</code>, then <code>\(X_n\) = 0</code> for all <code>n ≥ 0</code>.</li>
+      <li>If <code>\(X_n\) > 0</code>, then
         <ul>
-          <li><code>Xₙ₊₁ = Xₙ + 1</code> with probability 1/2,</li>
-          <li><code>Xₙ₊₁ = Xₙ - 1</code> with probability 1/2.</li>
+          <li><code>\(X_{n+1}\) = \(X_n\) + 1</code> with probability 1/2,</li>
+          <li><code>\(X_{n+1}\) = \(X_n\) - 1</code> with probability 1/2.</li>
         </ul>
       </li>
     </ul>
     <p>
-      (a) Show that <code>Xₙ</code> is a nonnegative martingale.
+      (a) Show that \(X_n\) is a nonnegative martingale.
     </p>
     <p>
-      (b) Suppose that <code>X₀ = i &gt; 0</code>. Use the maximal inequality to bound
-      <code>Pr(Xₙ ≥ M for some n ≤ N)</code>. Note: <code>Xₙ</code> represents the fortune of a player in a fair game who wagers $1 at each bet and quits if all money is lost (<code>X = 0</code>).
+      (b) Suppose that <code>\(X_0\) = i &gt; 0</code>. Use the maximal inequality to bound
+      <code>Pr(\(X_n\) ≥ M for some n ≤ N)</code>. Note: \(X_n\) represents the fortune of a player in a fair game who wagers $1 at each bet and quits if all money is lost (<code>X = 0</code>).
     </p>
-<button class="hint-button" onclick="toggleHint()">Show/Hide Hint</button>
+<button class="hint-button" onclick="toggleHint()">Show/Hide Solution</button>
 <div class="hint-text" id="hint">
   <h5>Solution</h5>
   <div class="solution">
-    <h6>(a) Show that <code>Xₙ</code> is a nonnegative martingale</h6>
+    <h6>(a) Show that <code>\(X_n\)</code> is a nonnegative martingale</h6>
     <p>We check two conditions for a martingale:</p>
     <ul>
-      <li><strong>Integrability:</strong> Since the values of <code>Xₙ</code> are bounded below by 0 and change by ±1 at each step, <code>E[|Xₙ|] &lt; ∞</code>.</li>
+      <li><strong>Integrability:</strong> Since the values of <code>\(X_n\)</code> are bounded below by 0 and change by ±1 at each step, <code>E[|\(X_n\)|] &lt; \(\infty\)</code>.</li>
       <li><strong>Martingale Property:</strong>
         <ul>
-          <li>If <code>Xₙ = 0</code>, then <code>Xₙ₊₁ = 0</code> with probability 1, so <code>E[Xₙ₊₁ | Xₙ] = 0 = Xₙ</code>.</li>
-          <li>If <code>Xₙ > 0</code>, then:
+          <li>If <code>\(X_n\) = 0</code>, then <code>\(X_{n+1}\) = 0</code> with probability 1, so <code>E[\(X_{n+1}\) | \(X_n\)] = 0 = \(X_n\)</code>.</li>
+          <li>If <code>\(X_n\) > 0</code>, then:
             <p><code>
-              E[Xₙ₊₁ | Xₙ] = (1/2)(Xₙ + 1) + (1/2)(Xₙ - 1) = Xₙ
+              E[\(X_{n+1}\) | \(X_n\)] = (1/2)(\(X_n\) + 1) + (1/2)(\(X_n\) - 1) = \(X_n\)
             </code></p>
           </li>
         </ul>
       </li>
     </ul>
-    <p>Thus, <code>Xₙ</code> is a nonnegative martingale.</p>
+    <p>Thus, <code>\(X_n\)</code> is a nonnegative martingale.</p>
 
     <h6>(b) Maximal Inequality Bound</h6>
     <p>We use the maximal inequality for nonnegative martingales:</p>
     <p><code>
-      Pr(max₀ ≤ k ≤ N Xₖ ≥ M) ≤ E[X_N] / M
+      Pr(\(max_o\) ≤ k ≤ N \(X_k\) ≥ M) ≤ E[\(X_N\)] / M
     </code></p>
     <p>Since <code>Xₙ</code> is a martingale with <code>X₀ = i</code>, we have <code>E[X_N] = i</code>. Therefore:</p>
     <p><code>
-      Pr(max₀ ≤ k ≤ N Xₖ ≥ M) ≤ i / M
+      Pr(\(max_o\) ≤ k ≤ N \(X_k\) ≥ M) ≤ i / M
     </code></p>
     <p>Example: If <code>M = 2i</code>, then the probability the gambler ever reaches twice their fortune is ≤ 1/2.</p>
   </div>
 </div>
+
+
 </section>
 
 <div class="nav-bottom">
