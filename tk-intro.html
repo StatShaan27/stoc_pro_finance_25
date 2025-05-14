@@ -468,8 +468,52 @@ where \( \sum p_i = 1 \).
       \]
     </p>
   </div>
+  <h4>9.6 Urn Game and Martingale</h4>
+  <h5>Intuitive Explanation</h5>
+  <p>We start with an urn containing <strong>1 red</strong> and <strong>1 green</strong> ball. We play the following game repeatedly:</p>
+    <ul>
+        <li>Draw one ball at random.</li>
+        <li>Return it to the urn along with another ball of the <strong>same color</strong>.</li>
+    </ul>
+    <p>This process continues indefinitely. Let <span class="math">X_n</span> be the fraction of red balls after the <span class="math">n</span>th draw.</p>
+    <p>At each step, the probability of drawing a red ball is <span class="math">X_n</span>, and green is <span class="math">1 - X_n</span>. The key point is:</p>
+    <blockquote><em>The expected value of <span class="math">X_{n+1}</span> given <span class="math">X_n</span> is exactly <span class="math">X_n</span>. This makes <span class="math">X_n</span> a martingale.</em></blockquote>
+    <p>Although every player's sequence of red-ball fractions will stabilize to a fixed number, that number is <strong>random</strong> and varies across different games. In fact, the final limiting value is <strong>uniformly distributed</strong> on the interval (0, 1).</p>
 
-  <p>This completes the proof without using filtrations, submartingales, or stopping times.</p>
+    <h5>Analytical Proof</h5>
+    <p>Let <span class="math">R_n</span> be the number of red balls after the <span class="math">n</span>th draw. Then the total number of balls is <span class="math">n + 2</span>. The fraction of red balls is:</p>
+    <pre class="math">X_n = R_n / (n + 2)</pre>
+
+    <p>At step <span class="math">n+1</span>:</p>
+    <ul>
+        <li>With probability <span class="math">X_n</span>, a red ball is drawn: <span class="math">R_{n+1} = R_n + 1</span></li>
+        <li>With probability <span class="math">1 - X_n</span>, a green ball is drawn: <span class="math">R_{n+1} = R_n</span></li>
+    </ul>
+
+    <p>So the expected number of red balls after the next draw is:</p>
+    <pre class="math">E[R_{n+1} | X_n] = R_n + X_n</pre>
+
+    <p>Then:</p>
+    <pre class="math">
+E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n] 
+                = (R_n + X_n) / (n + 3) 
+                = ((n + 2)X_n + X_n) / (n + 3) 
+                = X_n</pre>
+
+    <p>This confirms that <span class="math">X_n</span> is a <strong>martingale</strong>.</p>
+
+    <h5>Limit Distribution</h5>
+    <p>Let us compute the probability distribution of <span class="math">R_n</span>. By iteratively applying the rules, we find:</p>
+    <pre class="math">P(R_n = k) = 1 / (n + 1), for k = 1, 2, ..., n + 1</pre>
+
+    <p>Therefore, the values of <span class="math">X_n = k / (n + 2)</span> are <strong>equally likely</strong>. In the limit as <span class="math">n &rarr; &infin;</span>, we get:</p>
+    <pre class="math">P(X = x) = x, for 0 &lt; x &lt; 1</pre>
+
+    <p>So the limit <span class="math">X</span> is uniformly distributed over <span class="math">(0, 1)</span>.</p>
+
+    <h5>Conclusion</h5>
+    <p>This example shows how a simple probabilistic process can result in a complex and interesting distribution. It also illustrates the power of martingales in analyzing such processes, even though the randomness seems to grow over time.</p>
+
 </section>
 
 <div class="nav-bottom">
