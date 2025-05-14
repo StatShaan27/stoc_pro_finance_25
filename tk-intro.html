@@ -599,8 +599,8 @@ E[X_{n+1} | X_n] = E[R_{n+1} / (n+3) | X_n]
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 <script>
-  function toggleHint() {
-    var hint = document.getElementById("hint");
+  function toggleHint(id) {
+    var hint = document.getElementById(id);
     if (hint.style.display === "none" || hint.style.display === "") {
       hint.style.display = "block";
     } else {
