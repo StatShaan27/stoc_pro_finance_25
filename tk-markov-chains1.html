@@ -148,6 +148,59 @@ P_{20} & P_{21} & P_{22} & \cdots \\
 Each row corresponds to the current state \( i \), and each column represents the
 probability of transitioning to state \( j \).
 </p>
+<h3>The Markov Transition Matrix</h3>
+
+<p>
+In a Markov chain, we represent the one-step transition probabilities using a matrix \( P \),
+called the <strong>Markov matrix</strong> or <strong>transition probability matrix</strong>.
+Each entry \( P_{ij} \) in this matrix represents the probability of moving from state \( i \)
+to state \( j \) in one step.
+</p>
+
+<p>
+That is,
+\[
+P_{ij} = \Pr(X_{n+1} = j \mid X_n = i)
+\]
+</p>
+
+<p>
+The \( i \)th row of \( P \) gives the full probability distribution of the next state \( X_{n+1} \)
+given that the current state \( X_n = i \). In other words, the \( i \)th row shows where the process
+might go from state \( i \), and with what probabilities.
+</p>
+
+<p>
+If the number of states is finite (say, \( 0, 1, \ldots, r \)), then \( P \) is a finite square matrix 
+of order \( r + 1 \), meaning it has \( r+1 \) rows and \( r+1 \) columns.
+</p>
+
+<h4>Conditions for Valid Transition Matrices</h4>
+
+<p>
+The entries of the transition matrix must satisfy two conditions:
+</p>
+
+<ul>
+  <li>
+    <strong>Non-negativity:</strong> All entries must be non-negative: 
+    \[
+    P_{ij} \geq 0 \quad \text{for all } i, j
+    \]
+  </li>
+  <li>
+    <strong>Row sums equal to 1:</strong> The probabilities in each row must sum to 1:
+    \[
+    \sum_{j=0}^{r} P_{ij} = 1 \quad \text{for all } i
+    \]
+  </li>
+</ul>
+
+<p>
+The second condition simply reflects the fact that <em>some</em> transition must occur at each step. 
+Even if the state doesn't change (i.e., it stays in the same state), we still consider that a 
+transition has occurred.
+</p>
 
 
 
