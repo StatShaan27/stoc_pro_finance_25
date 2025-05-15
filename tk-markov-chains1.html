@@ -428,7 +428,7 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
   <h3>Visual Representation</h3>
   <p>Below is the illustration of how the process evolves over time:</p>
   <img src="tk-mc1img.png" alt="Inventory Process Diagram (Figure 3.1)">
-<h2>3(b).Ehrenfest Urn Mode </h2>
+<h2>3(b).Ehrenfest Urn Model</h2>
   <p>
     The Ehrenfest urn model is a classical representation of diffusion, simulating how molecules move across a membrane.
   </p>
@@ -479,6 +479,119 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
   <p>
     The model is symmetric and reversible, so the equilibrium distribution exists and reflects the binomial distribution of balls across urn A and B, due to random uniform selection.
   </p>
+<h2>3(c). Markov Chains in Genetics</h2>
+
+  <h3>1. Simple Haploid Model (No Mutation or Selection)</h3>
+  <p>
+    This model investigates how gene frequencies fluctuate across generations. We assume:
+    </p>
+    <ul>
+      <li>There are <b>2N haploid genes</b> in each generation (e.g., from 2N bacteria).</li>
+      <li>Each gene is either of type <b>a</b> or <b>A</b>.</li>
+      <li>If there are <b>j</b> a-genes in the current generation, then the probability of picking an a-gene to pass on is:
+        <br><b>p<sub>j</sub> = j / (2N)</b>, and <b>q<sub>j</sub> = 1 − p<sub>j</sub></b>.
+      </li>
+      <li>The next generation is formed by independently selecting <b>2N genes</b> with replacement, using the above probabilities.</li>
+    </ul>
+  <p>
+    So, the number of a-genes in the next generation follows a <b>Binomial(2N, p<sub>j</sub>)</b> distribution.
+  </p>
+  <p>
+    We define a Markov chain <b>X<sub>n</sub></b> to be the number of a-genes in generation n. The state space is {0, 1, ..., 2N}.
+  </p>
+
+  <h4>Transition Probability:</h4>
+  <p>
+    The transition probability from state j to state k is:
+  </p>
+  <p>
+    <b>P<sub>jk</sub> = C(2N, k) * (p<sub>j</sub>)<sup>k</sup> * (q<sub>j</sub>)<sup>2N−k</sup></b><br>
+    where C(2N, k) = 2N choose k.
+  </p>
+
+  <h4>Fixation States:</h4>
+  <ul>
+    <li>State 0 (all A) and state 2N (all a) are <b>absorbing</b>.</li>
+    <li>Once the population hits either of these, it stays there forever (no variation left).</li>
+  </ul>
+
+  <h3>2. Adding Mutation</h3>
+  <p>
+    Now suppose each gene may mutate before reproduction:
+    </p>
+    <ul>
+      <li>a → A with probability <b>μ</b></li>
+      <li>A → a with probability <b>ν</b></li>
+    </ul>
+
+  <h4>Modified Probability of a-gene after Mutation:</h4>
+  <p>
+    Let j be the number of a-genes initially. After mutation, the expected number of a-genes becomes:
+    </p>
+    <ul>
+      <li>Each of the j a-genes mutates to A with probability μ → contributes <b>j(1 − μ)</b> a-genes.</li>
+      <li>Each of the (2N − j) A-genes mutates to a with probability ν → contributes <b>(2N − j)ν</b> a-genes.</li>
+    </ul>
+  <p>
+    Total expected number of a-genes after mutation = <b>j(1 − μ) + (2N − j)ν</b>
+  </p>
+  <p>
+    So, the probability that a randomly selected gene after mutation is an a-gene is:
+    <br><b>p<sub>j</sub> = [j(1 − μ) + (2N − j)ν] / (2N)</b>
+  </p>
+  <p>
+    And <b>q<sub>j</sub> = 1 − p<sub>j</sub></b>
+  </p>
+
+  <h4>Consequences:</h4>
+  <ul>
+    <li>Now, even if all genes are of one type, mutation allows the other type to reappear.</li>
+    <li><b>Fixation does not occur</b>. Instead, the chain converges to a <b>steady-state distribution</b> over the state space {0, ..., 2N}.</li>
+  </ul>
+
+  <h3>3. Adding Selection</h3>
+  <p>
+    To model <b>natural selection</b>, we suppose that a-genes have a reproductive advantage.
+  </p>
+  <p>
+    If a-genes have a selective advantage <b>s</b>, then:
+    </p>
+    <ul>
+      <li>Each a-gene reproduces with probability proportional to <b>(1 + s)</b></li>
+      <li>Each A-gene reproduces with probability proportional to 1</li>
+    </ul>
+
+  <h4>Adjusted Probability of Choosing a-gene:</h4>
+  <p>
+    If there are j a-genes and (2N − j) A-genes, then total fitness = <b>(1 + s)j + (2N − j)</b>
+  </p>
+  <p>
+    So,
+    <br><b>p<sub>j</sub> = [(1 + s)j] / [(1 + s)j + (2N − j)]</b>,
+    <br><b>q<sub>j</sub> = 1 − p<sub>j</sub></b>
+  </p>
+
+  <h4>Biological Meaning:</h4>
+  <ul>
+    <li>If s > 0, then a-genes are more likely to be passed on.</li>
+    <li>The population will tend to drift toward all a-genes (state 2N), even if started with a mix.</li>
+    <li>This models <b>directional selection</b>.</li>
+  </ul>
+
+  <h3>Summary</h3>
+  <ul>
+    <li>Wright-Fisher model is a powerful Markov chain framework to study gene frequencies.</li>
+    <li>It captures the effects of:
+      <ul>
+        <li><b>Genetic drift</b> (random fluctuations)</li>
+        <li><b>Mutation</b> (gene switching)</li>
+        <li><b>Selection</b> (reproductive advantage)</li>
+      </ul>
+    </li>
+    <li>In absence of mutation and selection, the model eventually leads to <b>fixation</b>.</li>
+    <li>With mutation, fixation is avoided and a <b>steady distribution</b> forms.</li>
+    <li>With selection, the population tends to favor fitter genes.</li>
+  </ul>
 
 
 
