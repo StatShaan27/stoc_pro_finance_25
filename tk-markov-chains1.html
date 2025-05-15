@@ -208,12 +208,25 @@ transition has occurred.
 <p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } P{ \(X_n = i_n | X_{n-1}=i_{n-1} \) } </p>
 <p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } \(P_{i_{n-1}i_n}\)</p>
 <p>Similarly, P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_{n-1} \) }</p>
-<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-2}= i_{n-2} \) } \(P_{i_{n-2}i_{n-1}\)</p>
+<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-2}= i_{n-2} \) } \(P_{i_{n-2}i_{n-1}}\)</p>
 <p>Therefore, the original expression simplifies to:</p>
 <p>
   \( P\left( X_0 = i_0, X_1 = i_1, \ldots , X_n = i_n \right) = p_{i_0} \cdot P_{i_0 i_1} \cdot P_{i_1 i_2} \cdot \ldots \cdot P_{i_{n-1} i_n} \)
 </p>
-  
+<table border="1" cellpadding="6">
+  <tr>
+    <th>\( i \)</th>
+    <th>\( P_{i,i} \)</th>
+    <th>\( P_{i,i+1} \)</th>
+  </tr>
+  <tr><td>0</td><td>1</td><td>0</td></tr>
+  <tr><td>1</td><td>\( 1 - 0.1 \cdot \frac{1 \cdot 4}{10} = 0.96 \)</td><td>\( 0.04 \)</td></tr>
+  <tr><td>2</td><td>\( 1 - 0.1 \cdot \frac{2 \cdot 3}{10} = 0.94 \)</td><td>\( 0.06 \)</td></tr>
+  <tr><td>3</td><td>\( 1 - 0.1 \cdot \frac{3 \cdot 2}{10} = 0.94 \)</td><td>\( 0.06 \)</td></tr>
+  <tr><td>4</td><td>\( 1 - 0.1 \cdot \frac{4 \cdot 1}{10} = 0.96 \)</td><td>\( 0.04 \)</td></tr>
+  <tr><td>5</td><td>1</td><td>0</td></tr>
+</table>
+
 
 
 
