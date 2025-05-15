@@ -280,7 +280,71 @@ To complete the definition, we also define:
 <p>
 This just means that in zero steps, the process stays where it is.
 </p>
+<h3>Proof of the n-Step Transition Probability Formula</h3>
 
+<p>
+We want to prove the formula:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)}_{ij} = \sum_{k} P_{ik} \cdot P^{(n-1)}_{kj} \)
+</p>
+
+<p>
+This formula means: the probability of going from state \( i \) to state \( j \) in \( n \) steps is the sum over all intermediate states \( k \) of the probability of:
+</p>
+<ol>
+  <li>Going from \( i \) to \( k \) in one step: \( P_{ik} \), and</li>
+  <li>Then from \( k \) to \( j \) in \( n-1 \) steps: \( P^{(n-1)}_{kj} \)</li>
+</ol>
+
+<p>
+To see why this works, let’s look at what it means to reach \( j \) from \( i \) in exactly \( n \) steps.
+</p>
+
+<p>
+We imagine that the first step takes the process from state \( i \) to some state \( k \). Then the remaining \( n - 1 \) steps must take the process from \( k \) to \( j \).
+</p>
+
+<p>
+Now, because of the <strong>Markov property</strong>, once the process reaches \( k \), it "forgets" how it got there. So the probability of continuing from \( k \) to \( j \) depends only on \( k \), and not on any earlier states.
+</p>
+
+<p>
+So, for each possible intermediate state \( k \), the probability of going from \( i \rightarrow k \rightarrow j \) in total \( n \) steps is:
+</p>
+
+<p style="text-align: center;">
+  \( \Pr(X_1 = k \mid X_0 = i) \cdot \Pr(X_n = j \mid X_1 = k) = P_{ik} \cdot P^{(n-1)}_{kj} \)
+</p>
+
+<p>
+To find the total probability of reaching \( j \) from \( i \) in \( n \) steps, we sum this product over all possible intermediate states \( k \):
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)}_{ij} = \sum_{k} P_{ik} \cdot P^{(n-1)}_{kj} \)
+</p>
+
+<p>
+This is exactly how matrix multiplication works, so we can write the matrix formula:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)} = P \cdot P^{(n-1)} \)
+</p>
+
+<p>
+By repeating this step, we get:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)} = P^n \)
+</p>
+
+<p>
+This completes the proof. It uses the basic idea that the path from \( i \) to \( j \) in \( n \) steps must go through some state \( k \) after the first step, and the rest follows by the Markov property and total probability.
+</p>
 
 
 
