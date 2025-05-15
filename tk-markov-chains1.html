@@ -213,19 +213,73 @@ transition has occurred.
 <p>
   \( P\left( X_0 = i_0, X_1 = i_1, \ldots , X_n = i_n \right) = p_{i_0} \cdot P_{i_0 i_1} \cdot P_{i_1 i_2} \cdot \ldots \cdot P_{i_{n-1} i_n} \)
 </p>
-<table border="1" cellpadding="6">
-  <tr>
-    <th>\( i \)</th>
-    <th>\( P_{i,i} \)</th>
-    <th>\( P_{i,i+1} \)</th>
-  </tr>
-  <tr><td>0</td><td>1</td><td>0</td></tr>
-  <tr><td>1</td><td>\( 1 - 0.1 \cdot \frac{1 \cdot 4}{10} = 0.96 \)</td><td>\( 0.04 \)</td></tr>
-  <tr><td>2</td><td>\( 1 - 0.1 \cdot \frac{2 \cdot 3}{10} = 0.94 \)</td><td>\( 0.06 \)</td></tr>
-  <tr><td>3</td><td>\( 1 - 0.1 \cdot \frac{3 \cdot 2}{10} = 0.94 \)</td><td>\( 0.06 \)</td></tr>
-  <tr><td>4</td><td>\( 1 - 0.1 \cdot \frac{4 \cdot 1}{10} = 0.96 \)</td><td>\( 0.04 \)</td></tr>
-  <tr><td>5</td><td>1</td><td>0</td></tr>
-</table>
+<h2>2 Transition Probability Matrices of a Markov Chain</h2>
+
+<p>
+A Markov chain is fully defined by two things:
+<ul>
+  <li>Its one-step transition probability matrix \( P \)</li>
+  <li>Its initial state distribution (i.e., the probabilities of starting in each state)</li>
+</ul>
+</p>
+
+<p>
+Most of the analysis of Markov chains revolves around calculating the probabilities of different outcomes after several steps or time periods. 
+For this, we use the <strong>n-step transition probability matrix</strong>, denoted by \( P^{(n)} \).
+</p>
+
+<p>
+The element \( P^{(n)}_{ij} \) represents the probability that the process moves from state \( i \) to state \( j \) in exactly \( n \) steps. Formally:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)}_{ij} = \Pr(X_{m+n} = j \mid X_m = i) \)
+</p>
+
+<p>
+Since we are considering <em>stationary</em> (time-homogeneous) Markov chains, the probability depends only on the number of steps \( n \), and not on the starting time \( m \).
+</p>
+
+<p>
+Thanks to the Markov property (which says that the future depends only on the present state, not the past), we can compute \( P^{(n)} \) recursively:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)}_{ij} = \sum_{k=0}^{\infty} P_{ik} \cdot P^{(n-1)}_{kj} \)
+</p>
+
+<p>
+This recursive formula is just standard matrix multiplication, so we can write:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)} = P \cdot P^{(n-1)} \)
+</p>
+
+<p>
+By repeatedly applying this formula (i.e., multiplying the matrix \( P \) with itself \( n \) times), we get:
+</p>
+
+<p style="text-align: center;">
+  \( P^{(n)} = P^n \)
+</p>
+
+<p>
+That is, the n-step transition probabilities are exactly the entries of the matrix \( P \) raised to the \( n \)-th power.
+</p>
+
+<p>
+To complete the definition, we also define:
+</p>
+
+<ul>
+  <li>\( P^{(0)}_{ij} = 1 \) if \( i = j \)</li>
+  <li>\( P^{(0)}_{ij} = 0 \) if \( i \neq j \)</li>
+</ul>
+
+<p>
+This just means that in zero steps, the process stays where it is.
+</p>
 
 
 
