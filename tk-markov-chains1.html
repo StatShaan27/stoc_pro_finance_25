@@ -345,47 +345,45 @@ By repeating this step, we get:
 <p>
 This completes the proof. It uses the basic idea that the path from \( i \) to \( j \) in \( n \) steps must go through some state \( k \) after the first step, and the rest follows by the Markov property and total probability.
 </p>
-<h2>3. Inventory Model Using Markov Chains</h2>
+<h2>3(a). Inventory Model Using Markov Chains</h2>
 
-  <p>
-    This model describes a scenario where a commodity is stocked to meet a random demand over time. Time is divided into periods (n = 0, 1, 2, ...), and stock is reviewed at the end of each period.
-  </p>
+<p>
+  This model describes a scenario where a commodity is stocked to meet a random demand over time. Time is divided into periods (n = 0, 1, 2, ...), and stock is reviewed at the end of each period.
+</p>
 
-  <p>
-    The demand in each period, denoted by \( \xi_n \), is a random variable with the same probability distribution across time:
-  </p>
+<p>
+  The demand in each period, denoted by \( \xi_n \), is a random variable with the same probability distribution across time:
+</p>
 
+<ul>
+  <li>\( \Pr(\xi_n = 0) = a_0 \)</li>
+  <li>\( \Pr(\xi_n = 1) = a_1 \)</li>
+  <li>\( \Pr(\xi_n = 2) = a_2 \)</li>
+  <li>... and so on, where \( \sum a_k = 1 \)</li>
+</ul>
+
+<p>
+  The stock is restocked based on the following policy:
   <ul>
-    <li>\( \Pr(\xi_n = 0) = a_0 \)</li>
-    <li>\( \Pr(\xi_n = 1) = a_1 \)</li>
-    <li>\( \Pr(\xi_n = 2) = a_2 \)</li>
-    <li>... and so on, where \( \sum a_k = 1 \)</li>
+    <li>If the current stock is \( \leq s \), restock up to \( S \)</li>
+    <li>If the stock is more than \( s \), no replenishment occurs</li>
   </ul>
+</p>
 
-  <p>
-    The stock is restocked based on the following policy:
-    <ul>
-      <li>If the current stock is \( \leq s \), restock up to \( S \)</li>
-      <li>If the stock is more than \( s \), no replenishment occurs</li>
-    </ul>
-  </p>
-
-  <p>
-    The state of the process is \( X_n \), the stock level at the end of period \( n \), before restocking. It evolves as a Markov chain based on the random demand and the restocking rule.
-  </p>
-
-  <p>
-    The transition rule is:
-    </p>
-    <ul>
-      <li>If \( X_n > s \), then \( X_{n+1} = X_n - \xi_{n+1} \)</li>
-      <li>If \( X_n \leq s \), then \( X_{n+1} = S - \xi_{n+1} \)</li>
-    </ul>
-  <p>
-    This rule, together with the demand probabilities, determines the transition probability matrix.
-  </p>
-
-  <h3>Example</h3>
+<p>
+  The state of the process is \( X_n \), the stock level at the end of period \( n \), before restocking. It evolves as a Markov chain based on the random demand and the restocking rule.
+</p>
+<p>
+  The transition rule is:
+</p>
+<ul>
+<li>If \( X_n > s \), then \( X_{n+1} = X_n - \xi_{n+1} \)</li>
+<li>If \( X_n \leq s \), then \( X_{n+1} = S - \xi_{n+1} \)</li>
+</ul>
+<p>
+  This rule, together with the demand probabilities, determines the transition probability matrix.
+</p>
+<h3>Example</h3>
 
   <p>
     Suppose:
@@ -412,12 +410,12 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
   </p>
 
   <pre>
-      | -1  0   1   2
-    ---------------------
-    -1 | 0   0.1 0.4 0.5
-    0 |  0   0.1 0.4 0.5
-    1 | 0.1 0.4 0.5   0
-    2 | 0   0.1 0.4 0.5
+       |  -1   0    1    2
+    ------------------------
+    -1 |  0   0.1  0.4  0.5
+     0 |  0   0.1  0.4  0.5
+     1 | 0.1  0.4  0.5   0
+     2 |  0   0.1  0.4  0.5
   </pre>
 
   <h3>Important Quantities</h3>
@@ -430,7 +428,57 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
   <h3>Visual Representation</h3>
   <p>Below is the illustration of how the process evolves over time:</p>
   <img src="tk-mc1img.png" alt="Inventory Process Diagram (Figure 3.1)">
+<h2>3(b).Ehrenfest Urn Mode </h2>
+  <p>
+    The Ehrenfest urn model is a classical representation of diffusion, simulating how molecules move across a membrane.
+  </p>
 
+  <p>
+    Imagine you have two containers (urns), A and B, that together contain a total of <b>2a</b> balls. Initially, urn A holds <b>k</b> balls and urn B has <b>2a - k</b> balls.
+  </p>
+
+  <p>
+    At each time step, one of the <b>2a</b> balls is selected at random, and then moved to the other urn. This random movement simulates the diffusion of molecules.
+  </p>
+
+  <p>
+    Let <b>Y<sub>n</sub></b> be the number of balls in urn A after the <b>n<sup>th</sup></b> step, and define a centered variable:
+  </p>
+  <p><b>X<sub>n</sub> = Y<sub>n</sub> - a</b></p>
+
+  <p>
+    Then <b>X<sub>n</sub></b> becomes a Markov chain with state space:
+  </p>
+  <p><b>{ -a, -a+1, ..., 0, ..., a-1, a }</b></p>
+
+  <h3>Transition Probabilities</h3>
+  <p>
+    The transition probabilities are defined as follows:
+  </p>
+  <ul>
+    <li>
+      \( P_{i,i+1} = \frac{a - i}{2a} \) &nbsp;&nbsp;&nbsp; (gain a ball in urn A)
+    </li>
+    <li>
+      \( P_{i,i-1} = \frac{a + i}{2a} \) &nbsp;&nbsp;&nbsp; (lose a ball from urn A)
+    </li>
+    <li>
+      All other transitions have zero probability.
+    </li>
+  </ul>
+
+  <p>
+    This transition rule reflects that if urn A has more balls (i is positive), then it's more likely to lose a ball, and vice versa. Thus, there is a tendency or "drift" toward balancing the urns.
+  </p>
+
+  <h3>Equilibrium Distribution</h3>
+  <p>
+    An important focus of this model is finding the <b>equilibrium distribution</b> — the long-run behavior of the number of balls in urn A. Over time, the system stabilizes such that the probability distribution over states no longer changes.
+  </p>
+
+  <p>
+    The model is symmetric and reversible, so the equilibrium distribution exists and reflects the binomial distribution of balls across urn A and B, due to random uniform selection.
+  </p>
 
 
 
