@@ -203,14 +203,14 @@ transition has occurred.
 </p>
 <h3>Theorem: A Markov process is completely defined once we specify its Markov matrix P and its initial state \( X_0 \)</h3>
 <p> Let P{ \( X_0 = i \)} = \(p_{i_0}\). It's enough to show how to compute the probability P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_n \) }, since any probability containing \(X_{j_1}, X_{j_2}, \ldots, X_{j_k} , j_k> \ldots >j_2 >j_1  \) can be obtained by summing terms of the above form (by Theorem of Total Probability).
-P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_n \) } 
-=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } P{ \(X_n = i_n | X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) }
-=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } P{ \(X_n = i_n | X_{n-1}=i_{n-1} \) } 
-=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } \(P_{i_{n-1}i_n}\)
-Similarly, P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_{n-1} \) }
-=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-2}= i_{n-2} \) } \(P_{i_{n-2}i_{n-1}\)
-Therefore, the original expression simplifies to:
-$$P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_n \) } =  \(p_{i_0}\)\(P_{i_{0}i_{1}\)\(P_{i_{1}i_{2}\)\(\ldots\)\(P_{i_{n-1}i_{n}\) $$
+<p>P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_n \) } </p> 
+<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } P{ \(X_n = i_n | X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) }</p>
+<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } P{ \(X_n = i_n | X_{n-1}=i_{n-1} \) } </p>
+<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-1}= i_{n-1} \) } \(P_{i_{n-1}i_n}\)</p>
+<p>Similarly, P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_{n-1} \) }</p>
+<p>=P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_{n-2}= i_{n-2} \) } \(P_{i_{n-2}i_{n-1}\)</p>
+<p>Therefore, the original expression simplifies to:</p>
+<p> P{ \( X_0 = i_0, X_1 =i_1, \ldots , X_n= i_n \) } =  \(p_{i_0}\)\(P_{i_{0}i_{1}\) \(P_{i_{1}i_{2}\) \(\ldots\) \(P_{i_{n-1}i_{n}\) </p>
   
 
 
