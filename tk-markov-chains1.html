@@ -213,7 +213,7 @@ transition has occurred.
 <p>
   \( P\left( X_0 = i_0, X_1 = i_1, \ldots , X_n = i_n \right) = p_{i_0} \cdot P_{i_0 i_1} \cdot P_{i_1 i_2} \cdot \ldots \cdot P_{i_{n-1} i_n} \)
 </p>
-<h2>2 Transition Probability Matrices of a Markov Chain</h2>
+<h2>2 Transition Probability Matrices of a Markov Chain: Understanding Multi-Step Transition Probabilities</h2>
 
 <p>
 A Markov chain is fully defined by two things:
@@ -345,6 +345,91 @@ By repeating this step, we get:
 <p>
 This completes the proof. It uses the basic idea that the path from \( i \) to \( j \) in \( n \) steps must go through some state \( k \) after the first step, and the rest follows by the Markov property and total probability.
 </p>
+<h2>3. Inventory Model Using Markov Chains</h2>
+
+  <p>
+    This model describes a scenario where a commodity is stocked to meet a random demand over time. Time is divided into periods (n = 0, 1, 2, ...), and stock is reviewed at the end of each period.
+  </p>
+
+  <p>
+    The demand in each period, denoted by \( \xi_n \), is a random variable with the same probability distribution across time:
+  </p>
+
+  <ul>
+    <li>\( \Pr(\xi_n = 0) = a_0 \)</li>
+    <li>\( \Pr(\xi_n = 1) = a_1 \)</li>
+    <li>\( \Pr(\xi_n = 2) = a_2 \)</li>
+    <li>... and so on, where \( \sum a_k = 1 \)</li>
+  </ul>
+
+  <p>
+    The stock is restocked based on the following policy:
+    <ul>
+      <li>If the current stock is \( \leq s \), restock up to \( S \)</li>
+      <li>If the stock is more than \( s \), no replenishment occurs</li>
+    </ul>
+  </p>
+
+  <p>
+    The state of the process is \( X_n \), the stock level at the end of period \( n \), before restocking. It evolves as a Markov chain based on the random demand and the restocking rule.
+  </p>
+
+  <p>
+    The transition rule is:
+    </p>
+    <ul>
+      <li>If \( X_n > s \), then \( X_{n+1} = X_n - \xi_{n+1} \)</li>
+      <li>If \( X_n \leq s \), then \( X_{n+1} = S - \xi_{n+1} \)</li>
+    </ul>
+  <p>
+    This rule, together with the demand probabilities, determines the transition probability matrix.
+  </p>
+
+  <h3>Example</h3>
+
+  <p>
+    Suppose:
+  </p>
+  <ul>
+    <li>\( S = 2 \), \( s = 0 \)</li>
+    <li>\( \Pr(\xi = 0) = 0.5 \), \( \Pr(\xi = 1) = 0.4 \), \( \Pr(\xi = 2) = 0.1 \)</li>
+  </ul>
+
+  <p>
+    Possible stock levels: 2, 1, 0, -1 (unfilled demand is treated as negative stock).
+  </p>
+
+  <p>
+    From this setup, we compute the transition probabilities. For instance:
+    <ul>
+      <li>If \( X_n = 1 \), no restocking. To reach \( X_{n+1} = 0 \), \( \xi_{n+1} = 1 \). So \( P_{10} = 0.4 \)</li>
+      <li>If \( X_n = 0 \), restock to 2. To reach \( X_{n+1} = 0 \), \( \xi_{n+1} = 2 \). So \( P_{00} = 0.1 \)</li>
+    </ul>
+  </p>
+
+  <p>
+    Transition Matrix:
+  </p>
+
+  <pre>
+      | -1  0   1   2
+    ---------------------
+    -1 | 0   0.1 0.4 0.5
+    0 |  0   0.1 0.4 0.5
+    1 | 0.1 0.4 0.5   0
+    2 | 0   0.1 0.4 0.5
+  </pre>
+
+  <h3>Important Quantities</h3>
+
+  <ul>
+    <li>Long-term probability of unfilled demand: \( \lim_{n \to \infty} \Pr(X_n < 0) \)</li>
+    <li>Average inventory level: \( \lim_{n \to \infty} \sum_{j>0} j \cdot \Pr(X_n = j) \)</li>
+  </ul>
+
+  <h3>Visual Representation</h3>
+  <p>Below is the illustration of how the process evolves over time:</p>
+  <img src="tk-mc1img.png" alt="Inventory Process Diagram (Figure 3.1)">
 
 
 
