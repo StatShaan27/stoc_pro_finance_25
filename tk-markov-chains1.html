@@ -102,7 +102,52 @@
   $$ = P( X_{n+1} =j | X_n= i) $$
   for all n and all states \( i_0 , \ldots, i_{n-1}, i, j \)
 </p>
-
+<h3>Understanding One-Step Transition Probabilities</h3>
+<p>
+In a Markov chain, we usually label the state space using non-negative integers: 
+<strong>0, 1, 2, ...</strong>. Unless stated otherwise, we follow this convention.
+</p>
+<p>
+If the chain is in a certain state at time \( n \), we say \( X_n = i \).
+The probability that it moves to state \( j \) at the next time step \( n+1 \),
+given that it is currently in state \( i \), is called the 
+<strong>one-step transition probability</strong>. It is denoted by:
+</p>
+\[
+P^{(n,n+1)}_{ij} = \Pr(X_{n+1} = j \mid X_n = i)
+\]
+<p>
+This notation indicates that the transition probabilities can depend on the current time \( n \),
+as well as the current and next states \( i \) and \( j \).
+</p>
+<p>
+If these probabilities are independent of time, we say that the Markov chain has 
+<strong>stationary transition probabilities</strong>. In that case, we write:
+</p>
+\[
+P_{ij} = \Pr(X_{n+1} = j \mid X_n = i)
+\]
+<p>
+This means the probability of transitioning from state \( i \) to state \( j \)
+remains the same at every step.
+</p>
+<p>
+These probabilities \( P_{ij} \) are usually arranged in a 
+<strong>transition matrix</strong> \( P \) as follows:
+</p>
+\[
+P = 
+\begin{bmatrix}
+P_{00} & P_{01} & P_{02} & \cdots \\
+P_{10} & P_{11} & P_{12} & \cdots \\
+P_{20} & P_{21} & P_{22} & \cdots \\
+\vdots & \vdots & \vdots & \ddots \\
+\end{bmatrix}
+\]
+<p>
+Each row corresponds to the current state \( i \), and each column represents the
+probability of transitioning to state \( j \).
+</p>
 
 
 
