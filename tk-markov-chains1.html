@@ -578,21 +578,121 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
     <li>This models <b>directional selection</b>.</li>
   </ul>
 
-  <h3>Summary</h3>
+<h2>3(d). Discrete Queueing Markov Chain</h2>
+
+  <h3>1. System Overview</h3>
+  <p>
+    This is a model of a <strong>queueing system</strong> where:
+  </p>
   <ul>
-    <li>Wright-Fisher model is a powerful Markov chain framework to study gene frequencies.</li>
-    <li>It captures the effects of:
-      <ul>
-        <li><b>Genetic drift</b> (random fluctuations)</li>
-        <li><b>Mutation</b> (gene switching)</li>
-        <li><b>Selection</b> (reproductive advantage)</li>
-      </ul>
+    <li>Customers arrive randomly during each time period.</li>
+    <li>At most one customer is served in each period (if someone is present).</li>
+    <li>If the queue is empty, no service occurs in that period.</li>
+  </ul>
+  <p>
+    A real-world example: A taxi stand where taxis arrive at fixed intervals. If no passengers are waiting, the taxi leaves immediately.
+  </p>
+
+  <h3>2. Customer Arrival Process</h3>
+  <p>
+    Let <strong>A<sub>n</sub></strong> be the number of new customers arriving in period n.
+  </p>
+  <ul>
+    <li>The number of arrivals follows a probability distribution:
+      <br><strong>Pr(A<sub>n</sub> = k) = a<sub>k</sub></strong>, for k = 0, 1, 2, ...
     </li>
-    <li>In absence of mutation and selection, the model eventually leads to <b>fixation</b>.</li>
-    <li>With mutation, fixation is avoided and a <b>steady distribution</b> forms.</li>
-    <li>With selection, the population tends to favor fitter genes.</li>
+    <li>The arrivals in each period are <strong>independent and identically distributed (i.i.d.)</strong>.</li>
+    <li>The probabilities satisfy:
+      <br><strong>Σ a<sub>k</sub> = 1</strong>, and <strong>a<sub>k</sub> ≥ 0</strong>.
+    </li>
   </ul>
 
+  <h3>3. State of the System</h3>
+  <p>
+    Define <strong>X<sub>n</sub></strong> as the number of customers in the queue at the <strong>start</strong> of period n.
+  </p>
+  <p>
+    During a period:
+  </p>
+  <ul>
+    <li>If <strong>X<sub>n</sub> ≥ 1</strong>: One customer is served, and <strong>A<sub>n</sub></strong> customers arrive.</li>
+    <li>If <strong>X<sub>n</sub> = 0</strong>: No service happens, but still <strong>A<sub>n</sub></strong> customers may arrive.</li>
+  </ul>
+
+  <h4>Update Rule:</h4>
+  <p>
+    The number of customers at the start of next period is:
+    <br><strong>X<sub>n+1</sub> = max(0, X<sub>n</sub> − 1) + A<sub>n</sub></strong>
+  </p>
+  <p>
+    This captures the logic: one customer leaves (if present), and A<sub>n</sub> arrive.
+  </p>
+
+  <h3>4. Transition Probability Matrix</h3>
+  <p>
+    Let’s denote the transition probability <strong>P<sub>ij</sub></strong> = Pr(X<sub>n+1</sub> = j | X<sub>n</sub> = i)
+  </p>
+
+  <h4>If i = 0 (no one is in queue):</h4>
+  <ul>
+    <li>No one is served, so the new state is just A<sub>n</sub>.</li>
+    <li><strong>P<sub>0k</sub> = a<sub>k</sub></strong></li>
+  </ul>
+
+  <h4>If i ≥ 1 (at least one customer in queue):</h4>
+  <ul>
+    <li>One customer is served, so current queue becomes (i − 1).</li>
+    <li>A<sub>n</sub> new arrivals → New state = i − 1 + A<sub>n</sub></li>
+    <li><strong>P<sub>ij</sub> = a<sub>j − (i − 1)</sub></strong>, only if j ≥ i − 1</li>
+  </ul>
+
+  <h4>Example Matrix:</h4>
+  <table border="1" cellpadding="5">
+    <tr><th>From/To</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+    <tr><td>0</td><td>a<sub>0</sub></td><td>a<sub>1</sub></td><td>a<sub>2</sub></td><td>a<sub>3</sub></td><td>a<sub>4</sub></td></tr>
+    <tr><td>1</td><td>0</td><td>a<sub>0</sub></td><td>a<sub>1</sub></td><td>a<sub>2</sub></td><td>a<sub>3</sub></td></tr>
+    <tr><td>2</td><td>0</td><td>0</td><td>a<sub>0</sub></td><td>a<sub>1</sub></td><td>a<sub>2</sub></td></tr>
+    <tr><td>3</td><td>0</td><td>0</td><td>0</td><td>a<sub>0</sub></td><td>a<sub>1</sub></td></tr>
+  </table>
+
+  <h3>5. Long-term Behavior</h3>
+  <h4>Expected Number of Arrivals:</h4>
+  <p>
+    Let the expected number of new customers in a period be:
+    <br><strong>λ = Σ k * a<sub>k</sub></strong>
+  </p>
+
+  <h4>Case 1: λ &lt; 1 (stable system)</h4>
+  <ul>
+    <li>Queue reaches a <strong>statistical equilibrium</strong>.</li>
+    <li>A limiting distribution π = {π<sub>k</sub>} exists such that:
+      <br><strong>lim<sub>n→∞</sub> Pr(X<sub>n</sub> = k | X<sub>0</sub> = j) = π<sub>k</sub></strong>
+    </li>
+  </ul>
+
+  <h4>Case 2: λ ≥ 1 (unstable system)</h4>
+  <ul>
+    <li>The queue size increases indefinitely over time.</li>
+    <li>No steady-state distribution exists.</li>
+  </ul>
+
+  <h3>6. Important Metrics</h3>
+  <h4>1. Long-run Idle Time:</h4>
+  <p>
+    The system is idle (no customer) only in state 0.
+    <br><strong>Fraction of time idle = π<sub>0</sub></strong>
+  </p>
+
+  <h4>2. Mean Number of Customers in System:</h4>
+  <p>
+    <strong>L = Σ (k * π<sub>k</sub>)</strong>
+  </p>
+
+  <h4>3. Long-run Mean Time a Customer Spends in the System (Little’s Law):</h4>
+  <p>
+    Let T be the expected time spent in system.
+    <br><strong>T = L / λ</strong>, where λ is the arrival rate
+  </p>
 
 
 
