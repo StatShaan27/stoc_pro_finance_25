@@ -850,6 +850,263 @@ E[T | X_0 = 1] = ∑ (from k = 0 to ∞) β^k = 1 / (1 - β)
 <p>
 This matches the result we obtained from first step analysis. In this simple case, the result can be verified directly, but for more complex Markov chains, first step analysis is often the only feasible method.
 </p>
+<h3>Extension to a Four-State Markov Chain</h3>
+
+<p>
+Now we consider a more complex situation: a four-state Markov chain with states 0, 1, 2, and 3. The transition matrix is given by:
+</p>
+
+<ul>
+  <li>State 0 and State 3 are <strong>absorbing states</strong> (once the process enters them, it stays there forever).</li>
+  <li>States 1 and 2 are <strong>transient states</strong> (the process can leave them).</li>
+</ul>
+
+<p>
+The general form of the transition matrix is:
+</p>
+
+<pre>
+    0   1   2   3
+0 [ 1   0   0   0 ]
+1 [P10 P11 P12 P13]
+2 [P20 P21 P22 P23]
+3 [ 0   0   0   1 ]
+</pre>
+
+<p>
+Because absorption occurs in state 0 or 3, and the initial state could be either 1 or 2 (both transient), the probability of absorption in state 0 depends on where the process starts. To address this, we define the following:
+</p>
+
+<ul>
+  <li><strong>T</strong> = first time the process reaches either state 0 or 3</li>
+  <li><strong>u<sub>i</sub></strong> = probability that the process is absorbed in state 0, given that it started in state <em>i</em> (i = 1, 2)</li>
+  <li><strong>v<sub>i</sub></strong> = expected time until absorption, given that it started in state <em>i</em> (i = 1, 2)</li>
+</ul>
+
+<p>
+We also define for consistency:
+</p>
+
+<ul>
+  <li><strong>u<sub>0</sub> = 1</strong> (since it is already in state 0)</li>
+  <li><strong>u<sub>3</sub> = 0</strong> (since it's already in state 3 and never goes to 0)</li>
+  <li><strong>v<sub>0</sub> = 0</strong> and <strong>v<sub>3</sub> = 0</strong> (already absorbed)</li>
+</ul>
+
+<h4>First Step Analysis for u<sub>1</sub> and u<sub>2</sub></h4>
+
+<p>
+Suppose the process starts in state 1. The first step could result in:
+</p>
+
+<ul>
+  <li>Moving to state 0: contributes <strong>P10 × 1</strong></li>
+  <li>Moving to state 1: contributes <strong>P11 × u<sub>1</sub></strong> (we're back where we started)</li>
+  <li>Moving to state 2: contributes <strong>P12 × u<sub>2</sub></strong></li>
+</ul>
+
+<p>
+This leads to the equation:
+</p>
+
+<p><strong>u<sub>1</sub> = P10 + P11 × u<sub>1</sub> + P12 × u<sub>2</sub></strong> (Equation 3.21)</p>
+
+<p>
+Similarly, for state 2:
+</p>
+
+<p><strong>u<sub>2</sub> = P20 + P21 × u<sub>1</sub> + P22 × u<sub>2</sub></strong> (Equation 3.22)</p>
+
+<p>
+These two equations can be solved simultaneously to find the values of u<sub>1</sub> and u<sub>2</sub>.
+</p>
+
+<h4>Numerical Example</h4>
+
+<p>
+Consider the specific transition matrix:
+</p>
+
+<pre>
+    0    1    2    3
+0 [ 1    0    0    0 ]
+1 [0.4  0.3  0.2  0.1]
+2 [0.1  0.3  0.3  0.3]
+3 [0    0    0    1 ]
+</pre>
+
+<p>
+Substituting into the equations for u<sub>1</sub> and u<sub>2</sub>:
+</p>
+
+<p>
+u<sub>1</sub> = 0.4 + 0.3 × u<sub>1</sub> + 0.2 × u<sub>2</sub><br>
+u<sub>2</sub> = 0.1 + 0.3 × u<sub>1</sub> + 0.3 × u<sub>2</sub>
+</p>
+
+<p>
+Solving the system:
+</p>
+
+<pre>
+0.7u<sub>1</sub> + 0.2u<sub>2</sub> = 0.4
+0.3u<sub>1</sub> + 0.7u<sub>2</sub> = 0.1
+</pre>
+
+<p>
+The solution is:
+</p>
+
+<ul>
+  <li><strong>u<sub>1</sub> = 30/43</strong></li>
+  <li><strong>u<sub>2</sub> = 19/43</strong></li>
+</ul>
+
+<p>
+So, starting from state 2, the probability that the process is eventually absorbed in state 0 is 19/43, and in state 3 is 24/43 (since the total must sum to 1).
+</p>
+
+<h4>Mean Time to Absorption (v<sub>1</sub>, v<sub>2</sub>)</h4>
+
+<p>
+We now use first step analysis to find the expected number of steps until absorption, starting from state 1 or 2.
+</p>
+
+<p>
+If we start from state 1:
+</p>
+
+<ul>
+  <li>With probability P11, it returns to state 1 → additional v<sub>1</sub> steps expected</li>
+  <li>With probability P12, it goes to state 2 → additional v<sub>2</sub> steps expected</li>
+</ul>
+
+<p>
+The equation becomes:
+</p>
+
+<p><strong>v<sub>1</sub> = 1 + P11 × v<sub>1</sub> + P12 × v<sub>2</sub></strong></p>
+
+<p>
+Similarly, for state 2:
+</p>
+
+<p><strong>v<sub>2</sub> = 1 + P21 × v<sub>1</sub> + P22 × v<sub>2</sub></strong></p>
+
+<p>
+Substituting the numerical values:
+</p>
+
+<p>
+v<sub>1</sub> = 1 + 0.3 × v<sub>1</sub> + 0.2 × v<sub>2</sub><br>
+v<sub>2</sub> = 1 + 0.3 × v<sub>1</sub> + 0.3 × v<sub>2</sub>
+</p>
+
+<p>
+Solving these:
+</p>
+
+<pre>
+0.7v<sub>1</sub> - 0.2v<sub>2</sub> = 1
+-0.3v<sub>1</sub> + 0.7v<sub>2</sub> = 1
+</pre>
+
+<p>
+The solutions are:
+</p>
+
+<ul>
+  <li><strong>v<sub>1</sub> = (90/43) ≈ 2.09</strong></li>
+  <li><strong>v<sub>2</sub> = (100/43) ≈ 2.33</strong></li>
+</ul>
+
+<p>
+Therefore, if the process starts from state 2, it will take about 2.33 steps, on average, before it gets absorbed into either state 0 or 3.
+</p>
+\subsection*{Absorbing Markov Chains: General Theory and Example – Maze Problem}
+
+To study absorption in a more general context, we consider a finite-state Markov chain \( \{X_n\} \) with states labeled \( 0, 1, \ldots, N \). Suppose states \( 0, 1, \ldots, r-1 \) are \textit{transient} (i.e., \( P_{ii} < 1 \) for \( i < r \)), and states \( r, \ldots, N \) are \textit{absorbing} (i.e., \( P_{ii} = 1 \) for \( i \geq r \)).
+
+The transition matrix \( P \) takes the block form:
+\[
+P =
+\begin{bmatrix}
+Q & R \\
+0 & I
+\end{bmatrix}
+\]
+Here, \( Q \) is the \( r \times r \) submatrix for transitions among transient states, \( R \) is \( r \times (N - r + 1) \) giving transitions from transient to absorbing states, \( 0 \) is a zero matrix, and \( I \) is the identity matrix corresponding to the absorbing states.
+
+\paragraph{Probability of Absorption in a Given State}
+
+Let \( u_i^{(k)} = \mathbb{P}(\text{absorption in state } k \mid X_0 = i) \), for \( i < r \), where \( k \geq r \) is a fixed absorbing state.
+
+Using first-step analysis and the law of total probability:
+\[
+u_i^{(k)} = P_{ik} + \sum_{j = 0}^{r - 1} P_{ij} u_j^{(k)}
+\]
+This forms a system of \( r \) linear equations in \( u_0^{(k)}, \ldots, u_{r - 1}^{(k)} \), one for each transient state \( i \).
+
+\paragraph{Example: Maze and a Rat}
+
+A rat moves randomly through a maze with 9 compartments. Compartments 7 (food) and 8 (shock) are absorbing. The transition probabilities are uniform among accessible adjacent compartments. The goal is to find the probability of reaching food (state 7) before shock (state 8), starting from any other compartment.
+
+Let \( u_i = \mathbb{P}(\text{absorption in 7} \mid X_0 = i) \). First-step equations based on maze structure:
+\[
+\begin{aligned}
+u_0 &= \frac{1}{2}u_1 + \frac{1}{2}u_2 \\
+u_1 &= \frac{1}{3}u_0 + \frac{1}{3}u3 + \frac{1}{3} \\
+u_2 &= \frac{1}{3}u_0 + \frac{1}{3}u_3 \\
+u_3 &= \frac{1}{4}u_1 + \frac{1}{4}u_2 + \frac{1}{4}u_4 + \frac{1}{4}u_5 \\
+u_4 &= \frac{1}{3}u_3 + \frac{1}{3}u_6 \\
+u_5 &= \frac{1}{3}u_3 + \frac{1}{3}u_6 \\
+u_6 &= \frac{1}{2}u_4 + \frac{1}{2}u_5 \\
+u_7 &= 1 \quad (\text{absorbing}) \\
+u_8 &= 0 \quad (\text{absorbing})
+\end{aligned}
+\]
+
+Using symmetry:
+\[
+u_0 = u_6, \quad u_1 = u_4, \quad u_2 = u_5, \quad u_3 = \frac{1}{2}
+\]
+
+Substituting:
+\[
+\begin{aligned}
+u_0 &= \frac{1}{2}u_1 + \frac{1}{2}u_2 \\
+u_1 &= \frac{1}{3}u_0 + \frac{1}{3} \cdot \frac{1}{2} + \frac{1}{3} \\
+u_2 &= \frac{1}{3}u_0 + \frac{1}{3} \cdot \frac{1}{2}
+\end{aligned}
+\]
+
+Solving yields:
+\[
+u_0 = \frac{1}{2}, \quad u_1 = \frac{2}{3}, \quad u_2 = \frac{1}{3}
+\]
+
+\paragraph{Expected Number of Steps Until Absorption}
+
+Let \( T = \min\{n \geq 0 \mid X_n \text{ is absorbing}\} \). The expected value \( v_i = \mathbb{E}[T \mid X_0 = i] \) is found by solving:
+\[
+v_i = 1 + \sum_{j = 0}^{r - 1} P_{ij} v_j
+\]
+
+\paragraph{More Generally: Expected Accumulated Reward}
+
+Suppose a reward rate \( g(i) \) is associated with each transient state \( i \), and we define:
+\[
+w_i = \mathbb{E} \left[ \sum_{n = 0}^{T - 1} g(X_n) \Big| X_0 = i \right]
+\]
+Then:
+\[
+w_i = g(i) + \sum_{j = 0}^{r - 1} P_{ij} w_j
+\]
+This generalizes both the expected time to absorption (if \( g(i) = 1 \)) and the expected number of visits to state \( k \) before absorption (if \( g(i) = \delta_{ik} \)).
+
+
+
+
 
 
 
