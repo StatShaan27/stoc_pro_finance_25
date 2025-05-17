@@ -1176,22 +1176,22 @@ When \( a \ne 1 - b \), the probability distribution for \( X_n \) depends on th
 <p>
 For the two-state Markov chain, it can be verified by induction that the <em>n</em>-step transition matrix is given by:
 </p>
-
 \[
-P^n =
+P^n = \frac{1}{a + b} \left(
 \begin{bmatrix}
 a & b \\
 b & a
 \end{bmatrix}
 + (1 - a - b)^n
 \begin{bmatrix}
-a - a & a \\
-b & b - b
-\end{bmatrix} \tag{3.31}
+0 & a \\
+b & 0
+\end{bmatrix}
+\right) \tag{3.31}
 \]
 
 <p>
-To verify this formula, introduce the abbreviations:
+To verify this formula, define the matrices:
 </p>
 
 \[
@@ -1208,15 +1208,15 @@ b & b
 \]
 
 <p>
-So equation (3.31) becomes:
+Then equation (3.31) becomes:
 </p>
 
 \[
-P^n = (a + b) A + (1 - a - b)^n B
+P^n = \frac{1}{a + b} \left( A + (1 - a - b)^n B \right)
 \]
 
 <p>
-Now check the multiplications:
+Now check the matrix multiplications:
 </p>
 
 \[
@@ -1233,7 +1233,8 @@ b & 1 - b
 \begin{bmatrix}
 b & a \\
 b & a
-\end{bmatrix} = A
+\end{bmatrix}
+= A
 \]
 
 \[
@@ -1255,7 +1256,7 @@ Hence, for \( n = 1 \), we have:
 </p>
 
 \[
-P^1 = A + (1 - a - b)^1 B = P
+P^1 = \frac{1}{a + b} \left( A + (1 - a - b) B \right) = P
 \]
 
 <p>
@@ -1263,24 +1264,23 @@ To complete the induction, assume the formula holds for \( n \). Then:
 </p>
 
 \[
-P^{n+1} = P^n P = [(a + b) A + (1 - a - b)^n B] P = (a + b) A + (1 - a - b)^{n+1} B
+P^{n+1} = P^n P = \frac{1}{a + b} \left( A + (1 - a - b)^n B \right) P = \frac{1}{a + b} \left( A + (1 - a - b)^{n+1} B \right)
 \]
 
 <p>
-This completes the proof by induction. Since \( 0 &lt; a + b &lt; 1 \), we have \( (1 - a - b)^n \to 0 \) as \( n \to \infty \), and:
+This confirms the inductive step. Since \( 0 &lt; a + b &lt; 1 \), it follows that \( (1 - a - b)^n \to 0 \) as \( n \to \infty \), and thus:
 </p>
 
 \[
-\lim_{n \to \infty} P^n = 
+\lim_{n \to \infty} P^n = \frac{1}{a + b}
 \begin{bmatrix}
-\frac{b}{a + b} & \frac{a}{a + b} \\
-\frac{b}{a + b} & \frac{a}{a + b}
-\end{bmatrix} \tag{3.32}
+a & b \\
+b & a
+\end{bmatrix}
 \]
 
 <p>
-This tells us that in the long run, the system will be in state 0 with probability \( \frac{b}{a + b} \), 
-and in state 1 with probability \( \frac{a}{a + b} \), regardless of the initial state.
+This is the limiting (stationary) distribution matrix. In particular, the long-run probability of being in state 0 is \( \frac{b}{a + b} \), and in state 1 is \( \frac{a}{a + b} \), regardless of the starting state.
 </p>
 
 <h4>Numerical Example</h4>
