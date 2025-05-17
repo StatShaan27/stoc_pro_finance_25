@@ -693,6 +693,164 @@ This completes the proof. It uses the basic idea that the path from \( i \) to \
     Let T be the expected time spent in system.
     <br><strong>T = L / λ</strong>, where λ is the arrival rate
   </p>
+  <h2>4 First Step Analysis</h2>
+
+<p>
+A surprising number of problems involving Markov chains can be solved using a technique called <strong>first step analysis</strong>. This technique works by analyzing what happens during the first step (or transition) of the Markov process and then using the <strong>law of total probability</strong> and the <strong>Markov property</strong> to build equations that involve unknown quantities of interest. 
+</p>
+
+<h3>4.1 Simple First Step Analyses</h3>
+
+<p>
+Consider a Markov chain with three states: 0, 1, and 2. The transition probability matrix is structured as follows:
+</p>
+
+<ul>
+  <li>From state 0: it always stays in state 0 (absorbing)</li>
+  <li>From state 1: with probability <em>α</em>, it moves to state 0; with probability <em>β</em>, it stays in state 1; and with probability <em>γ</em>, it moves to state 2</li>
+  <li>From state 2: it always stays in state 2 (absorbing)</li>
+</ul>
+
+<p>
+Here, α + β + γ = 1, and α, β, γ are all greater than 0.
+</p>
+
+<p>
+So, if the chain starts in state 1, it may stay there for a while but will eventually get absorbed into either state 0 or state 2.
+</p>
+
+<p>
+There are two natural questions to ask:
+</p>
+
+<ol>
+  <li>What is the probability that the process eventually ends up in state 0 (instead of 2)?</li>
+  <li>How long, on average, does it take for the process to get absorbed into either state 0 or state 2?</li>
+</ol>
+
+<p>
+To answer these questions, we use first step analysis.
+</p>
+
+<h4>Defining Variables</h4>
+
+<p>
+Let <strong>T</strong> be the time (step number) when the process is absorbed (enters state 0 or 2 for the first time).
+</p>
+
+<p>
+Let <strong>u</strong> be the probability that the process is eventually absorbed in state 0, given it starts in state 1:
+</p>
+
+<p><em>u = P[X_T = 0 | X_0 = 1]</em></p>
+
+<p>
+Let <strong>v</strong> be the expected number of steps until absorption, again given that the process starts in state 1:
+</p>
+
+<p><em>v = E[T | X_0 = 1]</em></p>
+
+<h4>Using First Step Analysis to Compute u</h4>
+
+<p>
+We break the analysis based on where the process goes in its first step from state 1:
+</p>
+
+<ul>
+  <li>If it moves to state 0 (probability α), then T = 1 and X_T = 0</li>
+  <li>If it moves to state 2 (probability γ), then T = 1 and X_T = 2</li>
+  <li>If it stays in state 1 (probability β), the situation is the same as before — the process restarts from state 1</li>
+</ul>
+
+<p>
+So the probability of eventually reaching state 0 from state 1, denoted u, satisfies:
+</p>
+
+<p>
+u = α × 1 + β × u + γ × 0
+</p>
+
+<p>
+Simplifying:
+</p>
+
+<p>
+u = α + βu
+</p>
+
+<p>
+Solving for u:
+</p>
+
+<p>
+u - βu = α → u(1 - β) = α → u = α / (1 - β)
+</p>
+
+<p>
+This quantity represents the conditional probability of eventual absorption into state 0, assuming the process starts in state 1.
+</p>
+
+<h4>Using First Step Analysis to Compute v</h4>
+
+<p>
+Now, we calculate v, the expected number of steps until absorption.
+</p>
+
+<p>
+Again we break into cases:
+</p>
+
+<ul>
+  <li>If the process moves to state 0 or 2 (probability α + γ), it takes exactly 1 step</li>
+  <li>If it stays in state 1 (probability β), then it takes 1 step now, and on average another v steps in the future (since it returns to where it started)</li>
+</ul>
+
+<p>
+So:
+</p>
+
+<p>
+v = α × 1 + β × (1 + v) + γ × 1
+</p>
+
+<p>
+v = (α + γ) × 1 + β(1 + v)
+</p>
+
+<p>
+v = (1 - β) + β(1 + v)
+</p>
+
+<p>
+Simplify:
+</p>
+
+<p>
+v = 1 + βv → v(1 - β) = 1 → v = 1 / (1 - β)
+</p>
+
+<h4>Verification via Geometric Distribution</h4>
+
+<p>
+The absorption time T, starting from state 1, actually follows a geometric distribution:
+</p>
+
+<p>
+P[T > k | X_0 = 1] = β^k for k = 0, 1, 2, ...
+</p>
+
+<p>
+This means:
+</p>
+
+<p>
+E[T | X_0 = 1] = ∑ (from k = 0 to ∞) β^k = 1 / (1 - β)
+</p>
+
+<p>
+This matches the result we obtained from first step analysis. In this simple case, the result can be verified directly, but for more complex Markov chains, first step analysis is often the only feasible method.
+</p>
+
 
 
 
