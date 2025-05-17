@@ -1023,11 +1023,15 @@ The solutions are:
 <p>
 Therefore, if the process starts from state 2, it will take about 2.33 steps, on average, before it gets absorbed into either state 0 or 3.
 </p>
-\subsection*{Absorbing Markov Chains: General Theory and Example – Maze Problem}
-
-To study absorption in a more general context, we consider a finite-state Markov chain \( \{X_n\} \) with states labeled \( 0, 1, \ldots, N \). Suppose states \( 0, 1, \ldots, r-1 \) are \textit{transient} (i.e., \( P_{ii} < 1 \) for \( i < r \)), and states \( r, \ldots, N \) are \textit{absorbing} (i.e., \( P_{ii} = 1 \) for \( i \geq r \)).
-
-The transition matrix \( P \) takes the block form:
+<h3>General Structure of Absorbing Markov Chains</h3>
+<p>
+Consider a finite-state Markov chain \( \{X_n\} \) with state space labeled \( 0, 1, \ldots, N \).
+Assume states \( 0, 1, \ldots, r-1 \) are <strong>transient</strong>, and states \( r, r+1, \ldots, N \)
+are <strong>absorbing</strong>.
+</p>
+<p>
+The transition matrix \( P \) has the following block form:
+</p>
 \[
 P =
 \begin{bmatrix}
@@ -1035,43 +1039,57 @@ Q & R \\
 0 & I
 \end{bmatrix}
 \]
-Here, \( Q \) is the \( r \times r \) submatrix for transitions among transient states, \( R \) is \( r \times (N - r + 1) \) giving transitions from transient to absorbing states, \( 0 \) is a zero matrix, and \( I \) is the identity matrix corresponding to the absorbing states.
+<p>
+Here, \( Q \) governs transitions among transient states, \( R \) represents transitions from transient to absorbing states, 
+\( 0 \) is a zero matrix, and \( I \) is the identity matrix for absorbing states.
+</p>
 
-\paragraph{Probability of Absorption in a Given State}
-
-Let \( u_i^{(k)} = \mathbb{P}(\text{absorption in state } k \mid X_0 = i) \), for \( i < r \), where \( k \geq r \) is a fixed absorbing state.
-
-Using first-step analysis and the law of total probability:
+<h3>Probability of Absorption in a Given State</h3>
+<p>
+Let \( u_i^{(k)} = \mathbb{P}( \text{absorption in state } k \mid X_0 = i ) \), for \( i < r \), 
+where \( k \geq r \) is a fixed absorbing state. A first-step analysis gives:
+</p>
 \[
-u_i^{(k)} = P_{ik} + \sum_{j = 0}^{r - 1} P_{ij} u_j^{(k)}
+u_i^{(k)} = P_{ik} + \sum_{j=0}^{r-1} P_{ij} u_j^{(k)}
 \]
-This forms a system of \( r \) linear equations in \( u_0^{(k)}, \ldots, u_{r - 1}^{(k)} \), one for each transient state \( i \).
+<p>
+This yields a system of linear equations for \( u_0^{(k)}, u_1^{(k)}, \ldots, u_{r-1}^{(k)} \).
+</p>
 
-\paragraph{Example: Maze and a Rat}
-
-A rat moves randomly through a maze with 9 compartments. Compartments 7 (food) and 8 (shock) are absorbing. The transition probabilities are uniform among accessible adjacent compartments. The goal is to find the probability of reaching food (state 7) before shock (state 8), starting from any other compartment.
-
-Let \( u_i = \mathbb{P}(\text{absorption in 7} \mid X_0 = i) \). First-step equations based on maze structure:
+<h3>Example: A Rat in a Maze</h3>
+<p>
+A rat moves randomly through a maze of 9 compartments. Compartments 7 (food) and 8 (shock) are absorbing.
+The transition probabilities are determined by uniform movement to adjacent compartments.
+Let \( u_i \) denote the probability that the rat reaches food (state 7) before shock (state 8), given that it starts at state \( i \).
+</p>
+<p>
+Using first-step analysis, the equations are:
+</p>
 \[
 \begin{aligned}
 u_0 &= \frac{1}{2}u_1 + \frac{1}{2}u_2 \\
-u_1 &= \frac{1}{3}u_0 + \frac{1}{3}u3 + \frac{1}{3} \\
+u_1 &= \frac{1}{3}u_0 + \frac{1}{3}u_3 + \frac{1}{3} \\
 u_2 &= \frac{1}{3}u_0 + \frac{1}{3}u_3 \\
 u_3 &= \frac{1}{4}u_1 + \frac{1}{4}u_2 + \frac{1}{4}u_4 + \frac{1}{4}u_5 \\
 u_4 &= \frac{1}{3}u_3 + \frac{1}{3}u_6 \\
 u_5 &= \frac{1}{3}u_3 + \frac{1}{3}u_6 \\
 u_6 &= \frac{1}{2}u_4 + \frac{1}{2}u_5 \\
-u_7 &= 1 \quad (\text{absorbing}) \\
-u_8 &= 0 \quad (\text{absorbing})
+u_7 &= 1 \\
+u_8 &= 0
 \end{aligned}
 \]
-
-Using symmetry:
-\[
-u_0 = u_6, \quad u_1 = u_4, \quad u_2 = u_5, \quad u_3 = \frac{1}{2}
-\]
-
-Substituting:
+<p>
+By symmetry:
+</p>
+<ul>
+  <li>\( u_0 = u_6 \)</li>
+  <li>\( u_1 = u_4 \)</li>
+  <li>\( u_2 = u_5 \)</li>
+  <li>\( u_3 = \frac{1}{2} \)</li>
+</ul>
+<p>
+This simplifies the system to:
+</p>
 \[
 \begin{aligned}
 u_0 &= \frac{1}{2}u_1 + \frac{1}{2}u_2 \\
@@ -1079,30 +1097,50 @@ u_1 &= \frac{1}{3}u_0 + \frac{1}{3} \cdot \frac{1}{2} + \frac{1}{3} \\
 u_2 &= \frac{1}{3}u_0 + \frac{1}{3} \cdot \frac{1}{2}
 \end{aligned}
 \]
+<p>
+Solving these gives:
+</p>
+<ul>
+  <li>\( u_0 = \frac{1}{2} \)</li>
+  <li>\( u_1 = \frac{2}{3} \)</li>
+  <li>\( u_2 = \frac{1}{3} \)</li>
+</ul>
 
-Solving yields:
+<h3>Expected Time Until Absorption</h3>
+<p>
+Define the absorption time:
+</p>
 \[
-u_0 = \frac{1}{2}, \quad u_1 = \frac{2}{3}, \quad u_2 = \frac{1}{3}
+T = \min \{ n \geq 0 \mid X_n \geq r \}
+\]
+<p>
+Let each transient state \( i \) have an associated rate \( g(i) \). Define:
+</p>
+\[
+w_i = \mathbb{E} \left[ \sum_{n=0}^{T-1} g(X_n) \mid X_0 = i \right]
+\]
+<p>
+This satisfies the equation:
+</p>
+\[
+w_i = g(i) + \sum_{j=0}^{r-1} P_{ij} w_j
 \]
 
-\paragraph{Expected Number of Steps Until Absorption}
-
-Let \( T = \min\{n \geq 0 \mid X_n \text{ is absorbing}\} \). The expected value \( v_i = \mathbb{E}[T \mid X_0 = i] \) is found by solving:
+<h4>Special Case 1: Mean Time to Absorption</h4>
+<p>
+If \( g(i) = 1 \) for all \( i \), then:
+</p>
 \[
-v_i = 1 + \sum_{j = 0}^{r - 1} P_{ij} v_j
+v_i = \mathbb{E}[T \mid X_0 = i] = 1 + \sum_{j=0}^{r-1} P_{ij} v_j
 \]
 
-\paragraph{More Generally: Expected Accumulated Reward}
-
-Suppose a reward rate \( g(i) \) is associated with each transient state \( i \), and we define:
+<h4>Special Case 2: Expected Visits to State \( k \)</h4>
+<p>
+If \( g(i) = \delta_{ik} \), then:
+</p>
 \[
-w_i = \mathbb{E} \left[ \sum_{n = 0}^{T - 1} g(X_n) \Big| X_0 = i \right]
+W_{ik} = \mathbb{E}[\text{number of visits to } k \mid X_0 = i] = \delta_{ik} + \sum_{j=0}^{r-1} P_{ij} W_{jk}
 \]
-Then:
-\[
-w_i = g(i) + \sum_{j = 0}^{r - 1} P_{ij} w_j
-\]
-This generalizes both the expected time to absorption (if \( g(i) = 1 \)) and the expected number of visits to state \( k \) before absorption (if \( g(i) = \delta_{ik} \)).
 
 
 
