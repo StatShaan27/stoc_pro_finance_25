@@ -1023,7 +1023,7 @@ The solutions are:
 <p>
 Therefore, if the process starts from state 2, it will take about 2.33 steps, on average, before it gets absorbed into either state 0 or 3.
 </p>
-<h3>General Structure of Absorbing Markov Chains</h3>
+<h3>4.2 General Structure of Absorbing Markov Chains</h3>
 <p>
 Consider a finite-state Markov chain \( \{X_n\} \) with state space labeled \( 0, 1, \ldots, N \).
 Assume states \( 0, 1, \ldots, r-1 \) are <strong>transient</strong>, and states \( r, r+1, \ldots, N \)
@@ -1145,6 +1145,171 @@ If \( g(i) = \delta_{ik} \), then:
 </p>
 \[
 W_{ik} = \mathbb{E}[\text{number of visits to } k \mid X_0 = i] = \delta_{ik} + \sum_{j=0}^{r-1} P_{ij} W_{jk}
+\]
+<h2>5 Some Special Markov Chains</h2>
+
+<p>
+We introduce several particular Markov chains that arise in a variety of applications.
+</p>
+
+<h3>5.1 The Two-State Markov Chain</h3>
+
+<p>
+Let the transition matrix be given by:
+</p>
+
+\[
+P =
+\begin{bmatrix}
+1 - a & a \\
+b & 1 - b
+\end{bmatrix}
+\quad \text{where } 0 &lt; a, b &lt; 1 \tag{3.30}
+\]
+
+<p>
+When \( a = 1 - b \), so that the rows of \( P \) are the same, then the states \( X_1, X_2, \dots \) are 
+independent identically distributed (i.i.d.) random variables with \( \Pr(X_n = 0) = b \) and \( \Pr(X_n = 1) = a \). 
+When \( a \ne 1 - b \), the probability distribution for \( X_n \) depends on the outcome \( X_{n-1} \) at the previous stage.
+</p>
+
+<p>
+For the two-state Markov chain, it can be verified by induction that the <em>n</em>-step transition matrix is given by:
+</p>
+
+\[
+P^n =
+\begin{bmatrix}
+a & b \\
+b & a
+\end{bmatrix}
++ (1 - a - b)^n
+\begin{bmatrix}
+a - a & a \\
+b & b - b
+\end{bmatrix} \tag{3.31}
+\]
+
+<p>
+To verify this formula, introduce the abbreviations:
+</p>
+
+\[
+A = 
+\begin{bmatrix}
+b & a \\
+b & a
+\end{bmatrix}, \quad
+B = 
+\begin{bmatrix}
+a & a \\
+b & b
+\end{bmatrix}
+\]
+
+<p>
+So equation (3.31) becomes:
+</p>
+
+\[
+P^n = (a + b) A + (1 - a - b)^n B
+\]
+
+<p>
+Now check the multiplications:
+</p>
+
+\[
+AP =
+\begin{bmatrix}
+b & a \\
+b & a
+\end{bmatrix}
+\begin{bmatrix}
+1 - a & a \\
+b & 1 - b
+\end{bmatrix}
+=
+\begin{bmatrix}
+b & a \\
+b & a
+\end{bmatrix} = A
+\]
+
+\[
+BP =
+\begin{bmatrix}
+a & a \\
+b & b
+\end{bmatrix}
+\begin{bmatrix}
+1 - a & a \\
+b & 1 - b
+\end{bmatrix}
+=
+(1 - a - b) B
+\]
+
+<p>
+Hence, for \( n = 1 \), we have:
+</p>
+
+\[
+P^1 = A + (1 - a - b)^1 B = P
+\]
+
+<p>
+To complete the induction, assume the formula holds for \( n \). Then:
+</p>
+
+\[
+P^{n+1} = P^n P = [(a + b) A + (1 - a - b)^n B] P = (a + b) A + (1 - a - b)^{n+1} B
+\]
+
+<p>
+This completes the proof by induction. Since \( 0 &lt; a + b &lt; 1 \), we have \( (1 - a - b)^n \to 0 \) as \( n \to \infty \), and:
+</p>
+
+\[
+\lim_{n \to \infty} P^n = 
+\begin{bmatrix}
+\frac{b}{a + b} & \frac{a}{a + b} \\
+\frac{b}{a + b} & \frac{a}{a + b}
+\end{bmatrix} \tag{3.32}
+\]
+
+<p>
+This tells us that in the long run, the system will be in state 0 with probability \( \frac{b}{a + b} \), 
+and in state 1 with probability \( \frac{a}{a + b} \), regardless of the initial state.
+</p>
+
+<h4>Numerical Example</h4>
+
+<p>
+Suppose the items produced by a certain worker are graded as defective or not. Due to trends in raw material quality, 
+whether or not a particular item is defective depends in part on whether or not the previous item was defective.
+Let \( X_n \) denote the quality of the \( n \)th item, with \( X_n = 0 \) meaning "good" and \( X_n = 1 \) meaning "defective."
+</p>
+
+<p>
+Suppose \( X_n \) evolves as a Markov chain whose transition matrix is:
+</p>
+
+\[
+P =
+\begin{bmatrix}
+0.99 & 0.01 \\
+0.12 & 0.88
+\end{bmatrix}
+\]
+
+<p>
+Defective items tend to appear in bunches in the output of such a system. 
+In the long run, the probability that an item is defective is:
+</p>
+
+\[
+\frac{a}{a + b} = \frac{0.01}{0.01 + 0.12} = 0.077
 \]
 
 
