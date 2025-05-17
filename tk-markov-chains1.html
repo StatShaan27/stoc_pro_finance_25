@@ -1179,13 +1179,13 @@ For the two-state Markov chain, it can be verified by induction that the <em>n</
 \[
 P^n = \frac{1}{a + b} \left(
 \begin{bmatrix}
-a & b \\
+b & a \\
 b & a
 \end{bmatrix}
 + (1 - a - b)^n
 \begin{bmatrix}
-0 & a \\
-b & 0
+a & -a \\
+-b & b
 \end{bmatrix}
 \right) \tag{3.31}
 \]
@@ -1202,8 +1202,8 @@ b & a
 \end{bmatrix}, \quad
 B = 
 \begin{bmatrix}
-a & a \\
-b & b
+a & -a \\
+-b & b
 \end{bmatrix}
 \]
 
@@ -1240,8 +1240,8 @@ b & a
 \[
 BP =
 \begin{bmatrix}
-a & a \\
-b & b
+a & -a \\
+-b & b
 \end{bmatrix}
 \begin{bmatrix}
 1 - a & a \\
@@ -1274,14 +1274,10 @@ This confirms the inductive step. Since \( 0 &lt; a + b &lt; 1 \), it follows th
 \[
 \lim_{n \to \infty} P^n = \frac{1}{a + b}
 \begin{bmatrix}
-a & b \\
+b & a \\
 b & a
 \end{bmatrix}
 \]
-
-<p>
-This is the limiting (stationary) distribution matrix. In particular, the long-run probability of being in state 0 is \( \frac{b}{a + b} \), and in state 1 is \( \frac{a}{a + b} \), regardless of the starting state.
-</p>
 
 <h4>Numerical Example</h4>
 
@@ -1425,6 +1421,7 @@ P =
 <p>
 Here, \( \Pr(\xi = k) = a_k \), for \( k \in \mathbb{Z} \), and \( \sum_k a_k = 1 \). The symmetry of the transition matrix reflects the symmetry of the support of \( \xi \).
 </p>
+
 
 
   
