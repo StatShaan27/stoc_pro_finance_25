@@ -1479,6 +1479,114 @@ Appropriate modifications are made for the boundary case \( i = 0 \).
 The term “random walk” is fitting, as a realization of the process resembles the path of a person (suitably intoxicated) moving randomly one step forward or backward.
 </p>
 
+<h4>Example 5: Gambler’s Ruin and Random Walks</h4>
+
+<p>
+The fortune of a player engaged in a sequence of contests can be modeled as a random walk process.
+Suppose a player \( A \), with current fortune \( k \), plays a game against an infinitely rich adversary. Let \( p_k \) be the probability of winning one unit and \( q_k = 1 - p_k \) the probability of losing one unit in the next contest. The process \( X_n \), representing the fortune after \( n \) games, is a Markov chain.
+</p>
+
+<p>
+Once state 0 is reached (i.e., player \( A \) is wiped out), the process stays at 0. This event is known as <strong>gambler’s ruin</strong>.
+</p>
+
+<p>
+Now suppose both players \( A \) and \( B \) have finite fortunes summing to \( N \), and player \( A \) starts with fortune \( k \). The state space is \( \{0, 1, 2, \dots, N\} \), where \( X_n \) is player \( A \)'s fortune at time \( n \), and \( N - X_n \) is player \( B \)'s.
+</p>
+
+<p>
+If we allow the possibility of a draw, the transition matrix becomes:
+</p>
+
+\[
+P =
+\begin{array}{c|cccccc}
+ & 0 & 1 & 2 & \cdots & N-1 & N \\
+\hline
+0 & 1 & 0 & 0 & \cdots & 0 & 0 \\
+1 & q_1 & r_1 & p_1 & \cdots & 0 & 0 \\
+2 & 0 & q_2 & r_2 & p_2 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+N-1 & 0 & 0 & \cdots & q_{N-1} & r_{N-1} & p_{N-1} \\
+N & 0 & 0 & 0 & \cdots & 0 & 1 \\
+\end{array}
+\tag{3.39}
+\]
+
+<p>
+When player \( A \)'s fortune hits 0 (ruin) or \( N \) (opponent's ruin), the process stays in that state forever.
+</p>
+
+<p>
+In the special case where the contest probabilities are identical at every stage, i.e., \( p_k = p \), \( q_k = q = 1 - p \), and \( r_k = 0 \), the transition matrix simplifies to:
+</p>
+
+\[
+P =
+\begin{array}{c|cccccc}
+ & 0 & 1 & 2 & \cdots & N-1 & N \\
+\hline
+0 & 1 & 0 & 0 & \cdots & 0 & 0 \\
+1 & q & 0 & p & \cdots & 0 & 0 \\
+2 & 0 & q & 0 & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+N-1 & 0 & 0 & \cdots & 0 & q & p \\
+N & 0 & 0 & 0 & \cdots & 0 & 1 \\
+\end{array}
+\tag{3.40}
+\]
+
+<p>
+Let \( u_i \) denote the probability that player \( A \) is ruined (i.e., reaches state 0 before \( N \)) starting from initial fortune \( i \). Then:
+</p>
+
+\[
+u_i = p u_{i+1} + q u_{i-1}, \quad \text{for } i = 1, 2, \dots, N-1
+\tag{3.41}
+\]
+
+<p>
+with boundary conditions:
+</p>
+
+\[
+u_0 = 1, \quad u_N = 0
+\]
+
+<p>
+Solving this recursion gives:
+</p>
+
+\[
+u_i =
+\begin{cases}
+\frac{N - i}{N} & \text{if } p = q = \frac{1}{2} \\
+\frac{(q/p)^i - 1}{(q/p)^N - 1} & \text{if } p \neq q
+\end{cases}
+\tag{3.42}
+\]
+
+<p>
+These probabilities reflect the chances of gambler’s ruin based on initial fortune \( i \) and the fairness of the game. In a fair game, \( p = q \), the probability of ruin is \( u_i = 1 - \frac{i}{N} \). In a favorable game for player \( A \) (\( p > q \)), the ruin probability decreases exponentially with \( i \).
+</p>
+
+<p>
+If player \( B \) is infinitely rich (i.e., \( N \to \infty \)), then:
+</p>
+
+\[
+u_i =
+\begin{cases}
+1 & \text{if } p \leq q \\
+\left( \frac{q}{p} \right)^i & \text{if } p > q
+\end{cases}
+\]
+
+<p>
+Hence, ruin is certain for player \( A \) if the game is fair or unfavorable. Only in a favorable game does player \( A \) have a chance to avoid ruin, and that chance increases with their initial fortune.
+</p>
+
+
 
 
 
