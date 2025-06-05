@@ -1561,7 +1561,7 @@ Solving this recursion gives:
 u_i =
 \begin{cases}
 \frac{N - i}{N} & \text{if } p = q = \frac{1}{2} \\
-\frac{(q/p)^i - 1}{(q/p)^N - 1} & \text{if } p \neq q
+\frac{(q/p)^i - (q/p)^N}{1-(q/p)^N} & \text{if } p \neq q
 \end{cases}
 \tag{3.42}
 \]
@@ -1585,6 +1585,54 @@ u_i =
 <p>
 Hence, ruin is certain for player \( A \) if the game is fair or unfavorable. Only in a favorable game does player \( A \) have a chance to avoid ruin, and that chance increases with their initial fortune.
 </p>
+<h4>Example 6: Success Runs</h4>
+
+<p>
+Consider a Markov chain on the non-negative integers with the following transition probability matrix:
+</p>
+
+\[
+P =
+\begin{array}{c|ccccc}
+ & 0 & 1 & 2 & 3 & \cdots \\
+\hline
+0 & p_0 & q_0 & 0 & 0 & \cdots \\
+1 & p_1 & r_1 & q_1 & 0 & \cdots \\
+2 & p_2 & 0 & r_2 & q_2 & \cdots \\
+3 & p_3 & 0 & 0 & r_3 & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots \\
+\end{array}
+\tag{3.44}
+\]
+
+<p>
+Here, \( p_i > 0 \), \( q_i > 0 \), and \( p_i + q_i + r_i = 1 \) for \( i = 0, 1, 2, \dots \). The state 0 is special: it can be reached from any state in one transition, while state \( i+1 \) can only be reached from state \( i \).
+</p>
+
+<p>
+This structure frequently appears in applications and is especially useful for illustrating concepts due to its computational simplicity.
+</p>
+
+<p>
+A notable application arises in the context of <strong>success runs</strong> in repeated trials where each trial results in either a success (\( S \)) or failure (\( F \)). Suppose each trial has probability \( \theta \) of success and \( 1 - \theta \) of failure. A success run of length \( r \) is said to occur at trial \( n \) if the outcomes in the previous \( r - 1 \) trials followed by the current one were \( FSS\ldots S \), with \( r \) successive successes preceded by a failure.
+</p>
+
+<p>
+We define the current state of the process to be the length of the ongoing success run. If the latest trial results in a failure, the state resets to 0. If there are \( r \) consecutive successes preceded by a failure, the state is \( r \). Because the trials are independent, the resulting process is Markovian.
+</p>
+
+<p>
+In this case, the transition probabilities take the special form:
+</p>
+
+\[
+p_n = \theta, \quad q_n = 1 - \theta, \quad r_n = 0, \quad \text{for } n \geq 0
+\]
+
+<p>
+Thus, the transition matrix simplifies to a form that directly reflects transitions based on success/failure outcomes in independent trials, modeling success run lengths efficiently.
+</p>
+
 
 
 
