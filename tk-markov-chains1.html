@@ -1632,7 +1632,43 @@ p_n = \theta, \quad q_n = 1 - \theta, \quad r_n = 0, \quad \text{for } n \geq 0
 <p>
 Thus, the transition matrix simplifies to a form that directly reflects transitions based on success/failure outcomes in independent trials, modeling success run lengths efficiently.
 </p>
+<h4>Example 7: Age Process in a Renewal System</h4>
 
+<p>
+A second example of a success run Markov process arises from the <strong>current age in a renewal process</strong>. Consider a lightbulb whose lifetime, measured in discrete time units, is a random variable \( \tau \) with
+\[
+\Pr(\tau = k) = a_k > 0 \quad \text{for } k = 1, 2, \dots, \quad \sum_{k=1}^{\infty} a_k = 1.
+\]
+</p>
+
+<p>
+Each time a bulb burns out, it is replaced immediately by a new one. Suppose the lifetimes of bulbs are independent and identically distributed as \( \tau \). Let \( X_n \) denote the <em>age</em> of the bulb in service at time \( n \), with \( X_n = 0 \) at failure epochs by convention.
+</p>
+
+<p>
+The process \( \{X_n\} \) forms a Markov chain with transition structure similar to that of a success run. The transition probabilities are given by:
+</p>
+
+\[
+p_k = \frac{a_{k+1}}{a_{k+1} + a_{k+2}}, \quad q_k = 1 - p_k, \quad r_k = 0 \quad \text{for } k \geq 0
+\tag{3.45}
+\]
+
+<p>
+This is interpreted as follows: given the age of the current bulb is \( k \), the conditional probability that it fails in the next time period (i.e., age resets to 0) is
+\[
+\Pr(\text{Failure at } k+1 \mid \text{Survived } k) = \frac{a_{k+1}}{a_{k+1} + a_{k+2}} = p_k,
+\]
+while the probability that it survives to age \( k+1 \) is \( q_k = 1 - p_k \).
+</p>
+
+<p>
+Thus, the age process reverts to 0 upon failure and increments by 1 with probability \( q_k \) otherwise, modeling the lifetime evolution of the item under successive renewals.
+</p>
+<figure style="text-align: center;">
+    <img src="renewal ch2.png" alt="Renewal" width="500">
+    <figcaption>  The current age Xn in a renewal process. Here, 1 3 2 2, and 3 3</figcaption>
+  </figure>
 
 
 
