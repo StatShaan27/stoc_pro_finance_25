@@ -1422,6 +1422,64 @@ P =
 Here, \( \Pr(\xi = k) = a_k \), for \( k \in \mathbb{Z} \), and \( \sum_k a_k = 1 \). The symmetry of the transition matrix reflects the symmetry of the support of \( \xi \).
 </p>
 
+<h4>Example 4: One-Dimensional Random Walks</h4>
+
+<p>
+When discussing random walks, it is helpful to think of the system's state as the position of a moving "particle."
+A one-dimensional random walk is a Markov chain with a state space that is a finite or infinite subset of the integers. If the particle is in state \( i \), it can, in a single transition, either stay in \( i \) or move to one of the neighboring states \( i + 1 \) or \( i - 1 \).
+</p>
+
+<p>
+If the state space is taken as the non-negative integers, the transition matrix has the form:
+</p>
+
+\[
+P =
+\begin{array}{c|cccccc}
+ & 0 & 1 & 2 & \cdots & i-1 & i+1 \\
+\hline
+0 & r_0 & p_0 & 0 & \cdots & 0 & 0 \\
+1 & q_1 & r_1 & p_1 & \cdots & 0 & 0 \\
+2 & 0 & q_2 & r_2 & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+i & 0 & 0 & 0 & \cdots & q_i & r_i & p_i \\
+\end{array}
+\]
+
+<p>
+Here, \( p_i > 0 \), \( q_i > 0 \), \( r_i \geq 0 \), and for \( i \geq 1 \), we have:
+</p>
+
+\[
+q_i + r_i + p_i = 1
+\]
+
+<p>
+At the boundary state \( i = 0 \), assume:
+</p>
+
+\[
+p_0 > 0, \quad r_0 \geq 0, \quad q_0 = 0, \quad \text{and} \quad r_0 + p_0 = 1
+\]
+
+<p>
+Specifically, if \( X_n = i \), then for \( i \geq 1 \):
+</p>
+
+\[
+\begin{aligned}
+\Pr(X_{n+1} = i + 1 \mid X_n = i) &= p_i \\
+\Pr(X_{n+1} = i - 1 \mid X_n = i) &= q_i \\
+\Pr(X_{n+1} = i \mid X_n = i) &= r_i
+\end{aligned}
+\]
+
+<p>
+Appropriate modifications are made for the boundary case \( i = 0 \).
+The term “random walk” is fitting, as a realization of the process resembles the path of a person (suitably intoxicated) moving randomly one step forward or backward.
+</p>
+
+
 
 
   
@@ -1450,7 +1508,7 @@ Here, \( \Pr(\xi = k) = a_k \), for \( k \in \mathbb{Z} \), and \( \sum_k a_k = 
 
 
 
-<p><strong>Last updated:</strong> May 15, 2025</p>
+<p><strong>Last updated:</strong> June 5, 2025</p>
 </section>
 
 <div class="nav-bottom">
