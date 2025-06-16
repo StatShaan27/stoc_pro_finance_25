@@ -587,6 +587,61 @@
 
   <p>But this contradicts the previous comparison where \( \frac{1}{11}(\$5m) + \frac{1}{11}(\$0) \prec \frac{2}{11}(\$1m) \). Thus, choosing \( P_1 \succ P_2 \) and \( P_3 \succ P_4 \) violates the Substitution Axiom.</p>
 
+  <h2>Risk Aversion and Concavity of Utility</h2>
+
+  <p>An individual is <strong>risk averse</strong> if they are unwilling or indifferent to accepting an <em>actuarially fair gamble</em>. They are <strong>strictly risk averse</strong> if they <em>never</em> accept any such gamble.</p>
+
+  <p>Consider a gamble where an individual with initial wealth \( W_0 \) receives:</p>
+  <ul>
+    <li>A positive return \( h_1 \) with probability \( p \),</li>
+    <li>A negative return \( h_2 \) with probability \( 1 - p \).</li>
+  </ul>
+
+  <p>The gamble is <strong>actuarially fair</strong> if the expected monetary payoff is zero:</p>
+
+  <p>
+    \[
+    p h_1 + (1 - p) h_2 = 0
+    \]
+  </p>
+
+  <p>Let \( u(\cdot) \) be the utility function. Then risk aversion implies:</p>
+
+  <p>
+    \[
+    u(W_0) \geq p \cdot u(W_0 + h_1) + (1 - p) \cdot u(W_0 + h_2)
+    \]
+  </p>
+
+  <p>Using the fair gamble condition, this can be rewritten as:</p>
+
+  <p>
+    \[
+    u\left(p(W_0 + h_1) + (1 - p)(W_0 + h_2)\right) \geq p \cdot u(W_0 + h_1) + (1 - p) \cdot u(W_0 + h_2)
+    \]
+  </p>
+
+  <p>This inequality shows that the utility of the expected payoff is greater than or equal to the expected utility of the gamble. This is precisely the definition of a <strong>concave function</strong>. Thus:</p>
+
+  <ul>
+    <li>Risk aversion ⇔ \( u(\cdot) \) is concave.</li>
+    <li>Strict risk aversion ⇔ \( u(\cdot) \) is strictly concave.</li>
+  </ul>
+  <section>
+  <div style="text-align: center;">
+    <img src="hl117.png" alt="Concave Utility Function Illustration" style="max-width: 100%; height: auto; box-shadow:
+
+
+  <p><strong>The above figure </strong> (conceptually) shows:</p>
+
+  <p>
+    \[
+    u(W_0) > p \cdot u(W_0 + h_1) + (1 - p) \cdot u(W_0 + h_2)
+    \]
+  </p>
+
+  <p>The expected utility lies below the chord joining \( u(W_0 + h_1) \) and \( u(W_0 + h_2) \) — a hallmark of strict concavity. This visual demonstrates that the individual prefers the sure amount over the fair gamble, thus confirming strict risk aversion.</p>
+
 
  
 
