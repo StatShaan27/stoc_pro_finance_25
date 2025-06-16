@@ -276,7 +276,76 @@
     When \( p, q, r \) are sure outcomes (e.g., \( p(z) = 1 \), etc.), this axiom implies that mixtures of more or less preferred outcomes can be ordered around a certain middle-ground certainty, reinforcing the consistency of probabilistic preferences.
   </p>
 
-  
+  <h2>Properties of Preference Relations Under the Three Axioms</h2>
+
+  <p>
+    If a binary relation \( \succeq \) on the set of probability distributions \( \mathcal{P} \) satisfies the three axioms (Preference, Independence, and Archimedean), then several intuitive properties follow. Let \( P_x \) denote the degenerate distribution at \( x \in Z \), i.e.,
+    \[
+    P_x(x') =
+    \begin{cases}
+      1 & \text{if } x' = x, \\
+      0 & \text{otherwise}.
+    \end{cases}
+    \]
+    This represents a sure consumption plan with \( x \) units in every state.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Monotonicity of Mixing:</strong><br>
+      If \( p \succ q \) and \( 0 \leq a < b \leq 1 \), then
+      \[
+      bp + (1 - b)q \succ ap + (1 - a)q.
+      \]
+    </li>
+
+    <li>
+      <strong>Existence of Unique Indifference Point:</strong><br>
+      If \( p \succeq q \succeq r \), then there exists a unique \( \alpha^* \in [0,1] \) such that
+      \[
+      q \sim \alpha^* p + (1 - \alpha^*) r.
+      \]
+    </li>
+
+    <li>
+      <strong>Mixing with Intermediate Preferences:</strong><br>
+      If \( p \succ q \succ r \) and \( \alpha \in [0,1] \), then
+      \[
+      \alpha q + (1 - \alpha) r \prec \alpha p + (1 - \alpha) r.
+      \]
+    </li>
+
+    <li>
+      <strong>Mixing with Indifference:</strong><br>
+      If \( p \sim q \) and \( \alpha \in [0,1] \), then
+      \[
+      p \sim \alpha p + (1 - \alpha) q.
+      \]
+    </li>
+
+    <li>
+      <strong>Preservation of Indifference Under Mixing:</strong><br>
+      If \( p \sim q \), then for all \( r \in \mathcal{P} \) and \( \alpha \in [0,1] \),
+      \[
+      \alpha p + (1 - \alpha) r \sim \alpha q + (1 - \alpha) r.
+      \]
+    </li>
+
+    <li>
+      <strong>Existence of Bounds:</strong><br>
+      There exist \( x_{\min}, x_{\max} \in Z \) such that for all \( p \in \mathcal{P} \),
+      \[
+      P_{x_{\max}} \succeq p \succeq P_{x_{\min}}.
+      \]
+      That is, the best and worst sure consumption plans serve as upper and lower bounds, respectively, under the preference relation.
+    </li>
+  </ul>
+
+  <p>
+    These properties follow naturally when preferences are well-behaved in the sense of the expected utility framework. Readers are encouraged to prove these as Exercise 1.3.
+  </p>
+
+
 
 
 
