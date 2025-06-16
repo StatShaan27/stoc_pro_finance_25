@@ -493,7 +493,65 @@
   </p>
   <p>So long as each \( u_t \) is concave and consumption at each time has finite expectation, expected utility remains finite.</p>
 
-  
+  <h2>The Allais Paradox and the Substitution Axiom</h2>
+
+  <p>The <strong>Substitution Axiom</strong> (also known as the <em>Independence Axiom</em>) is a key part of the expected utility theory, but empirical experiments show that it is frequently violated. A famous example of this is the <strong>Allais Paradox</strong>, which demonstrates how actual human preferences can contradict the axiom.</p>
+
+  <p>Consider the following two pairs of lotteries:</p>
+
+  <ul>
+    <li><strong>Pair 1:</strong>
+      <ul>
+        <li>\( P_1 \): \$1 million for sure.</li>
+        <li>\( P_2 \): \$5 million with probability 0.1, \$1 million with probability 0.89, \$0 with probability 0.01.</li>
+      </ul>
+    </li>
+    <li><strong>Pair 2:</strong>
+      <ul>
+        <li>\( P_3 \): \$0 with probability 0.11, \$5 million with probability 0.89.</li>
+        <li>\( P_4 \): \$0 with probability 0.11, \$1 million with probability 0.89.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Most people prefer \( P_1 \) over \( P_2 \), valuing the certainty of receiving \$1 million. However, when faced with \( P_3 \) and \( P_4 \), they prefer \( P_3 \), chasing the higher reward despite the same small risk of ending up with nothing.</p>
+
+  <h4>Violation of the Substitution Axiom</h4>
+
+  <p>This behavior contradicts the Substitution Axiom, which states that if you prefer one lottery over another, you should still prefer it when both are mixed with a third lottery in the same proportions. Let's write this formally:</p>
+
+  <p>Assume:</p>
+  <ul>
+    <li>\( P_1 = \delta_1 \): certain \$1 million.</li>
+    <li>\( P_2 = 0.11 \cdot \$0 + 0.89 \cdot \$1m + 0.01 \cdot \$5m \)</li>
+    <li>\( P_3 = 0.11 \cdot \$0 + 0.89 \cdot \$5m \)</li>
+    <li>\( P_4 = 0.11 \cdot \$0 + 0.89 \cdot \$1m \)</li>
+  </ul>
+
+  <p>Now, suppose we mix \$0 and \$5m with equal probability:</p>
+
+  <p>
+    \[
+    \frac{1}{2}(\$0) + \frac{1}{2}(\$5m)
+    \]
+  </p>
+
+  <p>Then, consider the mixed lotteries:</p>
+
+  <p>
+    \[
+    \frac{1}{11}(\$0) + \frac{1}{11}(\$5m) + \frac{9}{11}(\$1m)
+    \quad \text{vs.} \quad
+    \frac{1}{11}(\$1m) + \frac{10}{11}(\$1m)
+    \]
+  </p>
+
+  <p>If people choose \( P_1 \succ P_2 \), then by Substitution Axiom they must also prefer \( P_4 \succ P_3 \), which contradicts actual observed behavior (\( P_3 \succ P_4 \)).</p>
+
+  <p>This contradiction is what forms the core of the Allais Paradox. It shows that the assumption of linear preferences under probabilistic mixing (as required by the Substitution Axiom) may not reflect actual human behavior in decision-making under risk.</p>
+
+
+ 
 
 
 
