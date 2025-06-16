@@ -885,6 +885,106 @@
     This tells us that for DARA behavior, the utility function is strictly increasing, concave, and its rate of concavity decreases—i.e., the individual becomes less risk averse as wealth grows.
   </p>
 
+<h2>Common Utility Functions and Risk Aversion Behavior</h2>
+
+  <p>
+    In finance, several standard utility functions are used to model risk aversion and its impact on investment decisions. These functions help determine whether the risky asset behaves like a normal or inferior good, and how investment demand changes with wealth.
+  </p>
+
+  <h4>1. Quadratic Utility Function</h4>
+
+  <p>
+    \[
+    u(z) = z - bz^2, \quad b > 0
+    \]
+    First and second derivatives:
+    \[
+    u'(z) = 1 - 2bz, \quad u''(z) = -2b
+    \]
+    Absolute risk aversion:
+    \[
+    R_A(z) = \frac{-u''(z)}{u'(z)} = \frac{2b}{1 - 2bz}
+    \]
+    Its derivative:
+    \[
+    \frac{dR_A(z)}{dz} = \frac{4b^2}{(1 - 2bz)^2} > 0
+    \]
+    So, this utility function exhibits <strong>increasing absolute risk aversion</strong> (IARA). As wealth increases, the individual becomes more risk averse. Thus, the risky asset is considered an <strong>inferior good</strong>.
+  </p>
+
+  <h4>2. Negative Exponential Utility Function</h4>
+
+  <p>
+    \[
+    u(z) = -e^{-bz}, \quad b > 0
+    \]
+    Derivatives:
+    \[
+    u'(z) = be^{-bz} > 0, \quad u''(z) = -b^2e^{-bz} < 0
+    \]
+    Absolute risk aversion:
+    \[
+    R_A(z) = \frac{-u''(z)}{u'(z)} = b \quad \text{(constant)}
+    \]
+    So,
+    \[
+    \frac{dR_A(z)}{dz} = 0
+    \]
+    This function shows <strong>constant absolute risk aversion (CARA)</strong>. The amount invested in the risky asset is independent of wealth. Any change in wealth is absorbed via the riskless asset.
+  </p>
+
+  <h4>3. Narrow Power Utility Function</h4>
+
+  <p>
+    \[
+    u(z) = \frac{z^{1 - B}}{1 - B}, \quad B > 0, z > 0
+    \]
+    Derivatives:
+    \[
+    u'(z) = z^{-B}, \quad u''(z) = -Bz^{-B - 1}
+    \]
+    Absolute and relative risk aversion:
+    \[
+    R_A(z) = \frac{-u''(z)}{u'(z)} = \frac{B}{z}, \quad R_R(z) = z \cdot R_A(z) = B
+    \]
+    Derivatives:
+    \[
+    \frac{dR_A(z)}{dz} = -\frac{B}{z^2} < 0, \quad \frac{dR_R(z)}{dz} = 0
+    \]
+    So, this function exhibits <strong>decreasing absolute risk aversion (DARA)</strong> and <strong>constant relative risk aversion (CRRA)</strong>. The proportion of wealth allocated to risky assets stays fixed as wealth changes.
+  </p>
+
+  <h4>4. Extended Power Utility Function</h4>
+
+  <p>
+    \[
+    u(z) = \frac{(A + Bz)^{1 - \gamma}}{1 - \gamma}, \quad B > 0,\ \gamma > 0,\ z > \max\left(0, -\frac{A}{B}\right)
+    \]
+    Derivatives:
+    \[
+    u'(z) = B(A + Bz)^{-\gamma}, \quad u''(z) = -\gamma B^2(A + Bz)^{-\gamma - 1}
+    \]
+    Absolute and relative risk aversion:
+    \[
+    R_A(z) = \frac{-u''(z)}{u'(z)} = \frac{\gamma B}{A + Bz}, \quad R_R(z) = z \cdot R_A(z) = \frac{\gamma B z}{A + Bz}
+    \]
+    Derivatives:
+    \[
+    \frac{dR_A(z)}{dz} = -\frac{\gamma B^2}{(A + Bz)^2} < 0
+    \]
+    \[
+    \frac{dR_R(z)}{dz} = \frac{\gamma B A}{(A + Bz)^2}
+    \]
+    Interpretation:
+    <ul>
+      <li>If \( A > 0 \): \( \frac{dR_R(z)}{dz} > 0 \) ⇒ Increasing relative risk aversion (IRRA)</li>
+      <li>If \( A = 0 \): \( \frac{dR_R(z)}{dz} = 0 \) ⇒ Constant relative risk aversion (CRRA)</li>
+      <li>If \( A < 0 \): \( \frac{dR_R(z)}{dz} < 0 \) ⇒ Decreasing relative risk aversion (DRRA)</li>
+    </ul>
+    This utility is flexible—it can exhibit DARA or CRRA depending on parameters and generalizes many common forms. It reduces to the narrow power utility when \( A = 0 \).
+  </p>
+
+
 
 
 
