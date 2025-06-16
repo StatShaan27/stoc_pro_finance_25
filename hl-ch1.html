@@ -345,6 +345,68 @@
     These properties follow naturally when preferences are well-behaved in the sense of the expected utility framework. Readers are encouraged to prove these as Exercise 1.3.
   </p>
 
+  <h2>Proof of Expected Utility Representation</h2>
+
+  <p>
+    We now prove that a binary relation \( \succeq \) on the set of probability distributions \( \mathcal{P} \) has an expected utility representation if and only if it satisfies the three axioms discussed earlier.
+  </p>
+
+  <h3>Case 1: Indifference Between All Distributions</h3>
+  <p>
+    If \( p \sim q \) for all \( p, q \in \mathcal{P} \), then a constant utility function \( u(z) = k \) for all \( z \in Z \) represents the preference relation. This is trivial, as all lotteries are treated equally.
+  </p>
+
+  <h3>Case 2: Nontrivial Preferences</h3>
+  <p>
+    Suppose \( \succeq \) is not trivial. Let \( x^* \in Z \) be the best outcome and \( x_* \in Z \) the worst, such that for all \( p \in \mathcal{P} \), \( P_{x^*} \succeq p \succeq P_{x_*} \). For any \( p \in \mathcal{P} \), define a number \( H(p) \in (0,1) \) such that:
+    \[
+    p \sim H(p) P_{x^*} + (1 - H(p)) P_{x_*}.
+    \]
+    This \( H(p) \) is uniquely defined by Property 2 from the previous section (existence and uniqueness of indifference point). Hence, the function \( H: \mathcal{P} \rightarrow [0,1] \) is well-defined and represents the preference relation: \( H(p) \geq H(q) \iff p \succeq q \).
+  </p>
+
+  <p>
+    However, we want to express \( H(p) \) as an expected value over a function \( u \) defined on \( Z \), i.e., a von Neumann-Morgenstern utility function. To do this, we construct \( u \) directly. From repeated use of the linearity property (Property 5), we know:
+    \[
+    H(ap + (1 - a)q) = a H(p) + (1 - a) H(q), \quad \forall a \in [0,1].
+    \]
+    Thus, \( H \) is a linear function over \( \mathcal{P} \).
+  </p>
+
+  <p>
+    Now define \( u: Z \rightarrow \mathbb{R} \) by
+    \[
+    u(z) = H(P_z), \quad \text{for all } z \in Z.
+    \]
+    This assigns utility to sure outcomes as the value of \( H \) on the degenerate lottery \( P_z \).
+  </p>
+
+  <p>
+    Let \( p \in \mathcal{P} \) be an arbitrary probability distribution. Note that \( p \sim \sum_{z \in Z} p(z) P_z \), i.e., the lottery \( p \) is equivalent to a compound lottery over sure outcomes. Using linearity of \( H \), we get:
+    \[
+    H(p) = H\left(\sum_{z \in Z} p(z) P_z\right) = \sum_{z \in Z} p(z) H(P_z) = \sum_{z \in Z} p(z) u(z).
+    \]
+    Thus, the utility function \( u \) satisfies:
+    \[
+    p \succeq q \iff \sum_{z \in Z} u(z) p(z) \geq \sum_{z \in Z} u(z) q(z),
+    \]
+    proving that \( u \) is a von Neumann-Morgenstern utility function.
+  </p>
+
+  <p>
+    Finally, this function \( u \) is unique up to a strictly positive linear transformation. That is, if \( \tilde{u} \) also represents the same preferences, then there exist constants \( c > 0 \) and \( d \in \mathbb{R} \) such that:
+    \[
+    \tilde{u}(z) = c u(z) + d, \quad \text{for all } z \in Z.
+    \]
+  </p>
+
+  <p>
+    Conversely, if a preference relation can be represented as:
+    \[
+    p \succeq q \iff \sum_{z \in Z} u(z) p(z) \geq \sum_{z \in Z} u(z) q(z),
+    \]
+    then it satisfies the three axioms (Preference, Independence, and Archimedean), completing the proof.
+  </p>
 
 
 
