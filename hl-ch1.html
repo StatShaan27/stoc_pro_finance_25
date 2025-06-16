@@ -627,7 +627,6 @@
     <li>Risk aversion ⇔ \( u(\cdot) \) is concave.</li>
     <li>Strict risk aversion ⇔ \( u(\cdot) \) is strictly concave.</li>
   </ul>
-  <section>
   <div style="text-align: center;">
     <img src="hl117.png" alt="Concave Utility Function Illustration" style="max-width: 100%; height: auto; box-shadow:
 
@@ -641,6 +640,44 @@
   </p>
 
   <p>The expected utility lies below the chord joining \( u(W_0 + h_1) \) and \( u(W_0 + h_2) \) — a hallmark of strict concavity. This visual demonstrates that the individual prefers the sure amount over the fair gamble, thus confirming strict risk aversion.</p>
+
+  <h2> Portfolio Choice of a Risk-Averse Individual</h2>
+
+  <p>
+    Consider a risk-averse individual with a strictly increasing utility function, facing a portfolio choice problem. Suppose they invest \(\alpha_j\) dollars in the \(j\)-th risky asset and the remaining wealth \(W_0 - \sum_j \alpha_j\) in a risk-free asset. The end-of-period wealth \(W\) is:
+  </p>
+
+  \[
+  W = W_0(1 + r_f) + \sum_j \alpha_j (r_j - r_f)
+  \]
+
+  <p>where:</p>
+  <ul>
+    <li>\(W_0\): initial wealth</li>
+    <li>\(r_f\): risk-free interest rate</li>
+    <li>\(r_j\): random return on the \(j\)-th risky asset</li>
+    <li>\(\alpha_j\): amount invested in the \(j\)-th risky asset</li>
+  </ul>
+
+  <p>
+    The individual's objective is to choose portfolio weights \(\{\alpha_j\}\) to maximize expected utility:
+  </p>
+
+  \[
+  \max_{\{\alpha_j\}} \mathbb{E}\left[u\left(W_0(1 + r_f) + \sum_j \alpha_j (r_j - r_f)\right)\right]
+  \]
+
+  <p>
+    Assuming the utility function \(u\) is concave, the first-order conditions for an optimal solution (which are also sufficient) are:
+  </p>
+
+  \[
+  \mathbb{E}[u'(W)(r_j - r_f)] = 0 \quad \forall j
+  \]
+
+  <p>
+    These conditions imply that the probability distribution of excess returns \((r_j - r_f)\) must have both positive and negative support, i.e., the probability that \(r_j - r_f > 0\) lies in \((0, 1)\).
+  </p>
 
 
  
