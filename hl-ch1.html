@@ -697,6 +697,55 @@
     This framework is fundamental in modern portfolio theory, leading directly to concepts like the Capital Asset Pricing Model (CAPM) under additional assumptions.
   </p>
 
+  <h2>Risk Aversion and Risky Investment</h2>
+
+  <p>
+    An individual who is risk averse and strictly prefers more to less (i.e., has a strictly increasing and concave utility function) will invest in risky assets if and only if at least one of those assets has a strictly positive risk premium.
+  </p>
+
+  <p>
+    Let the risk-free rate be denoted by \( r_f \), and let the random return of the \( j \)-th risky asset be \( r_j \). The individual's optimal allocation \( \alpha_j \) in the \( j \)-th risky asset satisfies the first-order condition:
+  </p>
+
+  \[
+  \mathbb{E}[u'(W)(r_j - r_f)] = 0 \quad \forall j
+  \]
+
+  <p>
+    Suppose the individual does not invest in any risky asset, i.e., \( \alpha_j = 0 \ \forall j \). Then their end-of-period wealth is risk-free: \( W = W_0(1 + r_f) \). Because \( u' > 0 \), the first-order condition at \( \alpha_j = 0 \) implies:
+  </p>
+
+  \[
+  \mathbb{E}[r_j - r_f] \leq 0 \quad \forall j
+  \]
+
+  <p>
+    That is, unless every risky asset has non-positive expected excess return, the individual has an incentive to take some positive risky position. Hence, the individual will avoid all risky investments only if:
+  </p>
+
+  \[
+  \mathbb{E}[r_j - r_f] \leq 0 \quad \forall j
+  \]
+
+  <p>
+    On the other hand, if there exists at least one risky asset \( j' \) such that:
+  </p>
+
+  \[
+  \mathbb{E}[r_{j'} - r_f] > 0
+  \]
+
+  <p>
+    then there exists at least one risky asset \( j \) such that the individual will optimally allocate a positive amount to it:
+  </p>
+
+  \[
+  \exists j \text{ such that } \alpha_j > 0
+  \]
+
+  <p>
+    Importantly, when multiple risky assets are available, the asset with the highest risk premium is not necessarily the one receiving a positive investment, due to diversification effects. However, when there is only one risky asset, this simplifies: a strictly positive risk premium directly implies a positive investment in that asset.
+  </p>
 
  
 
