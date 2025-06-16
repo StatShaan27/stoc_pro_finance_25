@@ -443,6 +443,57 @@
 
   <p>This assumption simplifies analysis but is strong. It implies that consumption at one time doesn't affect preferences for consumption at another time—for example, having a large lunch doesn't affect desire for a big dinner. Hence, conclusions drawn under this assumption should be interpreted carefully.</p>
 
+  <h2>Boundedness of von Neumann–Morgenstern Utility Functions</h2>
+  <p>One implication of the expected utility theory is that a von Neumann–Morgenstern utility function must be bounded when probability distributions involve unbounded consumption levels. This follows from the <em>Archimedean Axiom</em>.</p>
+
+  <p>To see this, suppose the utility function \( u \) is unbounded from above and that the set \( Z \) contains all positive consumption levels. Then there exists a sequence \( \{z_n\}_{n=1}^{\infty} \) such that \( z_n \to \infty \) and \( u(z_n) \geq 2^n \). Now consider a probability distribution \( p \) such that \( p(z_n) = 2^{-n} \) for each \( n \). This plan has unbounded consumption levels.</p>
+
+  <p>The expected utility is then</p>
+  <p>
+    \[
+    \sum_{n=1}^\infty u(z_n) \cdot p(z_n) \geq \sum_{n=1}^\infty 2^n \cdot 2^{-n} = \sum_{n=1}^\infty 1 = \infty
+    \]
+  </p>
+
+  <p>Suppose there exist \( q, r \in \mathcal{P} \) such that \( p \succsim q \succsim r \). Then \( u(q) \) and \( u(r) \) must be finite. This violates the Archimedean Axiom, which requires that there exists a probability mix between \( p \) and \( r \) that is indifferent to \( q \). Hence, \( u \) must be bounded.</p>
+
+  <h4>Handling Unbounded Utility in Applications</h4>
+  <p>This boundedness is unsettling because many commonly used utility functions are unbounded. Examples include:</p>
+  <ul>
+    <li>Logarithmic utility: \( u(z) = \log z \)</li>
+    <li>Power utility: \( u(z) = z^{1 - \beta} \)</li>
+  </ul>
+  <p>Both are unbounded on \( (0, \infty) \) depending on \( \beta \). To resolve this:</p>
+  <ul>
+    <li>Restrict attention to consumption plans over <em>finite sets</em> of consumption levels—common in finite state models.</li>
+    <li>Use <em>concave</em> utility functions with consumption plans having <em>finite expectations</em>.</li>
+  </ul>
+
+  <p>If \( u \) is concave and differentiable at some point \( b > 0 \), then by concavity:</p>
+  <p>
+    \[
+    u(z) \leq u(b) + u'(b)(z - b), \quad \forall z
+    \]
+  </p>
+
+  <p>Taking expectation on both sides, if \( z \) is a random variable with finite expectation:</p>
+  <p>
+    \[
+    \mathbb{E}[u(z)] \leq u(b) + u'(b)(\mathbb{E}[z] - b) < \infty
+    \]
+  </p>
+
+  <p>This means expected utility remains finite even if \( u \) is unbounded, provided \( u \) is concave and the random consumption has finite expectation.</p>
+
+  <p>This result extends naturally to time-additive utility functions:</p>
+  <p>
+    \[
+    u(z_0, \dots, z_T) = \sum_{t=0}^{T} u_t(z_t)
+    \]
+  </p>
+  <p>So long as each \( u_t \) is concave and consumption at each time has finite expectation, expected utility remains finite.</p>
+
+  
 
 
 
