@@ -171,6 +171,36 @@
     These derived relations help classify how individuals compare consumption plans under uncertainty.
   </p>
   
+  <h2>Utility Representation for Finite Preferences</h2>
+  <p>
+    When the set \( X \) of consumption plans is finite, any preference relation \( \succeq \) can be represented by a utility function \( U \), such that
+    \[
+    z_n \succeq z_m \quad \text{if and only if} \quad U(z_n) \geq U(z_m).
+    \]
+  </p>
+  <p>
+    The construction of such a utility function is illustrated through an example. Let \( z_1, z_2, z_3 \in X \). Start by assigning a base value to one plan, say:
+    \[
+    H(z_3) = b.
+    \]
+  </p>
+  <p>
+    Then compare \( z_2 \) and \( z_1 \) with \( z_3 \), and define \( H(z_2) \) and \( H(z_1) \) accordingly:
+  </p>
+  <ul>
+    <li>If \( z_2 \succ z_3 \), assign \( H(z_2) = b + 1 \)</li>
+    <li>If \( z_2 \sim z_3 \), assign \( H(z_2) = b \)</li>
+    <li>If \( z_2 \prec z_3 \), assign \( H(z_2) = b - 1 \)</li>
+  </ul>
+  <p>
+    Similarly, assign values to \( H(z_1) \) based on its comparison with the others. This procedure ensures that:
+    \[
+    H(z_n) \geq H(z_m) \quad \text{if and only if} \quad z_n \succeq z_m.
+    \]
+  </p>
+  <p>
+    The example shows how a numerical index can capture preference rankings. This construction can be extended to any countable set \( X \), ensuring utility representation for complete and transitive preferences.
+  </p>
 
 
 
