@@ -642,26 +642,35 @@
 
   <p>The expected utility lies below the chord joining \( u(W_0 + h_1) \) and \( u(W_0 + h_2) \) — a hallmark of strict concavity. This visual demonstrates that the individual prefers the sure amount over the fair gamble, thus confirming strict risk aversion.</p>
 
-  <h2> Portfolio Choice of a Risk-Averse Individual</h2>
+ 
+  <h2>1.18 Portfolio Choice of a Risk-Averse Individual</h2>
 
   <p>
-    Consider a risk-averse individual with a strictly increasing utility function, facing a portfolio choice problem. Suppose they invest \(\alpha_j\) dollars in the \(j\)-th risky asset and the remaining wealth \(W_0 - \sum_j \alpha_j\) in a risk-free asset. The end-of-period wealth \(W\) is:
+    Consider a risk-averse individual who has strictly increasing and concave utility over final wealth. They must allocate an initial wealth \( W_0 \) between a risk-free asset and a set of risky assets.
+  </p>
+
+  <p>
+    Let \( r_f \) denote the return on the risk-free asset, and let \( r_j \) be the (random) return on the \( j \)-th risky asset. Let \( \alpha_j \) denote the dollar amount invested in risky asset \( j \). The remaining wealth \( W_0 - \sum_j \alpha_j \) is invested in the risk-free asset.
+  </p>
+
+  <p>
+    The total wealth at the end of the period, \( W \), is then given by:
+  </p>
+
+  \[
+  W = (W_0 - \sum_j \alpha_j)(1 + r_f) + \sum_j \alpha_j (1 + r_j)
+  \]
+
+  <p>
+    Expanding and simplifying:
   </p>
 
   \[
   W = W_0(1 + r_f) + \sum_j \alpha_j (r_j - r_f)
   \]
 
-  <p>where:</p>
-  <ul>
-    <li>\(W_0\): initial wealth</li>
-    <li>\(r_f\): risk-free interest rate</li>
-    <li>\(r_j\): random return on the \(j\)-th risky asset</li>
-    <li>\(\alpha_j\): amount invested in the \(j\)-th risky asset</li>
-  </ul>
-
   <p>
-    The individual's objective is to choose portfolio weights \(\{\alpha_j\}\) to maximize expected utility:
+    The individual's objective is to choose the allocation \( \{\alpha_j\} \) to maximize expected utility of wealth:
   </p>
 
   \[
@@ -669,15 +678,23 @@
   \]
 
   <p>
-    Assuming the utility function \(u\) is concave, the first-order conditions for an optimal solution (which are also sufficient) are:
+    Since \( u \) is concave and differentiable, we can derive first-order conditions for optimality by differentiating the objective with respect to each \( \alpha_j \) and setting the derivative equal to zero:
   </p>
 
   \[
-  \mathbb{E}[u'(W)(r_j - r_f)] = 0 \quad \forall j
+  \frac{\partial}{\partial \alpha_j} \mathbb{E}[u(W)] = \mathbb{E}\left[u'(W)(r_j - r_f)\right] = 0 \quad \forall j
   \]
 
   <p>
-    These conditions imply that the probability distribution of excess returns \((r_j - r_f)\) must have both positive and negative support, i.e., the probability that \(r_j - r_f > 0\) lies in \((0, 1)\).
+    These first-order conditions are necessary and sufficient due to concavity of \( u \). They imply that the marginal utility-weighted return in excess of the risk-free rate must be zero in expectation.
+  </p>
+
+  <p>
+    Finally, because \( u \) is strictly increasing, \( u'(W) > 0 \), so the expected excess returns \( r_j - r_f \) must take both positive and negative values. That is, the distribution of risky returns must be non-degenerate.
+  </p>
+
+  <p>
+    This framework is fundamental in modern portfolio theory, leading directly to concepts like the Capital Asset Pricing Model (CAPM) under additional assumptions.
   </p>
 
 
