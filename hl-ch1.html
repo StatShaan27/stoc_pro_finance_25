@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stochastic Processes & Finance – Summer Reading Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #e0e0e0;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    section {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-bottom a {
+      flex: 1;
+      text-align: center;
+      padding: 0.5em 1em;
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin: 2em 0;
+    }
+    .hint-text {
+      display: none;
+      margin-top: 0.5em;
+      background: #f0f0f0;
+      padding: 0.5em;
+      border-left: 4px solid #0077cc;
+      border-radius: 4px;
+    }
+
+    .hint-button {
+      margin-top: 1em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.4em 0.8em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .hint-button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Chapter 1: Preferences Representation and Risk Aversion</h1>
+  <p>Study notes and chapter summaries</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="topics.html">Topics</a>
+  <a href="notes.html">Notes</a>
+  <a href="projects.html">Programming</a>
+</nav>
+<section>
+  <h2>Expected Utility and Individual Decisions</h2>
+  <p>
+    This chapter introduces the central theme of the book: how individuals make consumption and investment decisions under uncertainty, and how these decisions influence the valuation of financial assets.
+  </p>
+  <p>
+    A widely accepted framework for modeling asset choice under uncertainty is the <strong>expected utility hypothesis</strong>. Under this hypothesis, each individual:
+  </p>
+  <ul>
+    <li>Forms subjective probabilities of future asset payoffs</li>
+    <li>Assigns a utility value to each possible consumption outcome</li>
+    <li>Chooses a consumption-investment policy to maximize expected utility</li>
+  </ul>
+  <p>
+    Mathematically, preferences are represented by a utility function \( u(\cdot) \), and a random consumption outcome \( x \) is preferred to another outcome \( y \) if and only if:
+  </p>
+  <p>
+    \[
+      \mathbb{E}[u(x)] \geq \mathbb{E}[u(y)]
+    \]
+  </p>
+  <p>
+    where the expectation \( \mathbb{E} \) is taken with respect to the individual's subjective probability distribution over outcomes.
+  </p>
+
+  <h2>Consumption Plans and Expected Utility Representation</h2>
+  <p>
+    Consider a two-period model: time 0 (decision point) and time 1 (consumption). Uncertainty is captured through a finite set of states of nature, denoted by \( \Omega \), with \( \omega \in \Omega \) representing an individual state.
+  </p>
+  <p>
+    A <strong>consumption plan</strong> \( z \) specifies the number of units of a single good available in each state at time 1. This plan can be viewed as a vector or a random variable, with \( z(\omega) \) representing consumption in state \( \omega \).
+  </p>
+  <p>
+    Preferences over such plans are represented by a <em>preference relation</em> that allows the comparison of different consumption vectors. If preferences can be captured by a utility function \( H \), then:
+  </p>
+  <p>
+    \[
+      z \succeq z' \iff H(z) \geq H(z')
+    \]
+  </p>
+  <p>
+    To simplify analysis in high-dimensional state spaces, we use an <strong>expected utility representation</strong>:
+  </p>
+  <p>
+    \[
+      z \succeq z' \iff \mathbb{E}[u(z)] \geq \mathbb{E}[u(z')]
+    \]
+  </p>
+  <p>
+    where \( u \) is defined on deterministic (sure) outcomes and extended to random plans via integration under a probability measure \( P \). For certain plans \( z = x \), \( u(z) = u(x) \).
+  </p>
+  <p>
+    This framework leads to the <strong>von Neumann–Morgenstern utility function</strong>, developed under objective probability assumptions, and extended by Savage under subjective beliefs. In this book, the distinction is not emphasized—both are treated as defining \( u \) over certain outcomes.
+  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</section>
+
+<div class="nav-bottom">
+  <a href="tk-markov-chains1.html">Prev Chapter &larr;</a>
+</div>
+
+<footer>
+  &copy; 2025 Mohammad Shaan | This site is maintained on GitHub Pages.
+</footer>
+<!-- MathJax for LaTeX -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script>
+  function toggleHint(id) {
+    var hint = document.getElementById(id);
+    if (hint.style.display === "none" || hint.style.display === "") {
+      hint.style.display = "block";
+    } else {
+      hint.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
