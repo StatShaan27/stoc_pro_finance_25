@@ -202,6 +202,30 @@
     The example shows how a numerical index can capture preference rankings. This construction can be extended to any countable set \( X \), ensuring utility representation for complete and transitive preferences.
   </p>
 
+  <h2>Expected Utility Representation</h2>
+  <p>
+    For an uncountably infinite set of consumption plans, preference relations are more nuanced. Some, such as the <em>lexicographic preference relation</em>, cannot be represented by any utility function.
+  </p>
+  <p>
+    To represent preferences under uncertainty, we use the <strong>expected utility framework</strong>. Let \( \Omega \) denote the state space with probability \( P \), which can be either objective or subjective. A <em>consumption plan</em> \( z \) is modeled as a random variable defined on \( \Omega \).
+  </p>
+  <p>
+    The distribution function \( F \) of a consumption plan \( z \) is:
+    \[
+    F(x) = P(\omega \in \Omega : z(\omega) \leq x).
+    \]
+    Given a utility function \( u \), the expected utility of plan \( z \) is:
+    \[
+    \mathbb{E}[u(z)] = \int u(x) \, dF(x).
+    \]
+  </p>
+  <p>
+    If two consumption plans \( z \) and \( z' \) have the same distribution function \( F \), then they yield the same expected utility:
+    \[
+    \mathbb{E}[u(z)] = \mathbb{E}[u(z')].
+    \]
+    Thus, individuals are indifferent between them. This indicates that preferences in this framework are expressed over <em>distributions</em> of consumption, not specific realizations across states.
+  </p>
 
 
 
