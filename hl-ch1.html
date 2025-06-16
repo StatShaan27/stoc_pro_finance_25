@@ -247,6 +247,36 @@
     This framework is equivalent to viewing a consumption plan as a <em>lottery</em> over the elements of \( Z \), where \( p(z) \) is the probability of receiving prize \( z \). The set of all such probability measures is denoted by \( \mathcal{P} \), with elements like \( p, q, r \in \mathcal{P} \).
   </p>
   
+  <h2>Axioms for Expected Utility Representation</h2>
+  <p>
+    A binary relation \( \succeq \) on the set of probability distributions \( \mathcal{P} \) has an <strong>expected utility representation</strong> if and only if it satisfies the following three behavioral axioms:
+  </p>
+
+  <p><strong>Axiom 1 (Preference Relation):</strong><br>
+    \( \succeq \) is a preference relation on \( \mathcal{P} \), i.e., it is transitive and complete.
+  </p>
+
+  <p><strong>Axiom 2 (Independence or Substitution):</strong><br>
+    For all \( p, q, r \in \mathcal{P} \) and \( \alpha \in (0,1] \),
+    \[
+    p \succ q \Rightarrow \alpha p + (1 - \alpha)r \succ \alpha q + (1 - \alpha)r.
+    \]
+    This captures the idea that preferences between lotteries depend only on their differing components. If a decision-maker prefers \( p \) over \( q \), they should also prefer a lottery mixing \( p \) with \( r \) over the same mixture with \( q \).
+  </p>
+
+  <p><strong>Axiom 3 (Archimedean Axiom):</strong><br>
+    For all \( p, q, r \in \mathcal{P} \) such that \( p \succ q \succ r \), there exist \( \alpha, \beta \in (0,1) \) such that:
+    \[
+    \alpha p + (1 - \alpha)r \succ q \succ \beta p + (1 - \beta)r.
+    \]
+    This ensures that extreme preferences do not dominate the decision framework infinitely. Intuitively, no consumption plan is so good or bad that it can’t be "averaged" into or out of favor by probabilistic mixing.
+  </p>
+
+  <p>
+    When \( p, q, r \) are sure outcomes (e.g., \( p(z) = 1 \), etc.), this axiom implies that mixtures of more or less preferred outcomes can be ordered around a certain middle-ground certainty, reinforcing the consistency of probabilistic preferences.
+  </p>
+
+  
 
 
 
