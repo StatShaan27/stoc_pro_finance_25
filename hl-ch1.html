@@ -408,6 +408,41 @@
     then it satisfies the three axioms (Preference, Independence, and Archimedean), completing the proof.
   </p>
 
+  <h2>Extension of the Expected Utility Representation</h2>
+  <p>We proved the expected utility representation theorem under the assumption that the outcome set \( Z \) is finite. However, when \( Z \) is infinite—for example, when it includes all positive real numbers—this representation no longer holds without additional assumptions.</p>
+
+  <p>To extend the theorem to infinite \( Z \), we require a <strong>fourth axiom</strong>, called the <em>Sure Thing Principle</em>. It states: if a consumption plan \( p \) is concentrated on a subset \( B \subset Z \) where every element in \( B \) is at least as good as some plan \( q \), then \( p \) must be at least as good as \( q \).</p>
+
+  <p>With this fourth axiom and some technical conditions, we can establish an expected utility representation for general (possibly infinite) outcome spaces \( Z \).</p>
+
+  <h4>Multiple Time Periods</h4>
+  <p>This framework also extends to consumption occurring over multiple time periods \( t = 0, 1, \dots, T \). Let \( Z \) be the set of consumption tuples \( z = (z_0, \dots, z_T) \), where each \( z_t \) denotes consumption at time \( t \).</p>
+
+  <p>A probability distribution \( p \) over \( Z \) satisfies:</p>
+  <ul>
+    <li>\( p(z) \in [0, 1] \) for all \( z \in Z \), and</li>
+    <li>\( \sum_{z \in Z} p(z) = 1 \).</li>
+  </ul>
+
+  <p>Preferences over these distributions again lead to a utility representation: there exists a von Neumann–Morgenstern utility function \( u \) such that for all \( p, q \in \mathcal{P} \):</p>
+
+  <p>
+    \[
+    p \succeq q \iff \sum_{z \in Z} u(z_0, \dots, z_T) \cdot p(z) \geq \sum_{z \in Z} u(z_0, \dots, z_T) \cdot q(z)
+    \]
+  </p>
+
+  <h4>Time-Additive Utility</h4>
+  <p>For simplicity in financial applications, utility is often assumed to be <em>time-additive</em>, meaning there exist functions \( u_t(\cdot) \) for each time \( t \) such that:</p>
+
+  <p>
+    \[
+    u(z_0, \dots, z_T) = \sum_{t=0}^T u_t(z_t)
+    \]
+  </p>
+
+  <p>This assumption simplifies analysis but is strong. It implies that consumption at one time doesn't affect preferences for consumption at another time—for example, having a large lunch doesn't affect desire for a big dinner. Hence, conclusions drawn under this assumption should be interpreted carefully.</p>
+
 
 
 
