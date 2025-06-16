@@ -760,26 +760,34 @@
   \mathbb{E}\left[u'(W_0(1 + i))(i - r_f)\right] \geq 0
   \]
 
-  <p>
-    Taking a first-order Taylor expansion of \( u'(W_0(1 + i)) \) around \( W_0(1 + r_f) \), multiplying both sides by \( i - r_f \), and taking expectations yields:
-  </p>
-
+ <p>We take a first-order Taylor expansion of \( u'(W_0(1 + i)) \) around \( W_0(1 + r_f) \):</p>
   \[
-  \mathbb{E}[u'(W_0(1 + i))(i - r_f)] = u'(W_0(1 + r_f)) \mathbb{E}[i - r_f] + u''(W_0(1 + r_f)) \mathbb{E}[(i - r_f)^2] W_0 + o(\mathbb{E}[(i - r_f)^2])
+  u'(W_0(1 + i)) \approx u'(W_0(1 + r_f)) + u''(W_0(1 + r_f)) \cdot W_0(i - r_f)
   \]
 
-  <p>
-    If risk is small (i.e., \( \mathbb{E}[(i - r_f)^2] \) is small), the higher-order term can be ignored. Setting the expression equal to 0 gives the minimum risk premium \( \mu - r_f \) required for full investment:
-  </p>
-
+  <p>Multiplying both sides by \( (i - r_f) \) and taking expectations:</p>
   \[
-  \mu - r_f = \frac{1}{2} R_A(W_0(1 + r_f)) \cdot \text{Var}(i)
+  \mathbb{E}[u'(W_0(1 + i)) \cdot (i - r_f)] \approx u'(W_0(1 + r_f)) \cdot \mathbb{E}[i - r_f] + u''(W_0(1 + r_f)) \cdot W_0 \cdot \mathbb{E}[(i - r_f)^2]
   \]
 
-  <p>
-    where \( R_A(x) = -\frac{u''(x)}{u'(x)} \) is the <strong>Arrow-Pratt measure of absolute risk aversion</strong>. It quantifies how strongly a person dislikes risk. The higher the risk aversion, the larger the risk premium needed to justify full investment in the risky asset.
-  </p>
+  <p>To find the <em>minimum risk premium</em> required to induce full risky investment, we set the expression to zero:</p>
+  \[
+  u'(W_0(1 + r_f)) \cdot \mathbb{E}[i - r_f] + u''(W_0(1 + r_f)) \cdot W_0 \cdot \mathbb{E}[(i - r_f)^2] = 0
+  \]
 
+  <p>Solving for the expected excess return \( \mathbb{E}[i - r_f] \), we get:</p>
+  \[
+  \mathbb{E}[i - r_f] = -\frac{u''(W_0(1 + r_f))}{u'(W_0(1 + r_f))} \cdot W_0 \cdot \mathbb{E}[(i - r_f)^2]
+  \]
+
+  <p>Using the <strong>Arrow-Pratt measure of absolute risk aversion</strong>, defined as</p>
+  \[
+  R_A(x) = -\frac{u''(x)}{u'(x)},
+  \]
+  <p>we write the final expression as:</p>
+  \[
+  \mathbb{E}[i - r_f] = R_A(W_0(1 + r_f)) \cdot W_0 \cdot \mathbb{E}[(i - r_f)^2]
+  \]
   <p>
     This measure is meaningful because it remains <strong>invariant under strictly positive affine transformations</strong> of the utility function (i.e., changes of the form \( au(x) + b \), with \( a > 0 \)). Hence, unlike the second derivative alone, it properly captures the curvature-related intensity of risk aversion in expected utility theory.
   </p>
