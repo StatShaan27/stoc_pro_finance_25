@@ -643,7 +643,7 @@
   <p>The expected utility lies below the chord joining \( u(W_0 + h_1) \) and \( u(W_0 + h_2) \) — a hallmark of strict concavity. This visual demonstrates that the individual prefers the sure amount over the fair gamble, thus confirming strict risk aversion.</p>
 
  
-  <h2>1.18 Portfolio Choice of a Risk-Averse Individual</h2>
+  <h2>Portfolio Choice of a Risk-Averse Individual</h2>
 
   <p>
     Consider a risk-averse individual who has strictly increasing and concave utility over final wealth. They must allocate an initial wealth \( W_0 \) between a risk-free asset and a set of risky assets.
@@ -791,6 +791,101 @@
   <p>
     This measure is meaningful because it remains <strong>invariant under strictly positive affine transformations</strong> of the utility function (i.e., changes of the form \( au(x) + b \), with \( a > 0 \)). Hence, unlike the second derivative alone, it properly captures the curvature-related intensity of risk aversion in expected utility theory.
   </p>
+
+  <h2>Absolute Risk Aversion and Behavior Toward Risky Assets</h2>
+
+  <p>
+    Absolute risk aversion, defined by the Arrow-Pratt measure as 
+    \[
+    R_A(z) = -\frac{u''(z)}{u'(z)},
+    \]
+    characterizes how an individual's risk tolerance changes with wealth. Depending on how \( R_A(z) \) changes with \( z \), we classify preferences as:
+  </p>
+
+  <ul>
+    <li><strong>Decreasing Absolute Risk Aversion (DARA):</strong> \( \frac{dR_A(z)}{dz} < 0 \). The individual becomes more tolerant to risk as wealth increases.</li>
+    <li><strong>Increasing Absolute Risk Aversion (IARA):</strong> \( \frac{dR_A(z)}{dz} > 0 \). The individual becomes less tolerant to risk with more wealth.</li>
+    <li><strong>Constant Absolute Risk Aversion (CARA):</strong> \( \frac{dR_A(z)}{dz} = 0 \). Risk tolerance does not change with wealth.</li>
+  </ul>
+
+  <p>
+    Arrow (1970) showed the economic significance of these patterns. Suppose an individual chooses between a riskless asset and a single risky asset. Then:
+  </p>
+
+  <ul>
+    <li>If the utility function exhibits DARA, the risky asset behaves like a <strong>normal good</strong>: demand for it increases with wealth.</li>
+    <li>If the utility exhibits IARA, the risky asset is an <strong>inferior good</strong>: demand decreases as wealth increases.</li>
+    <li>If CARA holds, demand is <strong>independent</strong> of wealth.</li>
+  </ul>
+
+  <p>The goal is to determine how an individual’s optimal investment in the risky asset, denoted \( a \), changes with initial wealth \( W_0 \).</p>
+
+  <h4>First-Order Condition</h4>
+
+  <p>
+    The first-order condition (FOC) for optimal investment is:
+    \[
+    \mathbb{E}\left[ u'(W) \cdot (i - r_f) \right] = 0,
+    \]
+    where final wealth is \( W = W_0(1 + r_f) + a(i - r_f) \), and \( i \) is the random return on the risky asset.
+  </p>
+
+  <h4>How Optimal Investment Changes with Wealth</h4>
+
+  <p>
+    To study how \( a \) changes with \( W_0 \), we apply <strong>implicit differentiation</strong> to the FOC. Differentiating both sides with respect to \( W_0 \), we get:
+    \[
+    \frac{da}{dW_0} = \frac{ \mathbb{E}\left[ u''(W)(i - r_f) \cdot (1 + r_f) \right] }{ \mathbb{E}\left[ u''(W)(i - r_f)^2 \right] }.
+    \]
+    This is equation (1.21.1).
+  </p>
+
+  <p>
+    Since \( u''(W) < 0 \), the denominator is negative. Therefore, the <strong>sign</strong> of \( \frac{da}{dW_0} \) depends on the sign of the numerator:
+    \[
+    \text{sign} \left( \frac{da}{dW_0} \right) = \text{sign} \left( \mathbb{E}[u''(W)(i - r_f)] \right).
+    \]
+  </p>
+
+  <h4>Role of Decreasing Absolute Risk Aversion</h4>
+
+  <p>
+    Under DARA, \( R_A(z) \) is strictly decreasing, i.e., \( \frac{dR_A(z)}{dz} < 0 \). Since wealth \( W \) depends positively on \( W_0 \), and the return \( i \) is uncertain, we split the expectation based on return cases:
+  </p>
+
+  <ul>
+    <li>When \( i \geq r_f \), then \( W \geq W_0(1 + r_f) \), so DARA implies:
+    \[
+    u''(W) > -R_A(W_0(1 + r_f)) \cdot u'(W)
+    \]</li>
+
+    <li>When \( i < r_f \), then \( W < W_0(1 + r_f) \), so DARA implies:
+    \[
+    u''(W) < -R_A(W_0(1 + r_f)) \cdot u'(W)
+    \]</li>
+  </ul>
+
+  <p>
+    Multiplying both cases by \( (i - r_f) \) and taking expectations across \( i \), and using the FOC 
+    \(\mathbb{E}[u'(W)(i - r_f)] = 0\), we find:
+    \[
+    \mathbb{E}[u''(W)(i - r_f)] > 0 \Rightarrow \frac{da}{dW_0} > 0
+    \]
+    This confirms that <strong>under DARA, investment in the risky asset increases with wealth</strong>.
+  </p>
+
+  <h4>Third Derivative and Risk Aversion Dynamics</h4>
+
+  <p>
+    Finally, the property \( \frac{dR_A(z)}{dz} < 0 \) implies the third derivative of utility is positive:
+    \[
+    \frac{dR_A(z)}{dz} = \frac{ -u'''(z)u'(z) + [u''(z)]^2 }{ [u'(z)]^2 } \leq 0
+    \Rightarrow u'''(z) > 0
+    \]
+    This tells us that for DARA behavior, the utility function is strictly increasing, concave, and its rate of concavity decreases—i.e., the individual becomes less risk averse as wealth grows.
+  </p>
+
+
 
 
 
