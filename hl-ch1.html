@@ -1190,6 +1190,62 @@
     This utility is flexible—it can exhibit DARA or CRRA depending on parameters and generalizes many common forms. It reduces to the narrow power utility when \( A = 0 \).
   </p>
 
+  <h4>Exercise 1.1: Countable Set and Utility Representation</h4>
+  <p>
+    Let \( X \) be a countable set. A binary relation \( \succeq \) on \( X \) is a preference relation if and only if it can be represented by a real-valued function.
+  </p>
+  <p>
+    Intuitively, a preference relation expresses the idea that one element is at least as desirable as another. If such a relation exists on a countable set, it is always possible to assign real numbers (utilities) to the elements such that higher numbers represent more preferred elements.
+  </p>
+  <p>
+    For example, if you have a countable list of products (like coffee brands), you can rank them by assigning utilities: A = 3, B = 2, C = 1 to reflect preferences A ≻ B ≻ C. This ordinal utility captures the preference structure.
+  </p>
+  <p>
+    <strong>Proof:</strong> Suppose \( X = \{x_1, x_2, x_3, \ldots\} \) is countable. Define a function \( u: X \rightarrow \mathbb{R} \) such that for all \( x_i, x_j \in X \),
+    \[
+      x_i \succeq x_j \iff u(x_i) \geq u(x_j).
+    \]
+    This is done by assigning numbers to each element respecting the preference order. Since the set is countable, we can construct such a function step-by-step.
+  </p>
+  <p>
+    Conversely, if a function \( u \) exists such that \( x \succeq y \iff u(x) \geq u(y) \), then the relation is complete and transitive by properties of real numbers. Thus, it is a preference relation.
+  </p>
+  <p>
+    Hence, a binary relation on a countable set is a preference relation if and only if it admits a utility representation.
+  </p>
+
+  <h4>Exercise 1.2: Lexicographic Preferences and Non-Representability</h4>
+  <p>
+    Define \( X = [0,1] \times [0,1] \) and the relation \( (x_1, x_2) \succeq (y_1, y_2) \) if either \( x_1 > y_1 \), or \( x_1 = y_1 \) and \( x_2 \geq y_2 \). This is known as the lexicographic preference relation.
+  </p>
+
+  <h4>1.2.1 Verification of Preference Relation</h4>
+  <p>
+    The relation is complete because for any two elements, one of the comparison conditions must hold. It is transitive because if \( x \succeq y \) and \( y \succeq z \), then either \( x_1 > y_1 \) or \( x_1 = y_1 \) and \( x_2 \geq y_2 \), and similarly for \( y \succeq z \). These conditions together imply \( x \succeq z \). Thus, the relation is a preference relation.
+  </p>
+
+  <h4>1.2.2 Strict Comparison Implies Equality</h4>
+  <p>
+    Suppose both \( x \succeq y \) and \( y \succeq x \). Then:
+    <ul>
+      <li>If \( x_1 > y_1 \), then \( y \not\succeq x \)</li>
+      <li>If \( x_1 = y_1 \) and \( x_2 > y_2 \), then again \( y \not\succeq x \)</li>
+      <li>Only possibility for both to hold is when \( x_1 = y_1 \) and \( x_2 = y_2 \)</li>
+    </ul>
+    Hence, \( x = y \).
+  </p>
+
+  <h4>1.2.3 Non-Representability by Real-Valued Function</h4>
+  <p>
+    The representation theorem states that a binary relation \( \succeq \) can be represented by a real-valued function if it is a preference relation and there exists a countable \( \succeq \)-order dense subset \( Y \subset X \). We already verified \( \succeq \) is a preference relation.
+  </p>
+  <p>
+    Suppose \( Y \subset X \) is countable and order-dense. Pick two points \( x = (x_1, x_2) \) and \( x' = (x_1, x_2') \) with \( x_2 < x_2' \). Any point between them under the lexicographic relation must have the same first coordinate \( x_1 \) and second coordinate strictly between \( x_2 \) and \( x_2' \). But the interval \( (x_2, x_2') \) is uncountable, so no countable subset can intersect all such intervals. Therefore, no countable \( \succeq \)-order dense set exists.
+  </p>
+  <p>
+    Since one of the conditions of the representation theorem fails, this lexicographic preference relation cannot be represented by a real-valued utility function.
+  </p>
+
 
 
 
