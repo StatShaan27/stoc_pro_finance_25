@@ -93,6 +93,60 @@
 </nav>
 <section>
 
+<section>
+  <h2>First Degree Stochastic Dominance</h2>
+
+  <p>
+    Risky asset A is said to dominate risky asset B in the sense of <strong>First Degree Stochastic Dominance (FSD)</strong>, denoted as \( A \succeq_{FSD} B \), if every individual with a utility function that is <em>increasing and continuous in wealth</em> either prefers A over B or is indifferent between them.
+  </p>
+
+  <p>
+    The underlying intuition is straightforward: if, for every level of return \( z \in [0,1] \), the probability that A gives a return less than \( z \) is <em>less than or equal to</em> that of B, then A is considered better. In other words:
+  </p>
+
+  <p>
+    \[
+    F_A(z) \leq F_B(z) \quad \text{for all } z \in [0,1],
+    \]
+    where \( F_A(\cdot) \) and \( F_B(\cdot) \) are the cumulative distribution functions (CDFs) of returns on assets A and B, respectively.
+  </p>
+
+  <p>
+    Since the CDF gives the probability that a return is <em>less than or equal to</em> a certain value, the inequality \( F_A(z) \leq F_B(z) \) means that A tends to deliver higher returns more often than B. Thus, any nonsatiable (strictly increasing utility) individual would prefer A.
+  </p>
+
+  <h4>Properties and Assumptions</h4>
+  <p>
+    We assume:
+    <ul>
+      <li>The returns of A and B lie in the interval \([0,1]\).</li>
+      <li>The CDFs \( F_A(\cdot) \) and \( F_B(\cdot) \) are right-continuous and satisfy \( F_A(1) = F_B(1) = 1 \).</li>
+      <li>They may have different masses at zero: \( F_A(0) \neq F_B(0) \).</li>
+    </ul>
+  </p>
+
+  <h4>Interpretation</h4>
+  <p>
+    Condition \( F_A(z) \leq F_B(z) \) for all \( z \) implies that:
+    <ul>
+      <li>The probability that A returns less than \( z \) is lower than B’s.</li>
+      <li>Equivalently, the probability that A returns more than \( z \) is higher than B’s.</li>
+    </ul>
+    However, this <strong>does not imply</strong> that A always yields a higher realized return than B. There can be scenarios where B performs better than A in a particular outcome.
+  </p>
+
+  <h4>Illustrative Example</h4>
+  <p>
+    Suppose assets A and B can each take on the values 0, \( \frac{1}{2} \), and 1. Let the cumulative probabilities (from Figure 1) be such that for each level \( z \in \{0, \frac{1}{2}, 1\} \), the condition \( F_A(z) \leq F_B(z) \) is satisfied.
+  </p>
+
+  <p>
+    For example, even though A satisfies FSD over B, it is possible that in one realization A yields 0 while B yields 1. If A and B are independent, the probability of this particular event might be 0.05. So ex post, B may outperform A, but ex ante, A is preferred under FSD.
+  </p>
+
+  <p>
+    The concept of FSD thus captures a strong form of dominance: A is better for <em>every decision maker</em> whose preferences are increasing in wealth. This condition is both <strong>necessary and sufficient</strong> for FSD.
+  </p>
 
 
 
