@@ -93,7 +93,6 @@
 </nav>
 <section>
 
-<section>
   <h2>First Degree Stochastic Dominance</h2>
 
   <p>
@@ -151,6 +150,68 @@
     The concept of FSD thus captures a strong form of dominance: A is better for <em>every decision maker</em> whose preferences are increasing in wealth. This condition is both <strong>necessary and sufficient</strong> for FSD.
   </p>
 
+
+  <h4>Step 1: Setup</h4>
+  <p>Let \( u(\cdot) \) be any continuous and increasing utility function representing the preferences of a non-satiable individual. Assume, without loss of generality, that the individual has unit initial wealth.</p>
+  <p>If the individual invests in asset A, their expected utility is \( \mathbb{E}[u(1 + r_A)] \), where \( r_A \) is the rate of return on asset A. Similarly, for asset B, the expected utility is \( \mathbb{E}[u(1 + r_B)] \).</p>
+
+  <h4>Step 2: Objective</h4>
+  <p>We want to show that the condition</p>
+  <p>
+    \[ F_A(z) \leq F_B(z) \quad \forall z \in [0, 1) \]
+  </p>
+  <p>implies:</p>
+  <p>
+    \[ \mathbb{E}[u(1 + r_A)] \geq \mathbb{E}[u(1 + r_B)] \]
+  </p>
+
+  <h4>Step 3: Expected Utility as Integral</h4>
+  <p>Let \( F_A \) and \( F_B \) denote the cumulative distribution functions (CDFs) of \( r_A \) and \( r_B \), respectively. Then,</p>
+  <p>
+    \[
+    \mathbb{E}[u(1 + r_A)] = \int_{[0,1)} u(1 + z) \, dF_A(z) = u(1) F_A(0) + \int_{0}^{1} u(1 + z) \, dF_A(z),
+    \]
+  </p>
+  <p>and similarly for \( \mathbb{E}[u(1 + r_B)] \).</p>
+
+  <h4>Step 4: Integration by Parts</h4>
+  <p>Now consider the difference in expected utilities:</p>
+  <p>
+    \[
+    \int_{[0,1)} u(1 + z) \, d[F_A(z) - F_B(z)]
+    \]</p>
+  <p>Integration by parts gives:</p>
+  <p>
+    \[
+    u(1)(F_A(0) - F_B(0)) + u(1 + z)(F_A(z) - F_B(z)) \Big|_0^1 - \int_{0}^{1} (F_A(z) - F_B(z)) \, du(1 + z)
+    \]</p>
+  <p>Since \( F_A(1) = F_B(1) = 1 \), the middle term vanishes, so we get:</p>
+  <p>
+    \[
+    \int_{0}^{1} u(1 + z) \, d[F_A(z) - F_B(z)] = u(1)(F_A(0) - F_B(0)) - \int_{0}^{1} (F_A(z) - F_B(z)) \, du(1 + z)
+    \]</p>
+  <p>Because \( u(\cdot) \) is increasing and \( F_A(z) \leq F_B(z) \), the entire expression is \( \geq 0 \).</p>
+
+  <h4>Step 5: Sufficiency</h4>
+  <p>This confirms that if \( F_A(z) \leq F_B(z) \) for all \( z \in [0,1) \), then \( \mathbb{E}[u(1 + r_A)] \geq \mathbb{E}[u(1 + r_B)] \). Hence, A is preferred in the first-order stochastic dominance sense (\( A \succeq_{FSD} B \)).</p>
+
+  <h4>Step 6: Necessity</h4>
+  <p>Suppose that \( A \succeq_{FSD} B \), but there exists \( z \in [0,1) \) such that \( F_A(z) > F_B(z) \). Since CDFs are increasing and right-continuous, there exists an interval \( [x,c] \subset [0,1] \) where \( F_A(z) > F_B(z) \) for all \( z \in [x, c] \).</p>
+
+  <h4>Step 7: Constructing Counterexample Utility Function</h4>
+  <p>Define a function \( u'(1 + z) = 1_{[x,c]}(z) \), i.e., the marginal utility is 1 in \( [x, c] \), and 0 elsewhere. This defines a continuous and increasing utility function \( u \).</p>
+  <p>Using this in the earlier integration by parts expression, we get:</p>
+  <p>
+    \[
+    \int_0^1 u(1 + z) \, d[F_A(z) - F_B(z)] = - \int_x^c [F_A(z) - F_B(z)] \, dz < 0,
+    \]</p>
+  <p>which contradicts the assumption that \( A \succeq_{FSD} B \).</p>
+
+  <h4>Step 8: Conclusion</h4>
+  <p>Therefore, a necessary and sufficient condition for \( A \succeq_{FSD} B \) is that:</p>
+  <p>
+    \[ F_A(z) \leq F_B(z) \quad \forall z \in [0,1]. \]
+  </p>
 
 
 
