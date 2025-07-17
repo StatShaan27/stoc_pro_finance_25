@@ -93,6 +93,7 @@
 </nav>
 <section>
 
+<section>
   <h2>First Degree Stochastic Dominance</h2>
 
   <p>
@@ -151,67 +152,94 @@
   </p>
 
 
-  <h4>Step 1: Setup</h4>
-  <p>Let \( u(\cdot) \) be any continuous and increasing utility function representing the preferences of a non-satiable individual. Assume, without loss of generality, that the individual has unit initial wealth.</p>
-  <p>If the individual invests in asset A, their expected utility is \( \mathbb{E}[u(1 + r_A)] \), where \( r_A \) is the rate of return on asset A. Similarly, for asset B, the expected utility is \( \mathbb{E}[u(1 + r_B)] \).</p>
+  <h2>Characterization of First-Order Stochastic Dominance (FSD)</h2>
 
-  <h4>Step 2: Objective</h4>
-  <p>We want to show that the condition</p>
   <p>
-    \[ F_A(z) \leq F_B(z) \quad \forall z \in [0, 1) \]
-  </p>
-  <p>implies:</p>
-  <p>
-    \[ \mathbb{E}[u(1 + r_A)] \geq \mathbb{E}[u(1 + r_B)] \]
-  </p>
-
-  <h4>Step 3: Expected Utility as Integral</h4>
-  <p>Let \( F_A \) and \( F_B \) denote the cumulative distribution functions (CDFs) of \( r_A \) and \( r_B \), respectively. Then,</p>
-  <p>
+    A more intuitive characterization of First-Order Stochastic Dominance (FSD) is based on the idea of comparing one asset’s returns to another’s by adding a positive “bonus” return. Suppose asset A’s return \( r_A \) can be written as the sum of asset B’s return \( r_B \) and a positive random variable \( \delta \), i.e., 
     \[
-    \mathbb{E}[u(1 + r_A)] = \int_{[0,1)} u(1 + z) \, dF_A(z) = u(1) F_A(0) + \int_{0}^{1} u(1 + z) \, dF_A(z),
+    r_A = r_B + \delta, \quad \text{where } \delta > 0 \text{ with probability 1}.
+    \]
+    Then for any increasing utility function \( u(\cdot) \), we have:
+    \[
+    \mathbb{E}[u(1 + r_A)] = \mathbb{E}[u(1 + r_B + \delta)] \geq \mathbb{E}[u(1 + r_B)].
     \]
   </p>
-  <p>and similarly for \( \mathbb{E}[u(1 + r_B)] \).</p>
 
-  <h4>Step 4: Integration by Parts</h4>
-  <p>Now consider the difference in expected utilities:</p>
   <p>
-    \[
-    \int_{[0,1)} u(1 + z) \, d[F_A(z) - F_B(z)]
-    \]</p>
-  <p>Integration by parts gives:</p>
-  <p>
-    \[
-    u(1)(F_A(0) - F_B(0)) + u(1 + z)(F_A(z) - F_B(z)) \Big|_0^1 - \int_{0}^{1} (F_A(z) - F_B(z)) \, du(1 + z)
-    \]</p>
-  <p>Since \( F_A(1) = F_B(1) = 1 \), the middle term vanishes, so we get:</p>
-  <p>
-    \[
-    \int_{0}^{1} u(1 + z) \, d[F_A(z) - F_B(z)] = u(1)(F_A(0) - F_B(0)) - \int_{0}^{1} (F_A(z) - F_B(z)) \, du(1 + z)
-    \]</p>
-  <p>Because \( u(\cdot) \) is increasing and \( F_A(z) \leq F_B(z) \), the entire expression is \( \geq 0 \).</p>
-
-  <h4>Step 5: Sufficiency</h4>
-  <p>This confirms that if \( F_A(z) \leq F_B(z) \) for all \( z \in [0,1) \), then \( \mathbb{E}[u(1 + r_A)] \geq \mathbb{E}[u(1 + r_B)] \). Hence, A is preferred in the first-order stochastic dominance sense (\( A \succeq_{FSD} B \)).</p>
-
-  <h4>Step 6: Necessity</h4>
-  <p>Suppose that \( A \succeq_{FSD} B \), but there exists \( z \in [0,1) \) such that \( F_A(z) > F_B(z) \). Since CDFs are increasing and right-continuous, there exists an interval \( [x,c] \subset [0,1] \) where \( F_A(z) > F_B(z) \) for all \( z \in [x, c] \).</p>
-
-  <h4>Step 7: Constructing Counterexample Utility Function</h4>
-  <p>Define a function \( u'(1 + z) = 1_{[x,c]}(z) \), i.e., the marginal utility is 1 in \( [x, c] \), and 0 elsewhere. This defines a continuous and increasing utility function \( u \).</p>
-  <p>Using this in the earlier integration by parts expression, we get:</p>
-  <p>
-    \[
-    \int_0^1 u(1 + z) \, d[F_A(z) - F_B(z)] = - \int_x^c [F_A(z) - F_B(z)] \, dz < 0,
-    \]</p>
-  <p>which contradicts the assumption that \( A \succeq_{FSD} B \).</p>
-
-  <h4>Step 8: Conclusion</h4>
-  <p>Therefore, a necessary and sufficient condition for \( A \succeq_{FSD} B \) is that:</p>
-  <p>
-    \[ F_A(z) \leq F_B(z) \quad \forall z \in [0,1]. \]
+    <strong>Why does this inequality hold?</strong> Because the utility function \( u \) is increasing, adding a positive value \( \delta \) to \( r_B \) will always increase the utility — or at least not decrease it. This is a direct consequence of monotonicity: more is better.
   </p>
+
+  <h4>Real-Life Analogy</h4>
+  <p>
+    Imagine two job offers: Job B pays a variable salary, say between ₹30k to ₹50k per month depending on performance. Job A is exactly the same — but always pays an additional ₹5k monthly bonus, no matter what. Every rational person who prefers more income (an increasing utility) would choose Job A. That's the idea here: asset A dominates B by always offering something extra.
+  </p>
+
+  <h4>The Converse Statement</h4>
+  <p>
+    Interestingly, the converse is also true (though the proof is technical and omitted): if asset A first-order stochastically dominates asset B — i.e., 
+    \[
+    A \succ_{\text{FSD}} B,
+    \]
+    then there exists a positive random variable \( \delta \) such that:
+    \[
+    r_A = r_B + \delta.
+    \]
+    In other words, the entire distribution of A's returns lies to the right of B's — A is like B, but always better by some margin.
+  </p>
+
+  <h4>Summary of Equivalent Conditions</h4>
+  <p>
+    By combining this result with the earlier ones in Section 2.3, we now have three equivalent ways to say that asset A first-order stochastically dominates asset B:
+    <br>
+    1. \( A \succ_{\text{FSD}} B \) (the formal dominance).
+    <br>
+    2. \( F_A(z) \leq F_B(z) \) for all \( z \in [0,1] \) (cumulative probability of A is always less than or equal to that of B).
+    <br>
+    3. \( r_A = r_B + \delta \), where \( \delta > 0 \) (A is just B with something extra).
+  </p>
+
+  <h4>Important Insight</h4>
+  <p>
+    From (3), we can conclude that if \( A \succ_{\text{FSD}} B \), then A has at least as high an <em>expected</em> rate of return as B. However, the reverse isn’t true: just having a higher expected return doesn't imply FSD.
+  </p>
+
+  <h4>Real-Life Example</h4>
+  <p>
+    Think of investing in two startups. Startup B gives random returns between 5% and 15%. Startup A gives returns in the range of 10% to 20%. Clearly, A always does better than B — not just on average, but in every possible outcome. A dominates B in the FSD sense. But if A just has a higher average return — say 12% vs B’s 10% — but sometimes performs worse, then A may not FSD B.
+  </p>
+  
+  <h2>Second-Degree Stochastic Dominance (SSD)</h2>
+  <p>Suppose an individual is only known to be risk-averse. Under what conditions can we unambiguously say they prefer risky asset A over B?</p>
+
+  <p>We say that \(A \, \text{SSD} \, B\) (Second-Degree Stochastic Dominance) if all risk-averse individuals with utility functions \(u\) (with \(u'\) continuous except on a countable subset of \([1,2]\)) prefer A to B.</p>
+
+  <p>This is true if and only if the following hold:</p>
+  \[
+  \int_0^1 [F_A(z) - F_B(z)]\,dz = 0,
+  \]
+  \[
+  S(y) := \int_0^y [F_A(z) - F_B(z)]\,dz \leq 0 \quad \forall y \in [0,1].
+  \]
+
+  <p>Here, \(S(y)\) represents the cumulative difference between the CDFs of A and B. For example, in Figure 2.5.1, \(S(y)\) equals the algebraic sum of the shaded areas between \(F_A\) and \(F_B\).</p>
+
+  <h4>Proof of Sufficiency (Sketch)</h4>
+  <p>From earlier (2.3.1), we have:</p>
+  \[
+  \int u(1 + z) \, d[F_A(z) - F_B(z)].
+  \]
+
+  <p>Using integration by parts:</p>
+  \[
+  = -\int [F_A(z) - F_B(z)] \, du(1 + z) = \int S(z) \, du'(1 + z).
+  \]
+
+  <p>Since \(u''(z) \leq 0\) for risk-averse individuals, \(u'\) is decreasing. Combined with \(S(z) \leq 0\), we get:</p>
+  \[
+  \int S(z) \, du'(1 + z) \geq 0,
+  \]
+
+  <p>thus proving that all such individuals prefer A over B. This confirms the sufficiency of the SSD condition.</p>
 
 
 
