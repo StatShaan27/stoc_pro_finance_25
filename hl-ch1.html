@@ -1419,7 +1419,123 @@
       </tr>
     </tbody>
   </table>
-        
+<section>
+  <h4> Problem Statement Recap </h4>
+  <p>We are given:</p>
+  <ul>
+    <li>An individual with an <strong>increasing</strong>, <strong>strictly concave</strong> utility function \( u \).</li>
+    <li>A <strong>fair gamble</strong>: gain \( h_1 \) with probability \( p \), loss \( h_2 \) with probability \( 1 - p \), with:
+      \[
+      p h_1 + (1 - p) h_2 = 0
+      \]
+    </li>
+    <li>The <strong>insurance premium</strong> \( z \) is defined by:
+      \[
+      u(W_0 - z) = p\,u(W_0 + h_1) + (1 - p)\,u(W_0 + h_2)
+      \]
+    </li>
+    <li>Let \( RA(z) = -\frac{u''(z)}{u'(z)} \) be the <strong>Arrow-Pratt measure of absolute risk aversion</strong>.</li>
+  </ul>
+
+  <h4> What We’re Asked to Show</h4>
+  <p>We are to analyze how \( RA(z) \) behaves <strong>with respect to changes in initial wealth</strong> \( W_0 \), via the function \( z(W_0) \). Specifically, show that when the risk is small:</p>
+  \[
+  \frac{d\,RA(z)}{d\,z} \begin{cases}
+    < 0 & \text{if } \frac{d\,z(W_0)}{d\,W_0} < 0 \\
+    = 0 & \text{if } \frac{d\,z(W_0)}{d\,W_0} = 0 \\
+    > 0 & \text{if } \frac{d\,z(W_0)}{d\,W_0} > 0
+  \end{cases}
+  \]
+
+  <h4> Solution (with Intuition and Derivation)</h4>
+
+  <h4>1. Setup</h4>
+  <p>We define the premium \( z \) such that the expected utility of the gamble equals the utility of certainty:</p>
+  \[
+  u(W_0 - z) = p\,u(W_0 + h_1) + (1 - p)\,u(W_0 + h_2)
+  \]
+  <p>Since \( h_1, h_2 \) are small (small risk assumption), we can expand both sides using Taylor expansion around \( W_0 \).</p>
+
+  <h4>2. First-Order Approximation (Taylor Expansion)</h4>
+  <p>Left-hand side:</p>
+  \[
+  u(W_0 - z) \approx u(W_0) - z u'(W_0) + \frac{z^2}{2} u''(W_0)
+  \]
+  <p>Right-hand side:</p>
+  \[
+  p u(W_0 + h_1) + (1 - p) u(W_0 + h_2) \approx u(W_0) + [p h_1 + (1 - p) h_2] u'(W_0) + \frac{1}{2} [p h_1^2 + (1 - p) h_2^2] u''(W_0)
+  \]
+  <p>But since the gamble is fair:</p>
+  \[
+  p h_1 + (1 - p) h_2 = 0
+  \]
+  <p>So the RHS becomes:</p>
+  \[
+  u(W_0) + \frac{1}{2} \underbrace{[p h_1^2 + (1 - p) h_2^2]}_{=: \sigma^2} u''(W_0)
+  \]
+  <p>Now equate both sides:</p>
+  \[
+  u(W_0) - z u'(W_0) + \frac{1}{2} z^2 u''(W_0) = u(W_0) + \frac{1}{2} \sigma^2 u''(W_0)
+  \]
+  <p>Subtract \( u(W_0) \) from both sides:</p>
+  \[
+  - z u'(W_0) + \frac{1}{2} z^2 u''(W_0) = \frac{1}{2} \sigma^2 u''(W_0)
+  \]
+  <p>Multiply both sides by 2:</p>
+  \[
+  -2 z u'(W_0) + z^2 u''(W_0) = \sigma^2 u''(W_0)
+  \]
+  <p>Rearrange:</p>
+  \[
+  z^2 u''(W_0) - 2 z u'(W_0) - \sigma^2 u''(W_0) = 0
+  \]
+  <p>This is a quadratic in \( z \). Solve for \( z \):</p>
+  \[
+  z = \frac{2 u'(W_0) \pm \sqrt{4 u'(W_0)^2 + 4 u''(W_0)^2 \sigma^2}}{2 u''(W_0)}
+  \]
+  <p>Ignore the + root (negative premium not meaningful), and simplify for small \( \sigma \):</p>
+  \[
+  z \approx \frac{\sigma^2}{2} \cdot \left( - \frac{u''(W_0)}{u'(W_0)} \right) = \frac{\sigma^2}{2} \cdot RA(W_0)
+  \]
+  <p>So we have:</p>
+  \[
+  z(W_0) \approx \frac{\sigma^2}{2} RA(W_0)
+  \]
+  <p>This tells us:</p>
+  <ul>
+    <li>The premium \( z \) is <strong>proportional to</strong> the Arrow–Pratt risk aversion measure.</li>
+  </ul>
+
+  <h4>3. Differentiate \( RA(z) \) w.r.t \( z \)</h4>
+  <p>Now, \( RA(z) = -\frac{u''(z)}{u'(z)} \), and \( z = z(W_0) \).</p>
+  <p>Differentiate \( RA(z) \) w.r.t \( W_0 \):</p>
+  \[
+  \frac{d\,RA(z)}{d\,W_0} = \frac{d\,RA(z)}{dz} \cdot \frac{dz}{dW_0}
+  \]
+  <p>So:</p>
+  <ul>
+    <li>If \( \frac{dz}{dW_0} > 0 \), then \( \frac{d\,RA(z)}{d\,W_0} \) has the <strong>same sign</strong> as \( \frac{d\,RA(z)}{dz} \)</li>
+    <li>If \( \frac{dz}{dW_0} < 0 \), then it has the <strong>opposite sign</strong></li>
+  </ul>
+  <p>Hence, the sign of \( \frac{d\,RA(z)}{dz} \) is <strong>determined by the sign of</strong> \( \frac{dz}{dW_0} \):</p>
+  \[
+  \frac{d\,RA(z)}{dz} \begin{cases}
+    < 0 & \text{if } \frac{dz}{dW_0} < 0 \\
+    = 0 & \text{if } \frac{dz}{dW_0} = 0 \\
+    > 0 & \text{if } \frac{dz}{dW_0} > 0
+  \end{cases}
+  \]
+
+  <h4> Final Answer</h4>
+  <p>So when the risk is small (i.e., \( h_1, h_2 \) are small), we have:</p>
+  \[
+  \frac{d\,RA(z)}{dz} \begin{cases}
+    < 0 & \text{if } \frac{dz(W_0)}{dW_0} < 0 \\
+    = 0 & \text{if } \frac{dz(W_0)}{dW_0} = 0 \\
+    > 0 & \text{if } \frac{dz(W_0)}{dW_0} > 0
+  \end{cases}
+  \]
+
 
 
 
