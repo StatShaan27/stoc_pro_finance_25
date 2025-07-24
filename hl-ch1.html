@@ -1246,7 +1246,180 @@
   <p>
     Since one of the conditions of the representation theorem fails, this lexicographic preference relation cannot be represented by a real-valued utility function.
   </p>
+  
+<h3><strong>Problem 1.4</strong></h3>
 
+  <blockquote>
+    <strong>Part 1:</strong> Show that a von Neumann–Morgenstern (vNM) utility function is determined <strong>up to a strictly positive linear transformation</strong>.
+  </blockquote>
+
+  <h4>✦ What is a von Neumann–Morgenstern utility function?</h4>
+  <p>The vNM utility function assigns numbers to outcomes (lotteries or gambles) such that preferred lotteries have higher expected utility. Only the <em>order</em> of preference matters, not the actual utility numbers.</p>
+
+  <h4>✦ What does "determined up to a strictly positive linear transformation" mean?</h4>
+  <p>If \( u \) is a vNM utility function, then any function of the form:</p>
+
+  <p>\[
+  v(z) = a \cdot u(z) + b, \quad \text{where } a > 0
+  \]</p>
+
+  <p>represents the same preferences.</p>
+
+  <h4>✅ Proof Sketch:</h4>
+  <p>Assume \( u \) represents preferences, so:</p>
+
+  <p>\[
+  p \succ q \iff \sum_z u(z)p(z) > \sum_z u(z)q(z)
+  \]</p>
+
+  <p>Now define \( v(z) = a \cdot u(z) + b \). Then:</p>
+
+  <p>\[
+  \sum_z v(z)p(z) = a \sum_z u(z)p(z) + b \sum_z p(z) = a \sum_z u(z)p(z) + b
+  \]</p>
+
+  <p>Since \( \sum_z p(z) = 1 \), the additive constant \( b \) does not affect preference. As \( a > 0 \), inequality direction is preserved.</p>
+
+  <p><strong>Conclusion:</strong> \( v \) represents the same preference ordering as \( u \).</p>
+
+  <blockquote>
+    <strong>Part 2:</strong> Show that if a binary relation \( \succeq \) has an expected utility representation \( u \), then it satisfies the <strong>three vNM axioms</strong>.
+  </blockquote>
+
+  <h4>✦ Recap of the Three vNM Axioms:</h4>
+  <ol>
+    <li><strong>Completeness & Transitivity:</strong> You can compare any two lotteries, and your preferences are logically consistent.</li>
+    <li><strong>Continuity:</strong> Preferences change smoothly; if \( A \succ B \succ C \), then some mix of \( A \) and \( C \) is equally preferred to \( B \).</li>
+    <li><strong>Independence:</strong> If \( A \succ B \), then for any third lottery \( C \), a mix with \( A \) is still preferred to a mix with \( B \).</li>
+  </ol>
+
+  <h4>✅ Intuitive Justification:</h4>
+  <p>Given:</p>
+
+  <p>\[
+  p \succeq q \iff \sum_z u(z)p(z) \geq \sum_z u(z)q(z)
+  \]</p>
+
+  <ul>
+    <li><strong>Completeness & Transitivity:</strong> Numbers can always be compared and maintain transitivity.</li>
+    <li><strong>Continuity:</strong> If \( u(p) > u(q) > u(r) \), then there exists a mix of \( p \) and \( r \) that equals \( u(q) \).</li>
+    <li><strong>Independence:</strong> Expected utility is linear in probabilities, so mixing with a third lottery preserves preference order.</li>
+  </ul>
+
+  <h3><strong>Problem 1.5</strong></h3>
+
+  <blockquote>
+    Prove that:
+    <br><br>
+    \[
+    \frac{d R_A(z)}{dz} > 0 \Rightarrow \frac{d a}{dW_0} < 0 \quad \forall W_0
+    \]
+    <br>
+    and
+    <br>
+    \[
+    \frac{d R_A(z)}{dz} = 0 \Rightarrow \frac{d a}{dW_0} = 0 \quad \forall W_0
+    \]
+  </blockquote>
+
+  <h4>✦ Arrow–Pratt Absolute Risk Aversion:</h4>
+  <p>\[
+  R_A(z) = -\frac{u''(z)}{u'(z)}
+  \]</p>
+  <p>Measures how risk averse a person is at wealth level \( z \).</p>
+
+  <h4>✦ What is \( a \)?</h4>
+  <p>It’s the optimal investment in a risky asset depending on initial wealth \( W_0 \).</p>
+
+  <h4>✅ Interpretation:</h4>
+  <ul>
+    <li>If \( \frac{d R_A(z)}{dz} > 0 \), risk aversion increases with wealth. So, richer individuals invest <strong>less</strong> in risk: \( \frac{d a}{dW_0} < 0 \).</li>
+    <li>If \( R_A(z) \) is constant, then \( a \) doesn't change with wealth: \( \frac{d a}{dW_0} = 0 \).</li>
+  </ul>
+
+  <h4>✅ Real-Life Analogy:</h4>
+  <p>Two people with ₹1 lakh. One becomes more conservative as wealth grows — reduces risky investment. The other stays consistent regardless of wealth.</p>
+
+  <h3><strong>Problem 1.6</strong></h3>
+
+  <blockquote>
+    Show that:
+    <br><br>
+    \[
+    \frac{d R_R(z)}{dz} < 0 \quad \forall z \in \mathbb{R} \Rightarrow \eta > 1
+    \]
+    <br>
+    \[
+    \frac{d R_R(z)}{dz} = 0 \quad \forall z \in \mathbb{R} \Rightarrow \eta = 1
+    \]
+  </blockquote>
+
+  <h4>✦ Relative Risk Aversion:</h4>
+  <p>\[
+  R_R(z) = - \frac{z \cdot u''(z)}{u'(z)}
+  \]</p>
+
+  <h4>✦ Wealth Elasticity of Demand:</h4>
+  <p>\[
+  \eta = \frac{d \log a}{d \log W_0} = \frac{W_0}{a} \cdot \frac{d a}{d W_0}
+  \]</p>
+
+  <h4>✅ Interpretation:</h4>
+  <ul>
+    <li>If \( \frac{dR_R}{dz} < 0 \), you're more risk-tolerant when wealthier → demand grows faster than wealth → \( \eta > 1 \)</li>
+    <li>If \( R_R(z) \) is constant, then risky investment scales linearly → \( \eta = 1 \)</li>
+  </ul>
+
+  <h4>✅ Example:</h4>
+  <ul>
+    <li>Person A triples risky investment when wealth doubles → \( \eta = 1.5 \)</li>
+    <li>Person B doubles risky investment with doubling wealth → \( \eta = 1 \)</li>
+  </ul>
+
+  <h3><strong>Summary Table</strong></h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Condition</th>
+        <th>Implication</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>vNM Utility</td>
+        <td>\( v = a u + b, a > 0 \)</td>
+        <td>Preference preserved</td>
+      </tr>
+      <tr>
+        <td>Expected utility exists</td>
+        <td>—</td>
+        <td>Satisfies vNM axioms</td>
+      </tr>
+      <tr>
+        <td>Increasing Absolute Risk Aversion</td>
+        <td>\( dR_A/dz > 0 \)</td>
+        <td>\( da/dW_0 < 0 \)</td>
+      </tr>
+      <tr>
+        <td>Constant Absolute Risk Aversion</td>
+        <td>\( dR_A/dz = 0 \)</td>
+        <td>\( da/dW_0 = 0 \)</td>
+      </tr>
+      <tr>
+        <td>Decreasing Relative Risk Aversion</td>
+        <td>\( dR_R/dz < 0 \)</td>
+        <td>\( \eta > 1 \)</td>
+      </tr>
+      <tr>
+        <td>Constant Relative Risk Aversion</td>
+        <td>\( dR_R/dz = 0 \)</td>
+        <td>\( \eta = 1 \)</td>
+      </tr>
+    </tbody>
+  </table>
+        
 
 
 
