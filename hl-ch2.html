@@ -398,7 +398,7 @@
   <h4> Visual Intuition</h4>
   <p>Imagine that asset \( A \) gives a stable return, and asset \( B \) is the same as \( A \) plus an extra “zero-mean noise.” This noise adds variance without changing the mean, so risk-averse agents will strictly prefer \( A \) over \( B \).</p>
 
-  <h4>✦ Variance Implication</h4>
+  <h4> Variance Implication</h4>
   <p>Because \( \mathbb{E}[\varepsilon \mid r_A] = 0 \), we also get:</p>
   <p>\[
   \text{Cov}(r_A, \varepsilon) = 0 \Rightarrow \text{Var}(r_B) = \text{Var}(r_A) + \text{Var}(\varepsilon) \geq \text{Var}(r_A)
@@ -414,6 +414,104 @@
 
   <h4> Summary</h4>
   <p>Rothschild and Stiglitz's result links SSD to a structural decomposition of risk. Under SSD, we can interpret one asset as a "noisier version" of another, keeping the mean constant — a powerful conceptual tool in both economics and finance.</p>
+
+  <h4>Second-Degree Stochastic Dominance and Risky Investment Behavior</h4>
+  
+  <p>
+    Let asset \( A \) and asset \( B \) be two risky assets. We say that asset \( A \) <strong>second-degree stochastically dominates</strong> asset \( B \), denoted \( A \succeq_{SSD} B \), if all <em>risk-averse and nonsatiable</em> individuals prefer \( A \) to \( B \).
+  </p>
+
+  <p>
+    The following three conditions are equivalent characterizations of second-degree stochastic dominance:
+  </p>
+
+  <ul>
+    <li>\( A \succeq_{SSD} B \)</li>
+    <li>\( \mathbb{E}[i_A] \geq \mathbb{E}[i_B] \) and \( S(z) \geq 0 \) for all \( z \in [0,1] \), where \( S(z) \) is the integral of the difference of cumulative distribution functions</li>
+    <li>\( i_B = i_A + \varepsilon \), where \( \mathbb{E}[\varepsilon \mid i_A] = 0 \), i.e., \( B \) can be seen as a "mean-preserving spread" of \( A \)</li>
+  </ul>
+
+  <p>
+    Now, consider a risk-averse individual with unit initial wealth who can invest in:
+    <ul>
+      <li>A risky asset \( A \) with random return \( i_A \)</li>
+      <li>A risk-free asset with constant return \( r \)</li>
+    </ul>
+    The utility-maximizing investment \( a \) in asset \( A \) satisfies:
+  </p>
+
+  <p>
+    \[
+    \mathbb{E}[u'((1 - a)(1 + r) + a(1 + i_A))(i_A - r)] = 0 \tag{2.10.1}
+    \]
+  </p>
+
+  <p>
+    Suppose now the individual switches to a riskier asset \( B \) such that \( A \succeq_{SSD} B \). Will they reduce investment in the risky asset? That is, is the optimal amount \( a' < a \)?
+  </p>
+
+  <p>
+    A sufficient condition for this to hold is:
+    \[
+    \mathbb{E}[u'((1 - a)(1 + r) + a(1 + i_B))(i_B - r)] < 0 \tag{2.10.2}
+    \]
+    This inequality indicates that utility would increase if less than \( a \) is invested in the now riskier asset \( B \).
+  </p>
+
+  <h4>Rewriting in Distribution Terms</h4>
+
+  <p>
+    Let \( F_A(z) \) and \( F_B(z) \) be the cumulative distribution functions (CDFs) of \( i_A \) and \( i_B \) on a common support \([0, 1]\). Then equations (2.10.1) and (2.10.2) can be rewritten as:
+  </p>
+
+  <p>
+    \[
+    \int_0^1 u'((1 + r) + a(z - r))(z - r) \, dF_A(z) = 0 \tag{2.10.3}
+    \]
+    \[
+    \int_0^1 u'((1 + r) + a(z - r))(z - r) \, dF_B(z) < 0 \tag{2.10.4}
+    \]
+  </p>
+
+  <h4>Visualizing the Function \( V(z) \)</h4>
+
+  <p>
+    Define \( V(z) = u'((1 + r) + a(z - r))(z - r) \). To ensure condition (2.10.4), we want \( V(z) \) to be concave.
+  </p>
+
+  <p>
+    Taking the second derivative:
+    \[
+    V''(z) = a \left[ u'''(z_a) \cdot a(z - r) + 2u''(z_a) \right]
+    \]
+    where \( z_a = (1 + r) + a(z - r) \).
+  </p>
+
+  <p>
+    Introducing the Arrow-Pratt coefficients:
+    <ul>
+      <li>Absolute risk aversion: \( RA(z) = -\dfrac{u''(z)}{u'(z)} \)</li>
+      <li>Relative risk aversion: \( RR(z) = -\dfrac{z u''(z)}{u'(z)} \)</li>
+    </ul>
+  </p>
+
+  <p>
+    The condition for concavity of \( V(z) \) becomes:
+    \[
+    V''(z) = a \left\{ [1 - RR(z_a) + RA(z_a)] u''(z_a) + [RR'(z_a) - RA'(z_a)] u'(z_a) - u'''(z_a) r \right\}
+    \]
+    If this expression is non-positive, then \( V(z) \) is concave.
+  </p>
+
+  <h4>Conclusion: More Risk ≠ Less Investment?</h4>
+
+  <p>
+    While one might expect that greater risk in the asset leads to reduced investment, the analysis shows that unless the individual's risk aversion properties (captured by \( RA \) and \( RR \)) satisfy certain conditions, this may not hold.
+  </p>
+
+  <p>
+    In particular, if the relative risk aversion is increasing and less than 1, and absolute risk aversion is decreasing, then the investor is more likely to reduce investment in the riskier asset \( B \). However, if these conditions fail, it's entirely possible for a risk-averse individual to paradoxically <strong>increase</strong> investment in the riskier option!
+  </p>
 
 
 
