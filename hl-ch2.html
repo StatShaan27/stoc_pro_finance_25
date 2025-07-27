@@ -588,6 +588,75 @@
     This example elegantly demonstrates the limits of comparative risk aversion in multi-risky-asset settings.
   </p>
 
+  <h4> Stronger Measure of Risk Aversion: Ross (1981)</h4>
+  <p>
+    In addition to the Arrow-Pratt measure, <strong>Ross (1981)</strong> proposed a stronger criterion for comparing risk aversion between two individuals. According to this, individual \( i \) is said to be <strong>strongly more risk averse</strong> than individual \( k \) if:
+  </p>
+
+  \[
+  \inf_z \left( \frac{u_i'(z)}{u_k'(z)} \right) \geq \sup_z \left( \frac{u_i(z)}{u_k(z)} \right)
+  \tag{2.12.1}
+  \]
+
+  <p>
+    This condition essentially compares the marginal utilities and the utilities themselves, across all wealth levels \( z \). It is a <strong>global condition</strong>, not just local curvature (like Arrow-Pratt).
+  </p>
+
+  <p>
+    If inequality (2.12.1) holds, then for any \( z \), we must have:
+  </p>
+
+  \[
+  \frac{u_i'(z)}{u_k'(z)} > \frac{u_i(z)}{u_k(z)}
+  \]
+
+  <p>
+    Rearranging this gives:
+  </p>
+
+  \[
+  \frac{u_i'(z) - u_k'(z)}{u_i'(z)} > \frac{u_i(z) - u_k(z)}{u_k(z)}
+  \tag{2.12.2}
+  \]
+
+  <p>
+    This expression shows that <em>strong risk aversion</em> (as defined in 2.12.1) implies ordinary Arrow-Pratt risk aversion, but the reverse need not be true. So, Ross’s measure is a <strong>strict refinement</strong>.
+  </p>
+
+  <h4> Counterexample Illustrating Strictness</h4>
+  <p>
+    Consider exponential utility functions:
+  </p>
+
+  \[
+  u_i(z) = -e^{-\alpha z}, \quad u_k(z) = -e^{-\beta z}, \quad \text{with } \alpha > \beta
+  \]
+
+  <p>
+    Clearly, individual \( i \) is more risk averse in the <em>Arrow-Pratt</em> sense since:
+  </p>
+
+  \[
+  R_i(z) = \alpha > \beta = R_k(z)
+  \]
+
+  <p>
+    However, let us examine the ratio:
+  </p>
+
+  \[
+  \frac{u_i(z)^2}{u_k(z)^2} = \left( \frac{e^{-\alpha z}}{e^{-\beta z}} \right)^2 = e^{-2(\alpha - \beta)z}
+  \]
+
+  <p>
+    As \( z \to \infty \), this ratio vanishes, which violates the condition (2.12.1). Hence, even though \( i \) is more risk averse in Arrow-Pratt terms, he may not satisfy Ross's stronger criterion. This example proves that Ross's definition is indeed strictly stronger.
+  </p>
+
+  <h4> Intuition</h4>
+  <p>
+    The Arrow-Pratt measure only compares how "bent" the utility curves are at each point — i.e., local curvature. Ross’s measure incorporates a broader, <em>functional dominance</em> requirement: across all wealth levels, the marginal utility must exceed what the utility function ratio suggests. It's like comparing not just the slope, but the overall dominance of preferences toward certainty.
+  </p>
+
 
 
 
