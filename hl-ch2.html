@@ -755,6 +755,66 @@
 
   <p>Thus, this framework not only captures risk aversion qualitatively but also allows us to <em>construct one individual’s preferences from another's</em>, giving a powerful comparative tool in finance and economics.</p>
 
+  <h4> Comparative Statics with Strong Risk Aversion (Section 2.14)</h4>
+  <p>Recall the portfolio problem from Section 2.11: two risky assets with returns, and agents selecting an optimal investment amount based on their utility functions. Now assume that:</p>
+  <ul>
+    <li>\( U_i \) and \( U_k \) are utility functions of individuals \( i \) and \( k \), respectively.</li>
+    <li>Individual \( i \) is <strong>strongly more risk averse</strong> than individual \( k \).</li>
+    <li>\( a \) is the optimal amount that individual \( k \) invests in asset A, defined by:</li>
+  </ul>
+
+  \[
+  \mathbb{E}[u_k'(1 + r_B + a i) \cdot i] = 0 \tag{2.14.1}
+  \]
+
+  <p>Now, we use the strong risk aversion characterization:</p>
+
+  \[
+  u_i(z) = \lambda u_k(z) + G(z), \quad \text{with } G' \leq 0, G'' \leq 0, \lambda > 0 \tag{2.13.1}
+  \]
+
+  <p>By differentiating, we get:</p>
+
+  \[
+  u_i'(z) = \lambda u_k'(z) + G'(z)
+  \]
+
+  <p>Substituting into the expected utility of individual \( i \):</p>
+
+  \[
+  \mathbb{E}[u_i'(1 + r_B + a i) \cdot i] = \mathbb{E}[\lambda u_k'(1 + r_B + a i) \cdot i + G'(1 + r_B + a i) \cdot i]
+  \]
+
+  <p>Using (2.14.1), the first term is zero, so we simplify to:</p>
+
+  \[
+  \mathbb{E}[G'(1 + r_B + a i) \cdot i]
+  \]
+
+  <p>Now apply the law of iterated expectations and the definition of covariance:</p>
+
+  \[
+  \mathbb{E}[G'(1 + r_B + a i) \cdot i] = \mathbb{E}[\text{Cov}(G'(1 + r_B + a i), i \mid r_B)] + \mathbb{E}[\mathbb{E}[G'(1 + r_B + a i) \mid r_B] \cdot \mathbb{E}[i \mid r_B]]
+  \]
+
+  <p>We analyze this expression in parts:</p>
+  <ul>
+    <li><strong>\( G' \leq 0 \)</strong> (since \( G \) is decreasing)</li>
+    <li><strong>\( \text{Cov}(G'(\cdot), i \mid r_B) \leq 0 \)</strong> due to concavity of \( G \)</li>
+    <li><strong>\( \mathbb{E}[i \mid r_B] \geq 0 \)</strong> from the assumption</li>
+  </ul>
+
+  <p>Thus, the entire expectation is nonpositive:</p>
+
+  \[
+  \mathbb{E}[u_i'(1 + r_B + a i) \cdot i] \leq 0
+  \]
+
+  <p>But since the derivative of expected utility with respect to \( a \) is negative, investing amount \( a \) <em>decreases</em> utility for individual \( i \). Therefore, individual \( i \) should optimally choose an investment <strong>less than \( a \)</strong>.</p>
+
+  <p><strong>Conclusion:</strong> This proves that the strong measure of risk aversion yields correct comparative statics: more risk-averse individuals invest less in risky assets. Mathematically, the structure imposed by \( G \) allows us to directly translate comparative attitudes toward risk into quantitative portfolio behavior.</p>
+
+
 
 
 
