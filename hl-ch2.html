@@ -657,6 +657,104 @@
     The Arrow-Pratt measure only compares how "bent" the utility curves are at each point — i.e., local curvature. Ross’s measure incorporates a broader, <em>functional dominance</em> requirement: across all wealth levels, the marginal utility must exceed what the utility function ratio suggests. It's like comparing not just the slope, but the overall dominance of preferences toward certainty.
   </p>
 
+  <h4>Characterizing Strong Risk Aversion via Functional Transformation</h4>
+
+  <p>We previously saw in Section 1.25 that if individual \( i \) is more risk averse than individual \( k \) in the <strong>Arrow–Pratt sense</strong>, then there exists a <em>monotone concave function</em> \( G \) such that:</p>
+
+  \[
+  u_i(z) = G(u_k(z))
+  \]
+
+  <p>This means the utility function of the more risk-averse person can be obtained by applying a concave transformation to the other’s utility. Now, when we move to <strong>strong risk aversion</strong> (as defined in Ross's sense), we have a sharper characterization:</p>
+
+  <p><strong>Claim:</strong> Individual \( i \) is <em>strongly more risk averse</em> than individual \( k \) if and only if there exists a <em>decreasing concave function</em> \( G \) and a <em>strictly positive constant</em> \( \lambda \) such that:</p>
+
+  \[
+  u_i(z) = G(u_k(z)) + \lambda u_k(z)
+  \tag{2.13.1}
+  \]
+
+  <h4>Understanding the Functional Form</h4>
+
+  <p>This form represents a mix of two components:</p>
+  <ul>
+    <li>\( G(u_k(z)) \): a concave transformation that flattens the utility curvature</li>
+    <li>\( \lambda u_k(z) \): a scaled (positive) multiple of the original utility</li>
+  </ul>
+
+  <p>We now explore both directions of the equivalence.</p>
+
+  <h4>Sufficiency: If the Representation Holds, Then \( i \) is Strongly More Risk Averse</h4>
+
+  <p>Differentiate both sides of Equation (2.13.1):</p>
+
+  \[
+  u_i'(z) = G'(u_k(z)) \cdot u_k'(z) + \lambda u_k'(z)
+  \]
+
+  <p>Since \( G \) is <em>decreasing</em> and <em>concave</em>:</p>
+  <ul>
+    <li>\( G'(u_k(z)) \leq 0 \)</li>
+    <li>\( G''(u_k(z)) \leq 0 \)</li>
+  </ul>
+
+  <p>So, the derivative becomes:</p>
+
+  \[
+  u_i'(z) \leq \lambda u_k'(z)
+  \quad \text{and} \quad
+  u_i''(z) \leq \lambda u_k''(z)
+  \tag{2.13.2}
+  \]
+
+  <p>This shows that the marginal utility of \( i \) is lower than that of \( k \), adjusted by a constant \( \lambda \). This satisfies Ross’s condition for strong risk aversion (Equation 2.12.1).</p>
+
+  <h4>Necessity: If \( i \) is Strongly More Risk Averse, Then the Functional Form Exists</h4>
+
+  <p>Suppose now that \( i \) is strongly more risk averse than \( k \), i.e., Equation (2.13.2) holds for some \( \lambda > 0 \). Define:</p>
+
+  \[
+  G(u_k(z)) = u_i(z) - \lambda u_k(z)
+  \]
+
+  <p>This ensures Equation (2.13.1) holds by construction. Now check:</p>
+
+  \[
+  G'(z) = u_i'(z) - \lambda u_k'(z) \leq 0
+  \quad \text{and} \quad
+  G''(z) = u_i''(z) - \lambda u_k''(z) \leq 0
+  \]
+
+  <p>This confirms \( G \) is decreasing and concave.</p>
+
+  <h4>Visual Intuition</h4>
+
+  <p>Imagine plotting utility curves:</p>
+  <ul>
+    <li>The utility function of \( k \) has a moderate curvature, bending gently.</li>
+    <li>The utility of \( i \) is a sharply bending curve (more concave), possibly pulled downward by \( G \), and scaled by \( \lambda \).</li>
+  </ul>
+
+  <p>The transformation \( G \) flattens the benefits of gains more aggressively, indicating stronger aversion to risky outcomes. The scaling term \( \lambda \) ensures the utility level remains comparable.</p>
+
+  <h4>Real-Life Example</h4>
+
+  <p>Consider two investors:</p>
+  <ul>
+    <li><strong>Investor k</strong> is fine with taking moderate risks—perhaps willing to put 50% of wealth into stocks.</li>
+    <li><strong>Investor i</strong> is extremely cautious—prefers fixed deposits, even at lower returns.</li>
+  </ul>
+
+  <p>If both evaluate outcomes using exponential utility functions but with different risk aversion parameters, say:</p>
+
+  \[
+  u_k(z) = -e^{-bz}, \quad u_i(z) = -e^{-az}, \quad \text{with } a > b
+  \]
+
+  <p>Then \( i \)'s utility can be written as a concave transformation plus a linear component of \( k \)'s utility—satisfying the representation in Equation (2.13.1).</p>
+
+  <p>Thus, this framework not only captures risk aversion qualitatively but also allows us to <em>construct one individual’s preferences from another's</em>, giving a powerful comparative tool in finance and economics.</p>
+
 
 
 
