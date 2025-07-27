@@ -513,6 +513,80 @@
     In particular, if the relative risk aversion is increasing and less than 1, and absolute risk aversion is decreasing, then the investor is more likely to reduce investment in the riskier asset \( B \). However, if these conditions fail, it's entirely possible for a risk-averse individual to paradoxically <strong>increase</strong> investment in the riskier option!
   </p>
 
+  <h4> Risk Aversion and Portfolio Choice (Section 1.26)</h4>
+
+  <p>
+    In a two-asset world—one risky and one riskless—it's intuitive and formally proven that a <strong>more risk averse individual</strong> will require a <em>higher risk premium</em> to invest all wealth in the risky asset, compared to a less risk averse individual.
+  </p>
+
+  <p>
+    That is, if individual \( i \) is more risk averse than individual \( k \), in the sense that their Arrow-Pratt measures satisfy:
+    \[
+    R^i(z) \geq R^k(z) \quad \text{for all } z,
+    \]
+    then individual \( i \) will never allocate more to the risky asset than \( k \) does.
+  </p>
+
+  <p>
+    However, this clean ordering <em>breaks down</em> when both assets are risky. An elegant counterexample from Ross (1981) illustrates this point.
+  </p>
+
+  <h4> The Example Setup</h4>
+
+  <p>
+    Consider two risky assets \( A \) and \( B \) with returns \( r_A \) and \( r_B \), and define the difference:
+    \[
+    z = r_A - r_B.
+    \]
+    Suppose \( r_A \) and \( r_B \) are independent and defined as follows:
+  </p>
+
+  <ul>
+    <li>\( r_B = \begin{cases} 2 & \text{with prob } \frac{1}{2} \\ -1 & \text{with prob } \frac{1}{2} \end{cases} \)</li>
+    <li>\( z = \begin{cases} 1 & \text{with prob } \frac{1}{2} \\ 0 & \text{with prob } \frac{1}{2} \end{cases} \)</li>
+  </ul>
+
+  <p>
+    Thus, \( r_A = r_B + z \) always has higher expected return and higher risk.
+  </p>
+
+  <h4> Individuals and Utility</h4>
+
+  <p>
+    Let individual \( k \) have a utility function \( u_k(\cdot) \), which is increasing and concave. Let individual \( i \) have a utility function \( u_i(x) = G(u_k(x)) \), where \( G \) is also concave and increasing.
+  </p>
+
+  <p>
+    This structure ensures that individual \( i \) is <strong>more risk averse</strong> than \( k \), since composition with a concave function increases risk aversion (Section 1.25 result).
+  </p>
+
+  <h4> Investment Decisions</h4>
+
+  <p>
+    Assume both individuals have unit initial wealth. Let \( a \) be the fraction invested in asset \( A \), and the rest in \( B \). For individual \( k \), setting \( a = \frac{1}{4} \) gives:
+    \[
+    \mathbb{E}[u_k(1 + r_B + a z) z] = 0.
+    \]
+    So, \( a = \frac{1}{4} \) is an optimal investment.
+  </p>
+
+  <p>
+    However, for individual \( i \), we compute:
+    \[
+    \mathbb{E}[u_i'(1 + r_B + a z) z] = \mathbb{E}[G'(u_k(1 + r_B + a z)) \cdot u_k'(1 + r_B + a z) \cdot z],
+    \]
+    which turns out to be positive at \( a = \frac{1}{4} \). This means individual \( i \) can increase utility by <em>increasing</em> their allocation to the riskier asset \( A \).
+  </p>
+
+  <h4> Conclusion and Insight</h4>
+
+  <p>
+    Even though \( i \) is more risk averse than \( k \) in the Arrow-Pratt sense, \( i \) ends up investing <strong>more in the riskier asset</strong> due to the nonlinear transformations of utility. This result highlights that <strong>risk aversion ordering does not directly translate</strong> to risk exposure when both assets are risky.
+  </p>
+
+  <p>
+    This example elegantly demonstrates the limits of comparative risk aversion in multi-risky-asset settings.
+  </p>
 
 
 
@@ -533,7 +607,8 @@
 
 
 
-<p><strong>Last updated:</strong> June 17, 2025</p> 
+
+<p><strong>Last updated:</strong> July 27, 2025</p> 
 </section>
 
 <div class="nav-bottom">
