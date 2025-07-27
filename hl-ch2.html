@@ -813,7 +813,74 @@
   <p>But since the derivative of expected utility with respect to \( a \) is negative, investing amount \( a \) <em>decreases</em> utility for individual \( i \). Therefore, individual \( i \) should optimally choose an investment <strong>less than \( a \)</strong>.</p>
 
   <p><strong>Conclusion:</strong> This proves that the strong measure of risk aversion yields correct comparative statics: more risk-averse individuals invest less in risky assets. Mathematically, the structure imposed by \( G \) allows us to directly translate comparative attitudes toward risk into quantitative portfolio behavior.</p>
+<h3>SUMMARY:</h3>
 
+  <h4>Second-Degree Stochastic Dominance and Risk Preferences</h4>
+  
+  <p>
+    We say asset <strong>A</strong> second-degree stochastically dominates <strong>B</strong> (denoted \(A \succeq_{\mathrm{SSD}} B\)) if <em>all risk‑averse and nonsatiated</em> individuals prefer A to B.
+  </p>
+
+  <p>
+    Equivalently, the following three conditions are equivalent:
+  </p>
+  <ol>
+    <li>\(A \succeq_{\mathrm{SSD}} B\).</li>
+    <li>\(\mathbb{E}[i_A] \ge \mathbb{E}[i_B]\) <strong>and</strong> \(S(z) = \int_0^z [F_B(t) - F_A(t)]\,dt \ge 0\) for all \(z \in [0,1]\).</li>
+    <li>\(i_B = i_A + \varepsilon\) with \(\mathbb{E}[\varepsilon\,|\,i_A] = 0\); i.e. \(B\) is a mean‑preserving spread of \(A\).</li>
+  </ol>
+
+  <h4>Comparative Portfolio Behavior under SSD</h4>
+
+  <p>
+    Consider a risk‑averse individual with unit initial wealth, investing in risky asset <strong>A</strong> (return \(i_A\)) and a riskless asset (return \(r\)). Denote their optimal risky investment fraction by \(a\).
+  </p>
+
+  <p>
+    Rothschild &amp; Stiglitz (1971) set up the optimality condition:
+  </p>
+  <p>\[
+    \mathbb{E}\bigl[\,u'( (1-r)a + a(1 + i_A))(i_A - r)\bigr] = 0 \quad\text{(equation 2.10.3)}
+  \]</p>
+
+  <p>
+    If the individual switches to asset \(B\), which is more risky in the SSD sense \((A \succeq_{\mathrm{SSD}} B)\), we ask: will they optimally invest less in the risky asset?
+  </p>
+
+  <p>
+    It is sufficient that:
+  </p>
+  <p>\[
+    \mathbb{E}\bigl[\,u'( (1-r)a + a(1 + i_B))(i_B - r)\bigr] < 0 \quad\text{(equation 2.10.4)}
+  \]</p>
+
+  <h4>Condition for a Decrease in Risky Investment</h4>
+
+  <p>
+    Define the function \(V(z) = u'( (1+r) + a(z - r))(z - r)\). Then:
+  </p>
+  <p>\[
+    V''(z) = a\left([1 - RR(z_a) + RA(z_a)]u''(z_a) + [RR'(z_a) - RA'(z_a)]u'(z_a) - u'''(z_a)\,r\right)
+    \tag{2.10.5}
+  \]</p>
+
+  <p>
+    Here \(RA\) and \(RR\) are absolute and relative risk aversion functions. A sufficient set of conditions to ensure \(V\) is concave (so (2.10.4) holds) is:
+  </p>
+  <ul>
+    <li>Relative risk aversion \(RR\) is increasing but always less than 1.</li>
+    <li>Absolute risk aversion \(RA\) is nonincreasing.</li>
+  </ul>
+
+  <h4>Key Insight</h4>
+
+  <p>
+    Under these assumptions, if asset \(B\) is riskier in the SSD sense, the investor will optimally reduce their allocation to it. But without these curvature conditions, it's possible (and indeed shown by Ross in 1981) that a more risk‑averse individual may actually choose a larger investment in a riskier asset.
+  </p>
+
+  <p>
+    In the classic one-risky-one-riskless setting, stronger risk aversion always means lower risky allocation. But in multi-risky‑asset scenarios, Arrow‑Pratt ranking alone does not guarantee monotonic behavior. Only the <em>stronger</em> measure/lenses of risk aversion restore the intuitive comparative statics over portfolio choices.
+  </p>
 
 
 
