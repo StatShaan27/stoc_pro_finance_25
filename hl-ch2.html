@@ -241,6 +241,70 @@
 
   <p>thus proving that all such individuals prefer A over B. This confirms the sufficiency of the SSD condition.</p>
 
+  <h4>✔ Sufficiency of FSD Characterization</h4>
+  
+  <p>We begin by proving the sufficiency part of the equivalence characterization of first-order stochastic dominance. From equation (2.3.1), recall:</p>
+  
+  \[
+  \int u(1 + z) \, d[F_A(z) - F_B(z)]
+  \]
+  
+  <p>Applying <strong>integration by parts</strong>, we get:</p>
+  
+  \[
+  \int u(1 + z) \, d[F_A(z) - F_B(z)] = - \int [F_A(z) - F_B(z)] \, du(1 + z)
+  \]
+  
+  <p>Define:</p>
+  
+  \[
+  S(z) = \int_0^z [F_A(t) - F_B(t)] \, dt
+  \]
+  
+  <p>Then, by integration by parts again:</p>
+  
+  \[
+  - \int [F_A(z) - F_B(z)] \, du(1 + z) = u'(1 + z) S(z) \bigg|_0^1 - \int_0^1 S(z) \, du'(1 + z)
+  \]
+  
+  <p>So the integral becomes:</p>
+  
+  \[
+  \int u(1 + z) \, d[F_A(z) - F_B(z)] = \int_0^1 S(z) \, du'(1 + z)
+  \]
+  
+  <p>Next, observe from earlier sections:</p>
+  
+  \[
+  S(0) = \int_0^0 [F_A(z) - F_B(z)] \, dz = 0
+  \]
+  
+  <p>Also, using the expectation identity from (2.5.1):</p>
+  
+  \[
+  S(1) = \int_0^1 [F_A(z) - F_B(z)] \, dz = \mathbb{E}[i_B] - \mathbb{E}[i_A] = 0
+  \]
+  
+  <p>Thus, we arrive at the final form of the integral expression (equation 2.6.3):</p>
+  
+  \[
+  \int_0^1 u(1 + z) \, d[F_A(z) - F_B(z)] = \int_0^1 S(z) \, du'(1 + z)
+  \]
+  
+  <p>Now, from condition (2.5.2), we know \( S(z) \geq 0 \) for all \( z \in [0, 1] \). Also, since \( u \) is concave (and hence \( u' \) is decreasing), \( du'(1 + z) \leq 0 \). Therefore, we conclude:</p>
+  
+  \[
+  \int_0^1 S(z) \, du'(1 + z) \leq 0
+  \]
+  
+  <p>Hence,</p>
+  
+  \[
+  \int u(1 + z) \, d[F_A(z) - F_B(z)] \leq 0
+  \]
+  
+  <p>This inequality shows that all individuals with increasing utility functions prefer asset A to asset B when \( F_A \) first-order stochastically dominates \( F_B \), completing the proof of sufficiency.</p>
+
 
 
 
