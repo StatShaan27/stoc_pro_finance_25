@@ -881,7 +881,91 @@
   <p>
     In the classic one-risky-one-riskless setting, stronger risk aversion always means lower risky allocation. But in multi-risky‑asset scenarios, Arrow‑Pratt ranking alone does not guarantee monotonic behavior. Only the <em>stronger</em> measure/lenses of risk aversion restore the intuitive comparative statics over portfolio choices.
   </p>
+<h3>Exercises with Solutions</h3>
 
+
+  <p><strong>Exercise 2.1:</strong><br>
+  A risky asset \( A \) is said to <strong>third-degree stochastically dominate</strong> risky asset \( B \) (denoted \( A \succeq_{TSD} B \)) if all investors exhibiting <em>decreasing absolute risk aversion (DARA)</em> prefer \( A \) over \( B \). Provide a sufficient condition, strictly weaker than that for second-degree stochastic dominance, on the distribution functions for \( A \succeq_{TSD} B \).</p>
+
+  <p><strong>Solution:</strong><br>
+  Let \( F_A \) and \( F_B \) denote the cumulative distribution functions (CDFs) of assets \( A \) and \( B \), respectively. For <strong>second-degree stochastic dominance (SSD)</strong>, the condition is:
+  \[
+  \int_{-\infty}^x [F_A(t) - F_B(t)] dt \leq 0 \quad \text{for all } x, \text{ with strict inequality for some } x.
+  \]
+  For <strong>third-degree stochastic dominance (TSD)</strong>, a sufficient (but weaker) condition is:
+  \[
+  \int_{-\infty}^x \int_{-\infty}^s [F_A(t) - F_B(t)] dt \, ds \leq 0 \quad \text{for all } x, \text{ with strict inequality for some } x.
+  \]
+  This condition is strictly weaker than SSD and accommodates risk-averse individuals with decreasing absolute risk aversion. It allows asset \( A \) to be preferable even if the SSD condition is not strictly satisfied, provided the "tail risks" are lower in a higher-order sense.</p>
+
+  <hr>
+
+  <p><strong>Exercise 2.2:</strong><br>
+  Suppose there are two risky assets with returns \( r_1 \) and \( r_2 \), which are <em>independent and identically distributed</em> (i.i.d.). Show that the <strong>equally weighted portfolio</strong> is an optimal choice for any risk-averse investor.</p>
+
+  <p><strong>Solution:</strong><br>
+  Let the investor allocate \( \alpha \) to asset 1 and \( 1 - \alpha \) to asset 2. The return of the portfolio is:
+  \[
+  r_p = \alpha r_1 + (1 - \alpha) r_2.
+  \]
+  The expected return is:
+  \[
+  \mathbb{E}[r_p] = \alpha \mathbb{E}[r_1] + (1 - \alpha) \mathbb{E}[r_2] = \mathbb{E}[r_1],
+  \]
+  since \( r_1 \sim r_2 \). The variance of the portfolio is:
+  \[
+  \text{Var}(r_p) = \alpha^2 \text{Var}(r_1) + (1 - \alpha)^2 \text{Var}(r_2) + 2\alpha(1 - \alpha)\text{Cov}(r_1, r_2).
+  \]
+  Since \( r_1 \) and \( r_2 \) are independent, \( \text{Cov}(r_1, r_2) = 0 \). So:
+  \[
+  \text{Var}(r_p) = \text{Var}(r_1)(\alpha^2 + (1 - \alpha)^2).
+  \]
+  This expression is minimized when \( \alpha = \frac{1}{2} \). Therefore, the equal-weight portfolio minimizes risk for a given return, and is optimal for all risk-averse investors.</p>
+
+  <hr>
+
+  <p><strong>Exercise 2.3:</strong><br>
+  Suppose there are five equally probable states of nature \( \{W_1, W_2, W_3, W_4, W_5\} \). Two risky assets \( A \) and \( B \) have the following returns:</p>
+
+  <table border="1" style="border-collapse: collapse; text-align: center;">
+    <tr>
+      <th>State</th>
+      <th>\( r_A \)</th>
+      <th>\( r_B \)</th>
+    </tr>
+    <tr><td> \( W_1 \) </td><td> 0.5 </td><td> 0.9 </td></tr>
+    <tr><td> \( W_2 \) </td><td> 0.5 </td><td> 0.4 </td></tr>
+    <tr><td> \( W_3 \) </td><td> 0.7 </td><td> 0.3 </td></tr>
+    <tr><td> \( W_4 \) </td><td> 0.7 </td><td> 0.7 </td></tr>
+    <tr><td> \( W_5 \) </td><td> 0.7 </td><td> 0.8 </td></tr>
+  </table>
+
+  <p><strong>Which asset will a risk-averse investor prefer?</strong></p>
+
+  <p><strong>Solution:</strong><br>
+  Let's first compute the expected returns:
+  \[
+  \mathbb{E}[r_A] = \frac{1}{5}(0.5 + 0.5 + 0.7 + 0.7 + 0.7) = \frac{3.1}{5} = 0.62,
+  \]
+  \[
+  \mathbb{E}[r_B] = \frac{1}{5}(0.9 + 0.4 + 0.3 + 0.7 + 0.8) = \frac{3.1}{5} = 0.62.
+  \]
+  So both assets have the same expected return. Next, calculate the variances.
+
+  <p>Variance of \( r_A \):</p>
+  \[
+  \text{Var}(r_A) = \frac{1}{5}[(0.5 - 0.62)^2 + (0.5 - 0.62)^2 + 3(0.7 - 0.62)^2] = \frac{1}{5}(2 \times 0.0144 + 3 \times 0.0064) = 0.0096.
+  \]
+
+  <p>Variance of \( r_B \):</p>
+  \[
+  \text{Var}(r_B) = \frac{1}{5}[(0.9 - 0.62)^2 + (0.4 - 0.62)^2 + (0.3 - 0.62)^2 + (0.7 - 0.62)^2 + (0.8 - 0.62)^2]
+  \]
+  \[
+  = \frac{1}{5}(0.0784 + 0.0484 + 0.1024 + 0.0064 + 0.0324) = \frac{0.268}{5} = 0.0536.
+  \]
+
+  <p><strong>Conclusion:</strong> Both assets have the same expected return, but asset \( A \) has significantly lower variance. Therefore, a risk-averse investor will prefer asset \( A \).</p>
 
 
 
