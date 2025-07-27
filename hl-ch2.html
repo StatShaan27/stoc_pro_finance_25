@@ -354,6 +354,68 @@
   </ul>
   <p>are <strong>necessary and sufficient conditions</strong> for \( A \succeq_{SD} B \).</p>
 
+  <h4> <strong>Alternative Characterization of Second-Order Stochastic Dominance (SSD)</strong></h4>
+  
+  <p>Rothschild and Stiglitz (1970) provide another powerful characterization of SSD. They show that an asset \( A \) dominates asset \( B \) in the SSD sense, denoted \( A \succeq_{SSD} B \), if and only if:</p>
+  
+  <p>\[
+  r_B \overset{d}{=} r_A + \varepsilon, \quad \text{with } \mathbb{E}[\varepsilon \mid r_A] = 0
+  \]</p>
+
+  <p>This means that the return on asset \( B \) can be viewed as the return on asset \( A \) plus a **zero-mean noise term** \( \varepsilon \), which is independent in expectation of \( r_A \).</p>
+
+  <h4> Why does this imply SSD?</h4>
+  <p>Let \( u(\cdot) \) be any concave utility function (representing a risk-averse agent). Then:</p>
+
+  <p>\[
+  \mathbb{E}[u(r_B)] = \mathbb{E}[u(r_A + \varepsilon)]
+  \]</p>
+
+  <p>By the <em>law of iterated expectations</em>:</p>
+  <p>\[
+  \mathbb{E}[u(r_A + \varepsilon)] = \mathbb{E}\left[ \mathbb{E}[u(r_A + \varepsilon) \mid r_A] \right]
+  \]</p>
+
+  <p>Applying **Jensen’s inequality** conditionally (since \( u \) is concave):</p>
+  <p>\[
+  \mathbb{E}[u(r_A + \varepsilon) \mid r_A] \leq u(r_A)
+  \Rightarrow
+  \mathbb{E}[u(r_B)] \leq \mathbb{E}[u(r_A)]
+  \]</p>
+
+  <p>Hence, asset \( A \) is preferred to asset \( B \) under all concave utility functions — the definition of SSD. The reverse implication is much deeper and is addressed in the original paper by Rothschild and Stiglitz.</p>
+
+  <h4> Three Equivalent Conditions for SSD</h4>
+  <ul>
+    <li>\( A \succeq_{SSD} B \)</li>
+    <li>\( \mathbb{E}[r_A] = \mathbb{E}[r_B] \), and the integral of the difference in cumulative distribution functions satisfies:<br>
+    \[
+    S(z) := \int_0^z [F_B(t) - F_A(t)] \, dt \geq 0 \quad \forall z \in [0, 1]
+    \]</li>
+    <li>\( r_B = r_A + \varepsilon \), with \( \mathbb{E}[\varepsilon \mid r_A] = 0 \)</li>
+  </ul>
+
+  <h4> Visual Intuition</h4>
+  <p>Imagine that asset \( A \) gives a stable return, and asset \( B \) is the same as \( A \) plus an extra “zero-mean noise.” This noise adds variance without changing the mean, so risk-averse agents will strictly prefer \( A \) over \( B \).</p>
+
+  <h4>✦ Variance Implication</h4>
+  <p>Because \( \mathbb{E}[\varepsilon \mid r_A] = 0 \), we also get:</p>
+  <p>\[
+  \text{Cov}(r_A, \varepsilon) = 0 \Rightarrow \text{Var}(r_B) = \text{Var}(r_A) + \text{Var}(\varepsilon) \geq \text{Var}(r_A)
+  \]</p>
+
+  <p>Thus, if \( A \succeq_{SSD} B \), it must be that:</p>
+  <ul>
+    <li>Expected returns are equal: \( \mathbb{E}[r_A] = \mathbb{E}[r_B] \)</li>
+    <li>Variance of \( B \) is at least that of \( A \): \( \text{Var}(r_B) \geq \text{Var}(r_A) \)</li>
+  </ul>
+
+  <p><strong>However, the converse is not true:</strong> Having equal means and higher variance does not guarantee SSD — this characterization is stronger.</p>
+
+  <h4> Summary</h4>
+  <p>Rothschild and Stiglitz's result links SSD to a structural decomposition of risk. Under SSD, we can interpret one asset as a "noisier version" of another, keeping the mean constant — a powerful conceptual tool in both economics and finance.</p>
+
+
 
 
 
