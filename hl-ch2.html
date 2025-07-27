@@ -304,6 +304,56 @@
   \]
   
   <p>This inequality shows that all individuals with increasing utility functions prefer asset A to asset B when \( F_A \) first-order stochastically dominates \( F_B \), completing the proof of sufficiency.</p>
+  <h4>Necessity Proof</h4>
+  
+  <p>Now we prove the <strong>necessity</strong> part. Suppose first that \( A \succeq_{SD} B \). Since linear utility functions are admissible, we can consider both a linear strictly increasing utility function and a linear strictly decreasing utility function.</p>
+
+  <p>By the definition of first-order stochastic dominance, we must have:</p>
+  \[
+  \int_{(0,1]} z\, dF_A(z) = \int_{(0,1]} z\, dF_B(z),
+  \]
+  <p>which is equivalent to:</p>
+  \[
+  \mathbb{E}[i_A] = \mathbb{E}[i_B],
+  \]
+  <p>as stated in Equation (2.5.1). Repeating the integration by parts from Section 2.6, we obtain the same form as Equation (2.6.3):</p>
+  \[
+  \int_{(0,1]} u(1 + z)\, d[F_A(z) - F_B(z)] = \int_0^1 S(z)\, du(1 + z).
+  \]
+
+  <p>We now claim that the function \( S(z) = F_A(z) - F_B(z) \), which is continuous, must be non-positive. Suppose not. Then, by the continuity of \( S(\cdot) \), there exists an interval \( [a, b] \) with \( a < b \), such that:</p>
+  \[
+  S(z) > 0 \quad \forall z \in [a, b].
+  \]
+
+  <p>Now, construct a concave utility function \( u(\cdot) \), whose derivative is continuous (except possibly on a countable set), and strictly decreasing only on \( [1 + a, 1 + b] \). We define it as:</p>
+  \[
+  u(1 + z) = \int_a^z \left( \int_{1 + a}^{1 + b} \mathbf{1}_{[1 + a, 1 + b]}(1 + t)\, dt \right) dy, \quad \forall z \in (0, 1),
+  \]
+  <p>so that:</p>
+  \[
+  u'(1 + z) = \int_{1 + a}^{1 + b} \mathbf{1}_{[1 + a, 1 + b]}(1 + t)\, dt,
+  \]
+  <p>which is a positive constant on \( z \in [a, b] \) and 0 elsewhere. This derivative is depicted as a block on the interval \( [1 + a, 1 + b] \) in Figure 2.7.1.</p>
+
+  <p>Now, the integral becomes:</p>
+  \[
+  \int_{(0,1]} u(1 + z)\, d[F_A(z) - F_B(z)] = \int_{a}^{b} S(z)\, du(1 + z),
+  \]
+  <p>and since \( S(z) > 0 \) on \( [a, b] \), and \( u'(1 + z) > 0 \) only on this interval, the integral is strictly negative:</p>
+  \[
+  \int_{a}^{b} S(z)\, dx < 0.
+  \]
+
+  <p>This contradicts the assumption that \( A \succeq_{SD} B \), as it violates the inequality in Equation (2.6.3). Hence, the assumption that \( S(z) > 0 \) on any interval must be false.</p>
+
+  <p>Therefore, we conclude that:</p>
+  \ul>
+    <li>(2.5.1): \( \mathbb{E}[i_A] = \mathbb{E}[i_B] \), and</li>
+    <li>(2.5.2): \( F_A(z) \geq F_B(z) \quad \forall z \in (0,1] \),</li>
+  </ul>
+  <p>are <strong>necessary and sufficient conditions</strong> for \( A \succeq_{SD} B \).</p>
+
 
 
 
