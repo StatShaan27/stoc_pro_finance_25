@@ -968,6 +968,79 @@
   <p><strong>Conclusion:</strong> Both assets have the same expected return, but asset \( A \) has significantly lower variance. Therefore, a risk-averse investor will prefer asset \( A \).</p>
 
 
+<hr>
+
+  <p><strong>Exercise 2.4:</strong><br>
+
+<p>Suppose that there are two risky assets with random rates of return \( r_A \) and \( r_B \), respectively. Assume that:</p>
+
+<ul>
+  <li>\( r_A \) and \( r_B \) are <strong>independent</strong> and have the <strong>same mean</strong>.</li>
+  <li>\( r_B = r_A + f \), where \( f \) is a <strong>non-negative random variable</strong> independent of \( r_A \).</li>
+</ul>
+
+<p>We are asked two things:</p>
+
+<ol>
+  <li>Does this imply that \( r_B \) <em>second-degree stochastically dominates</em> \( r_A \)?</li>
+  <li>Will a <strong>risk-averse, expected utility-maximizing investor</strong> prefer asset \( A \) over asset \( B \)?</li>
+</ol>
+
+
+
+  <p><strong>Solution:</strong><br>
+
+<h5> Understanding the Setup:</h5>
+
+<p>We are told that:</p>
+
+\[
+r_B = r_A + f \quad \text{with } f \geq 0 \text{ and independent of } r_A
+\]
+
+<p>This implies that <strong>for every realization</strong>, \( r_B \geq r_A \), so the distribution of \( r_B \) is a <em>rightward shift</em> of \( r_A \). Since \( f \) is non-negative and has some variance, \( r_B \) is <em>more dispersed</em> than \( r_A \), even though both have the same expected return.</p>
+
+<h5> Second-Degree Stochastic Dominance (SSD):</h5>
+
+<p>A random variable \( X \) second-degree stochastically dominates \( Y \) (denoted \( X \succeq_2 Y \)) if for all increasing and concave utility functions \( u(\cdot) \):</p>
+
+\[
+\mathbb{E}[u(X)] \geq \mathbb{E}[u(Y)]
+\]
+
+<p>Here, since \( r_B = r_A + f \), and \( f \geq 0 \), one might assume that \( r_B \) SSD dominates \( r_A \), but that is **not necessarily** true. The issue is that although the mean is unchanged, the variance is now larger due to the addition of \( f \). And because risk-averse agents <em>dislike variance</em>, a higher variance could lead to a lower utility for \( r_B \).</p>
+
+<p>So <strong>no, \( r_B \) does not second-degree stochastically dominate \( r_A \)</strong>. In fact, it might be the opposite.</p>
+
+<h5> Utility Comparison (via Jensen's Inequality):</h5>
+
+<p>Let the utility function \( u(\cdot) \) be concave. Then using the law of iterated expectations:</p>
+
+\[
+\mathbb{E}[u(r_B)] = \mathbb{E}[u(r_A + f)] \leq \mathbb{E}[u(r_A)] \quad \text{(since } f \geq 0 \text{ and } u \text{ is concave)}
+\]
+
+<p>Thus, the investor gets <strong>less expected utility from \( r_B \)</strong> than from \( r_A \). Therefore, a risk-averse investor would prefer asset \( A \).</p>
+
+<h5> Visualization Insight:</h5>
+
+<ul>
+  <li>\( r_A \): Has mean \( \mu \), and variance \( \sigma^2 \)</li>
+  <li>\( r_B = r_A + f \): Has same mean \( \mu \), but variance \( \sigma^2 + \text{Var}(f) \) &mdash; so it's riskier.</li>
+</ul>
+
+<p>For a risk-averse investor, <strong>higher risk with same return = lower utility</strong>. Hence, despite having a higher "realized" value, asset \( B \) is not preferred.</p>
+
+
+<h4> Final Conclusion:</h4>
+
+<ul>
+  <li>\( r_B \) does <strong>not</strong> second-degree stochastically dominate \( r_A \).</li>
+  <li>A risk-averse, expected utility-maximizing investor will invest <strong>more in asset \( A \)</strong> than in asset \( B \).</li>
+</ul>
+
+
+
 
 
 
