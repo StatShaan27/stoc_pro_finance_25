@@ -91,7 +91,6 @@
   <a href="projects.html">Programming</a>
 </nav>
 <section>
- <section>
 
   <h2>Section 3.1: Second-Degree Stochastic Dominance (SSD)</h2>
 
@@ -136,97 +135,11 @@ Portfolio A (Low Variance)
          Same Expected Return
   </pre>
 
+  
+ 
+  
+  
   <h2>Section 3.2: Mean-Variance Model and Investor Preferences</h2>
-  <p>This points to the <strong>Markowitz (1952)</strong> model — the birth of Modern Portfolio Theory.</p>
-
-  <h2>Assumptions</h2>
-  <ul>
-    <li>Investors are <strong>rational</strong> and <strong>risk-averse</strong></li>
-    <li>Their utility depends only on <strong>mean and variance</strong> of return</li>
-    <li><strong>Monotonicity</strong>: Higher return is preferred</li>
-    <li><strong>Strict concavity</strong>: Diminishing marginal utility (risk aversion)</li>
-  </ul>
-
-  <h2>Implication</h2>
-  <p>Utility increases with expected return but decreases with variance. So, when choosing between portfolios:</p>
-  \[
-  \text{Investor wants:} \quad \text{High } E[\tilde{R}] \quad \text{and} \quad \text{Low } \text{Var}(\tilde{R})
-  \]
-
-  <h2>Section 3.3: Utility Function Expansion Using Taylor Series</h2>
-  <p>This section bridges economics and math. It shows how utility can be approximated using Taylor expansion around the expected wealth.</p>
-
-  <h2>Given</h2>
-  <p>Let \( \tilde{W} \) be the random end-of-period wealth. Utility is expanded as:</p>
-  \[
-  u(\tilde{W}) = u(E[\tilde{W}]) + u'(E[\tilde{W}])(\tilde{W} - E[\tilde{W}]) + \frac{1}{2}u''(E[\tilde{W}])(\tilde{W} - E[\tilde{W}])^2 + R_3
-  \]
-
-  <h2>Taking Expectations</h2>
-  \[
-  E[u(\tilde{W})] = u(E[\tilde{W}]) + \frac{1}{2}u''(E[\tilde{W}])\sigma^2(\tilde{W}) + E[R_3]
-  \]
-
-  <h2>What’s Going On?</h2>
-  <ul>
-    <li>\( u(E[\tilde{W}]) \): Base utility from expected wealth</li>
-    <li>\( \frac{1}{2}u''(E[\tilde{W}])\sigma^2(\tilde{W}) \): Penalty for variance — since \( u'' < 0 \), this lowers utility</li>
-    <li>\( E[R_3] \): Correction using higher-order moments (skewness, kurtosis, etc.)</li>
-  </ul>
-
-  <h2>Why Stop at Second Order?</h2>
-  <ul>
-    <li>In mean-variance analysis, we assume the remainder is negligible</li>
-    <li>Real-world utility might depend on skewness (e.g., preference for upside risk)</li>
-    <li>Expected utility isn’t fully captured by just \( E[\tilde{W}] \) and \( \text{Var}(\tilde{W}) \)</li>
-  </ul>
-
-  <h2>Notation Breakdown</h2>
-  <ul>
-    <li>\( u^{(n)}(E[\tilde{W}]) \): n-th derivative of utility at mean wealth</li>
-    <li>\( m^{(n)}(\tilde{W}) = E[(\tilde{W} - E[\tilde{W}])^n] \): n-th central moment</li>
-  </ul>
-  <p>So:</p>
-  \[
-  E[R_3] = \sum_{n=3}^{\infty} \frac{1}{n!} u^{(n)}(E[\tilde{W}]) m^{(n)}(\tilde{W})
-  \]
-
-  <h2>Intuition</h2>
-  <ul>
-    <li><strong>Skewness</strong> (3rd moment): Measures asymmetry. Positive skew = upside potential</li>
-    <li><strong>Kurtosis</strong> (4th moment): Measures fat tails or extreme events</li>
-  </ul>
-  <p>So even if two assets have same mean and variance, one might be preferred due to positive skew — this is not captured in Markowitz's model.</p>
-
-  <h2>Visualizing the Utility Expansion</h2>
-  <pre>
-u(W)
-│
-│          *
-│        *   *
-│      *       *        ← Concave utility curve
-│    *
-│  *
-└─────────────────→ W
-     ↑
-  E[W]
-  </pre>
-  <p>The slope becomes flatter — reflecting risk aversion. The second-order term reflects this curvature.</p>
-
-  <h2>Summary of Key Insights</h2>
-  <ul>
-    <li><strong>SSD</strong>: Prefers lower variance at equal expected return; relates to concave utility</li>
-    <li><strong>Mean-Variance</strong>: Simplified model: optimize return vs risk; assumes utility is quadratic or normal distribution</li>
-    <li><strong>Taylor Expansion</strong>: Expresses expected utility using moments of distribution</li>
-    <li><strong>Remainder Term</strong>: Shows higher moments (skewness, kurtosis) matter for full utility characterization</li>
-  </ul>
-
-  <h2>Final Thought</h2>
-  <p>This section lays the theoretical foundation for why we care about mean and variance in asset allocation — but also hints that reality is richer. Especially when dealing with real markets (with non-normal distributions), ignoring higher moments can misrepresent investor preferences.</p>
-
-</section>
-<section>
-
   <h2>1. The Mean-Variance Model: Origins and Essence</h2>
   <p>This refers to the <strong>Modern Portfolio Theory (MPT)</strong> introduced by <strong>Harry Markowitz</strong>, which proposes that investors choose portfolios based on just two things:</p>
   <ul>
@@ -336,8 +249,147 @@ Probability |  *             *
 
   <h2>Final Thoughts</h2>
   <p>This section reminds us that the mean-variance model is a <strong>practical approximation</strong>, not a universal truth. It's powerful because it's <strong>simple</strong> and <strong>useful</strong>, not because it's always accurate. Recognizing both its <strong>utility and its limits</strong> is key to using it wisely in both theoretical and applied finance.</p>
+   
+  
+  
+  
+  
+  <h2>Section 3.3: Utility Function Expansion Using Taylor Series</h2>
+<h2>1. Context: Why Expand Utility Using Taylor Series?</h2>
+<p>
+  Investors care about their <strong>expected utility</strong>, not just expected wealth. But computing <code>E[u(&#x007e;W)]</code> for an arbitrary utility function <code>u</code> and wealth distribution <code>&#x007e;W</code> is hard.
+</p>
+<p>
+  To make it tractable, we <strong>approximate</strong> <code>u(&#x007e;W)</code> by <strong>expanding it around its mean</strong> <code>E[&#x007e;W]</code> using a Taylor series.
+</p>
 
-</section>
+<h2>2. The Taylor Expansion</h2>
+<p>
+  Let <code>&#x007e;W</code> be the random end-of-period wealth. The utility function is expanded as:
+</p>
+<pre>
+u(&#x007e;W) = u(E[&#x007e;W]) + u'(E[&#x007e;W])(&#x007e;W - E[&#x007e;W]) 
++ (1/2)u''(E[&#x007e;W])(&#x007e;W - E[&#x007e;W])² + R₃
+</pre>
+
+<h3>Breakdown of Terms:</h3>
+<ul>
+  <li><code>u(E[&#x007e;W])</code>: Utility of the expected wealth — baseline</li>
+  <li><code>u'(E[&#x007e;W])(&#x007e;W - E[&#x007e;W])</code>: Linear sensitivity — vanishes under expectation</li>
+  <li><code>(1/2)u''(E[&#x007e;W])(&#x007e;W - E[&#x007e;W])²</code>: Penalty for risk (variance)</li>
+  <li><code>R₃</code>: Remainder term — captures skewness, kurtosis, etc.</li>
+</ul>
+
+<h2>3. Taking Expectation</h2>
+<p>
+  Now take the expectation:
+</p>
+<pre>
+E[u(&#x007e;W)] = u(E[&#x007e;W]) + (1/2)u''(E[&#x007e;W])Var(&#x007e;W) + E[R₃]
+</pre>
+<ul>
+  <li>First-order term vanishes: <code>E[&#x007e;W - E[&#x007e;W]] = 0</code></li>
+</ul>
+
+<p><strong>Intuition:</strong></p>
+<ul>
+  <li>Second-order term reflects <strong>penalty for variance</strong></li>
+  <li>If <code>u'' &lt; 0</code>, more variance reduces utility</li>
+  <li>Remainder term captures higher-moment effects</li>
+</ul>
+
+<h2>4. What Is the Remainder Term R₃?</h2>
+<p>
+  The remainder term is:
+</p>
+<pre>
+R₃ = ∑ (from n=3 to ∞) [1/n!] × u⁽ⁿ⁾(E[&#x007e;W]) × (&#x007e;W - E[&#x007e;W])ⁿ
+</pre>
+<pre>
+E[R₃] = ∑ (from n=3 to ∞) [1/n!] × u⁽ⁿ⁾(E[&#x007e;W]) × m⁽ⁿ⁾(&#x007e;W)
+</pre>
+<ul>
+  <li><strong>u⁽ⁿ⁾</strong>: n-th derivative of utility</li>
+  <li><strong>m⁽ⁿ⁾(&#x007e;W)</strong>: n-th central moment of wealth</li>
+</ul>
+
+<h3>Central Moments Summary:</h3>
+<ul>
+  <li>1st: 0</li>
+  <li>2nd: Variance</li>
+  <li>3rd: Skewness</li>
+  <li>4th: Kurtosis</li>
+</ul>
+
+<h2>5. Interpretation of Equation</h2>
+<pre>
+E[u(&#x007e;W)] ≈ u(E[&#x007e;W]) + (1/2)u''(E[&#x007e;W])Var(&#x007e;W)
+</pre>
+<ul>
+  <li>Utility increases with <strong>expected wealth</strong></li>
+  <li>Utility decreases with <strong>variance</strong> if <code>u'' &lt; 0</code></li>
+</ul>
+
+<h3>Implication:</h3>
+<ul>
+  <li><strong>Preference for mean</strong></li>
+  <li><strong>Aversion to variance</strong></li>
+</ul>
+<p>This justifies mean-variance analysis in portfolio theory.</p>
+
+<h2>6. But... Expected Utility Is Not Always Mean-Variance Based</h2>
+<ul>
+  <li>If higher moments matter, mean-variance is insufficient</li>
+  <li>Full distribution is relevant for general utility functions</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+<ul>
+  <li>Asset A: positive skew</li>
+  <li>Asset B: negative skew</li>
+</ul>
+<p>
+  Same mean and variance, but different investor preferences—mean-variance analysis fails to distinguish.
+</p>
+
+<h2>7. Visualizing the Concepts</h2>
+<h3>Utility Curve and Risk Aversion</h3>
+<pre>
+Utility ↑
+        •
+     •     ← u(E[W])
+  •
+•
+---------------------→ Wealth
+         ↑
+       E[W]
+</pre>
+<ul>
+  <li>Concave curve → diminishing marginal utility</li>
+  <li>Variance reduces expected utility</li>
+</ul>
+
+<h3>Skewed Distributions With Same Mean/Variance</h3>
+<pre>
+        •       •
+      •   •   •   •
+    •       •       •
+------------------------→ Return
+</pre>
+<p>Mean and variance are the same, but tail behavior differs.</p>
+
+<h2>8. Final Takeaways</h2>
+<ul>
+  <li><strong>Taylor expansion</strong> makes expected utility manageable</li>
+  <li><strong>Mean and variance</strong> are not always sufficient</li>
+  <li><strong>Higher-order moments</strong> like skewness and kurtosis often matter</li>
+  <li><strong>Mean-variance preference</strong> is a simplification, not a general truth</li>
+</ul>
+
+
+
+  
+  
 
 
 
