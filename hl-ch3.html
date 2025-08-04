@@ -87,7 +87,6 @@
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="topics.html">Topics</a>
   <a href="notes.html">Notes</a>
   <a href="projects.html">Programming</a>
 </nav>
@@ -224,6 +223,119 @@ u(W)
 
   <h2>Final Thought</h2>
   <p>This section lays the theoretical foundation for why we care about mean and variance in asset allocation — but also hints that reality is richer. Especially when dealing with real markets (with non-normal distributions), ignoring higher moments can misrepresent investor preferences.</p>
+
+</section>
+<section>
+
+  <h2>1. The Mean-Variance Model: Origins and Essence</h2>
+  <p>This refers to the <strong>Modern Portfolio Theory (MPT)</strong> introduced by <strong>Harry Markowitz</strong>, which proposes that investors choose portfolios based on just two things:</p>
+  <ul>
+    <li><strong>Expected Return</strong>: \( E[\tilde{R}] \)</li>
+    <li><strong>Variance (or standard deviation)</strong> of return: \( \text{Var}(\tilde{R}) \) or \( \sigma(\tilde{R}) \)</li>
+  </ul>
+
+  <h2>Core Assumptions</h2>
+  <ul>
+    <li><strong>Rationality</strong>: Investors are logical and consistent</li>
+    <li><strong>Risk Aversion</strong>: Investors dislike uncertainty</li>
+    <li><strong>Utility depends only on mean and variance</strong>: No concern for skewness or kurtosis</li>
+    <li><strong>Normally distributed returns</strong>: Ensures mean and variance fully define the distribution</li>
+  </ul>
+
+  <h2>Visualization: Efficient Frontier</h2>
+  <pre>
+Expected Return ↑
+                • A
+              •
+            •      ← Efficient Frontier
+          •
+        •
+      •
+      ----------------------------→ Risk (Standard Deviation)
+  </pre>
+  <ul>
+    <li><strong>Efficient Frontier</strong>: Set of portfolios that <strong>maximize expected return</strong> for a given level of risk</li>
+    <li>Investors pick a point <strong>on</strong> the frontier, depending on their risk preference</li>
+  </ul>
+
+  <h2>2. Why Mean-Variance? Utility Theory Justification</h2>
+  <p>The preferences assumed in MPT come <strong>naturally</strong> from <strong>standard utility theory</strong>:</p>
+  <ul>
+    <li><strong>Monotonicity</strong>: More wealth → higher utility</li>
+    <li><strong>Strict concavity</strong>: Diminishing marginal utility of wealth → aversion to risk</li>
+  </ul>
+  <p>Mathematically:</p>
+  <ul>
+    <li>\( u'(W) > 0 \): increasing</li>
+    <li>\( u''(W) < 0 \): concave → risk aversion</li>
+  </ul>
+  <p>These properties justify:</p>
+  \[
+  \text{Maximize } E[u(\tilde{W})] \approx u(E[\tilde{W}]) + \frac{1}{2}u''(E[\tilde{W}])\text{Var}(\tilde{W})
+  \]
+
+  <h2>3. The Limitation: Only Works for Special Cases</h2>
+  <p>This is a <strong>critical caveat</strong>. The mean and variance only capture the first two moments of a distribution. But:</p>
+  <ul>
+    <li>Real-world returns often have <strong>skewness</strong> (3rd moment) and <strong>kurtosis</strong> (4th moment)</li>
+    <li>Some utility functions are not well approximated by a second-order Taylor expansion</li>
+  </ul>
+
+  <h2>Example</h2>
+  <p>Consider two investments with the same mean and variance, but one has fat left tails (higher crash risk). MPT would treat them equally — but any real investor would prefer the safer one.</p>
+
+  <h2>Visual: Two Distributions With Same Mean/Variance</h2>
+  <pre>
+Return →
+            |              *
+Probability |       *   *   *
+            |    *           *     ← Fat right tail
+            | *               *
+            |------------------------→
+                  Mean
+  </pre>
+
+  <pre>
+Return →
+            |     *       *
+Probability |  *             *
+            |*                 *   ← Fat left tail (crash risk)
+            |------------------------→
+                  Mean
+  </pre>
+  <p>These two have the same \( E[\tilde{R}] \) and \( \text{Var}(\tilde{R}) \), but very different risks.</p>
+
+  <h2>4. Why Still Use It? Analytical Tractability and Empirical Power</h2>
+
+  <h2>Analytical Tractability</h2>
+  <ul>
+    <li>Easy to compute: only need means, variances, and covariances</li>
+    <li>Optimization becomes <strong>quadratic programming</strong>: solvable even for large portfolios</li>
+    <li>Leads to <strong>closed-form solutions</strong> in many cases</li>
+  </ul>
+
+  <h2>Rich Empirical Implications</h2>
+  <ul>
+    <li>Forms the basis for:
+      <ul>
+        <li>Capital Market Line (CML)</li>
+        <li>Capital Asset Pricing Model (CAPM)</li>
+        <li>Sharpe ratio, portfolio beta, etc.</li>
+      </ul>
+    </li>
+    <li>Despite its simplifications, MPT often gives <strong>good first approximations</strong> and <strong>predictive power</strong> in real markets</li>
+  </ul>
+
+  <h2>Summary Table</h2>
+  <ul>
+    <li><strong>Origin</strong>: Markowitz (1952), assumes decisions based on \( E[\tilde{R}], \text{Var}(\tilde{R}) \)</li>
+    <li><strong>Justification</strong>: Comes from monotonic and concave utility functions</li>
+    <li><strong>Limitation</strong>: Not valid for all distributions or utility functions</li>
+    <li><strong>Why Still Popular?</strong>: Simple math, strong predictive models (CAPM, efficient frontier)</li>
+  </ul>
+
+  <h2>Final Thoughts</h2>
+  <p>This section reminds us that the mean-variance model is a <strong>practical approximation</strong>, not a universal truth. It's powerful because it's <strong>simple</strong> and <strong>useful</strong>, not because it's always accurate. Recognizing both its <strong>utility and its limits</strong> is key to using it wisely in both theoretical and applied finance.</p>
 
 </section>
 
