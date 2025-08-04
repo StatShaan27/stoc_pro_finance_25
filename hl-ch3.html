@@ -388,6 +388,171 @@ Utility ↑
 
 
 
+
+
+
+  <h2>🔷 Section 3.4: Mean-Variance from Quadratic Utility</h2>
+
+<h2>🧠 The Idea</h2>
+<p>The Taylor series remainder term E[R₃] from Section 3.3 vanishes if:</p>
+<ul>
+  <li>u⁽ⁿ⁾(W) = 0 for n ≥ 3</li>
+</ul>
+<p>This holds when the utility function is quadratic:</p>
+<p>u(W) = aW - (b/2)W², with b &gt; 0</p>
+<p>Then: u'(W) = a - bW, u''(W) = -b, and u⁽ⁿ⁾(W) = 0 for n ≥ 3</p>
+
+<h2>✅ Result</h2>
+<p>Since all higher-order derivatives are zero:</p>
+<p>E[u(Ẇ)] = u(E[Ẇ]) + (1/2)u''(E[Ẇ])Var(Ẇ)</p>
+<p>This expression is exact.</p>
+
+<h2>🔍 Rewriting Expected Utility</h2>
+<p>Given: u(Ẇ) = Ẇ - (b/2)Ẇ²</p>
+<p>So: E[u(Ẇ)] = E[Ẇ] - (b/2)E[Ẇ²]</p>
+<p>But E[Ẇ²] = (E[Ẇ])² + Var(Ẇ) = μ² + σ²</p>
+<p>Therefore: E[u(Ẇ)] = μ - (b/2)(μ² + σ²)</p>
+
+<h2>🎯 Implication</h2>
+<p>Utility depends only on the mean and variance of wealth Ẇ. Mean-variance analysis is therefore exact under quadratic utility.</p>
+
+<h2>⚠️ Problems with Quadratic Utility</h2>
+
+<h3>1. Satiation</h3>
+<ul>
+  <li>Utility becomes decreasing for large W</li>
+  <li>u'(W) = a - bW &lt; 0 when W &gt; a/b</li>
+  <li>Implies more wealth leads to less utility, which contradicts rational investor behavior</li>
+</ul>
+
+<h3>2. Increasing Absolute Risk Aversion (IARA)</h3>
+<ul>
+  <li>ARA: A(W) = -u''(W)/u'(W) = b / (a - bW)</li>
+  <li>Since the denominator decreases with W, A(W) increases with wealth</li>
+  <li>This contradicts the usual assumption that richer individuals are less risk-averse</li>
+</ul>
+
+<h2>❌ Counterintuitive Implications</h2>
+<ul>
+  <li>Richer individuals may avoid risk entirely</li>
+  <li>Beyond a point, people may prefer losing wealth</li>
+  <li>Risky assets could appear as inferior goods</li>
+</ul>
+
+<h2>📊 Visual: Quadratic Utility Function</h2>
+<p>
+u(W)<br>
+│<br>
+│        *<br>
+│     *     *   ← Utility increases initially<br>
+│   *         *<br>
+│ *             *  ← Peaks at satiation point<br>
+│<br>
+└──────────────────→ W<br>
+                 ↑<br>
+            Max utility point
+</p>
+
+<h2>🔶 Section 3.5: Mean-Variance from Multivariate Normality</h2>
+
+<h2>🧠 Key Idea</h2>
+<p>Even with an arbitrary utility function, if returns are normally distributed, mean-variance analysis can still be valid.</p>
+
+<h2>📌 Why?</h2>
+<ul>
+  <li>The normal distribution is fully determined by mean and variance</li>
+  <li>Higher moments are functions of just μ and σ²</li>
+  <li>Hence, the Taylor remainder term E[R₃] depends only on μ and σ²</li>
+</ul>
+
+<h2>🧮 Portfolio Implication</h2>
+<p>If: Ṙ = (R₁, R₂, ..., Rₙ) ~ MVN(μ, Σ)</p>
+<p>Then: Any linear combination Ẇ = wᵗṘ is also normally distributed</p>
+<p>So utility maximization reduces to optimization over mean and variance</p>
+
+<h2>✅ Advantages of Normality</h2>
+<ul>
+  <li><strong>Simplicity</strong>: Optimization is over μ and Σ</li>
+  <li><strong>Stability</strong>: Sums of normals remain normal</li>
+  <li><strong>Compatibility</strong>: Applies to many utility functions if E[u(Ẇ)] exists</li>
+</ul>
+
+<h2>⚠️ Problems with Normality Assumption</h2>
+
+<h3>1. Unbounded Below</h3>
+<ul>
+  <li>Normal returns allow Ẇ &lt; 0 with positive probability</li>
+  <li>For log utility u(z) = ln(z), ln(z) is undefined if z ≤ 0</li>
+  <li>Negative wealth implies negative consumption, which is unrealistic</li>
+</ul>
+
+<h3>2. Violates Limited Liability</h3>
+<ul>
+  <li>In reality, wealth cannot fall below zero</li>
+  <li>But normal models assume returns can go to negative infinity</li>
+</ul>
+
+<h2>📘 Lognormal Alternative?</h2>
+<ul>
+  <li>Lognormal returns (Ẇ = exp(Z), Z ~ N(μ, σ²)) ensure Ẇ &gt; 0</li>
+  <li>But sums of lognormals are not lognormal</li>
+  <li>This complicates portfolio construction</li>
+</ul>
+
+<h2>📌 Summary Table</h2>
+<table border="1">
+  <tr>
+    <th>Assumption</th>
+    <th>Utility Function</th>
+    <th>Distributional Assumption</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td>Quadratic utility</td>
+    <td>u(W) = aW - (b/2)W²</td>
+    <td>Any distribution</td>
+    <td>Mean-variance preference exact</td>
+  </tr>
+  <tr>
+    <td>Arbitrary utility</td>
+    <td>u smooth, concave</td>
+    <td>Multivariate Normal returns</td>
+    <td>Mean-variance preference sufficient</td>
+  </tr>
+  <tr>
+    <td>Arbitrary utility</td>
+    <td>Arbitrary</td>
+    <td>Arbitrary distribution</td>
+    <td>Mean-variance preference not valid</td>
+  </tr>
+</table>
+
+<h2>🔁 Final Synthesis</h2>
+<table border="1">
+  <tr>
+    <th>Strength</th>
+    <th>Limitation</th>
+  </tr>
+  <tr>
+    <td>Mean-variance models are powerful and tractable under quadratic utility or normality</td>
+    <td>But both are strong and unrealistic assumptions</td>
+  </tr>
+  <tr>
+    <td>Quadratic utility allows exact mean-variance optimization for any distribution</td>
+    <td>But leads to absurd economic implications like decreasing utility with wealth</td>
+  </tr>
+  <tr>
+    <td>Normality assumption avoids those issues</td>
+    <td>But assumes wealth can fall below zero, which violates limited liability</td>
+  </tr>
+  <tr>
+    <td>Use mean-variance as an approximation</td>
+    <td>Advanced models incorporate higher moments or bounded wealth, or use expected utility directly</td>
+  </tr>
+</table>
+
+
+
   
   
 
