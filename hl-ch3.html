@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stochastic Processes & Finance – Summer Reading Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #e0e0e0;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    section {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-bottom a {
+      flex: 1;
+      text-align: center;
+      padding: 0.5em 1em;
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin: 2em 0;
+    }
+    .hint-text {
+      display: none;
+      margin-top: 0.5em;
+      background: #f0f0f0;
+      padding: 0.5em;
+      border-left: 4px solid #0077cc;
+      border-radius: 4px;
+    }
+
+    .hint-button {
+      margin-top: 1em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.4em 0.8em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .hint-button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Chapter 3: Mathematics of the Portfolio Frontier</h1>
+  <p>Study notes and chapter summaries</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="topics.html">Topics</a>
+  <a href="notes.html">Notes</a>
+  <a href="projects.html">Programming</a>
+</nav>
+<section>
+ <section>
+
+  <h2>Section 3.1: Second-Degree Stochastic Dominance (SSD)</h2>
+
+  <h2>Core Idea</h2>
+  <ul>
+    <li><strong>Asset A</strong> must offer <strong>at least the same expected return</strong> as <strong>Asset B</strong></li>
+    <li>But with <strong>less risk</strong> (measured by <strong>variance</strong>)</li>
+  </ul>
+  <p>This leads us to portfolio selection: among all portfolios offering the same expected return, the dominant one is the one with the least variance.</p>
+
+  <h2>What Is Second-Degree Stochastic Dominance (SSD)?</h2>
+  <p>SSD is a decision rule for <strong>risk-averse investors</strong>.</p>
+  <p>Let \( F_A(x) \) and \( F_B(x) \) be cumulative distribution functions (CDFs) of the returns of assets A and B.</p>
+  <p>We say A dominates B in the second degree if:</p>
+  \[
+  \int_{-\infty}^{x} F_A(t)\, dt \leq \int_{-\infty}^{x} F_B(t)\, dt \quad \text{for all } x
+  \]
+  <p>...and strictly less for at least one \( x \). This reflects <strong>preference under concave utility</strong>.</p>
+
+  <h2>Interpretation</h2>
+  <ul>
+    <li>For <strong>risk-averse</strong> agents, less variance is better, holding expected return constant.</li>
+    <li>If Asset A has <strong>equal mean but lower variance</strong>, then it’s preferred under SSD.</li>
+  </ul>
+
+  <h2>In Portfolio Context</h2>
+  <p>Suppose you have many portfolios, all yielding \( E[R] = 8\% \).</p>
+  <p>SSD says: pick the one with the lowest variance — that’s the efficient frontier logic in Markowitz’s framework.</p>
+
+  <h2>Visual</h2>
+  <pre>
+Risk (Variance) →→→
+
+Portfolio A (Low Variance)
+|
+|     •
+|
+|
+|          • Portfolio B (Higher Variance)
+|
+----------------------------
+         Same Expected Return
+  </pre>
+
+  <h2>Section 3.2: Mean-Variance Model and Investor Preferences</h2>
+  <p>This points to the <strong>Markowitz (1952)</strong> model — the birth of Modern Portfolio Theory.</p>
+
+  <h2>Assumptions</h2>
+  <ul>
+    <li>Investors are <strong>rational</strong> and <strong>risk-averse</strong></li>
+    <li>Their utility depends only on <strong>mean and variance</strong> of return</li>
+    <li><strong>Monotonicity</strong>: Higher return is preferred</li>
+    <li><strong>Strict concavity</strong>: Diminishing marginal utility (risk aversion)</li>
+  </ul>
+
+  <h2>Implication</h2>
+  <p>Utility increases with expected return but decreases with variance. So, when choosing between portfolios:</p>
+  \[
+  \text{Investor wants:} \quad \text{High } E[\tilde{R}] \quad \text{and} \quad \text{Low } \text{Var}(\tilde{R})
+  \]
+
+  <h2>Section 3.3: Utility Function Expansion Using Taylor Series</h2>
+  <p>This section bridges economics and math. It shows how utility can be approximated using Taylor expansion around the expected wealth.</p>
+
+  <h2>Given</h2>
+  <p>Let \( \tilde{W} \) be the random end-of-period wealth. Utility is expanded as:</p>
+  \[
+  u(\tilde{W}) = u(E[\tilde{W}]) + u'(E[\tilde{W}])(\tilde{W} - E[\tilde{W}]) + \frac{1}{2}u''(E[\tilde{W}])(\tilde{W} - E[\tilde{W}])^2 + R_3
+  \]
+
+  <h2>Taking Expectations</h2>
+  \[
+  E[u(\tilde{W})] = u(E[\tilde{W}]) + \frac{1}{2}u''(E[\tilde{W}])\sigma^2(\tilde{W}) + E[R_3]
+  \]
+
+  <h2>What’s Going On?</h2>
+  <ul>
+    <li>\( u(E[\tilde{W}]) \): Base utility from expected wealth</li>
+    <li>\( \frac{1}{2}u''(E[\tilde{W}])\sigma^2(\tilde{W}) \): Penalty for variance — since \( u'' < 0 \), this lowers utility</li>
+    <li>\( E[R_3] \): Correction using higher-order moments (skewness, kurtosis, etc.)</li>
+  </ul>
+
+  <h2>Why Stop at Second Order?</h2>
+  <ul>
+    <li>In mean-variance analysis, we assume the remainder is negligible</li>
+    <li>Real-world utility might depend on skewness (e.g., preference for upside risk)</li>
+    <li>Expected utility isn’t fully captured by just \( E[\tilde{W}] \) and \( \text{Var}(\tilde{W}) \)</li>
+  </ul>
+
+  <h2>Notation Breakdown</h2>
+  <ul>
+    <li>\( u^{(n)}(E[\tilde{W}]) \): n-th derivative of utility at mean wealth</li>
+    <li>\( m^{(n)}(\tilde{W}) = E[(\tilde{W} - E[\tilde{W}])^n] \): n-th central moment</li>
+  </ul>
+  <p>So:</p>
+  \[
+  E[R_3] = \sum_{n=3}^{\infty} \frac{1}{n!} u^{(n)}(E[\tilde{W}]) m^{(n)}(\tilde{W})
+  \]
+
+  <h2>Intuition</h2>
+  <ul>
+    <li><strong>Skewness</strong> (3rd moment): Measures asymmetry. Positive skew = upside potential</li>
+    <li><strong>Kurtosis</strong> (4th moment): Measures fat tails or extreme events</li>
+  </ul>
+  <p>So even if two assets have same mean and variance, one might be preferred due to positive skew — this is not captured in Markowitz's model.</p>
+
+  <h2>Visualizing the Utility Expansion</h2>
+  <pre>
+u(W)
+│
+│          *
+│        *   *
+│      *       *        ← Concave utility curve
+│    *
+│  *
+└─────────────────→ W
+     ↑
+  E[W]
+  </pre>
+  <p>The slope becomes flatter — reflecting risk aversion. The second-order term reflects this curvature.</p>
+
+  <h2>Summary of Key Insights</h2>
+  <ul>
+    <li><strong>SSD</strong>: Prefers lower variance at equal expected return; relates to concave utility</li>
+    <li><strong>Mean-Variance</strong>: Simplified model: optimize return vs risk; assumes utility is quadratic or normal distribution</li>
+    <li><strong>Taylor Expansion</strong>: Expresses expected utility using moments of distribution</li>
+    <li><strong>Remainder Term</strong>: Shows higher moments (skewness, kurtosis) matter for full utility characterization</li>
+  </ul>
+
+  <h2>Final Thought</h2>
+  <p>This section lays the theoretical foundation for why we care about mean and variance in asset allocation — but also hints that reality is richer. Especially when dealing with real markets (with non-normal distributions), ignoring higher moments can misrepresent investor preferences.</p>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>Last updated:</strong> August 04, 2025</p> 
+</section>
+
+<div class="nav-bottom">
+  <a href="hl-ch1.html">Prev Chapter &larr;</a>
+</div>
+
+<footer>
+  &copy; 2025 Mohammad Shaan | This site is maintained on GitHub Pages.
+</footer>
+<!-- MathJax for LaTeX -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script>
+  function toggleHint(id) {
+    var hint = document.getElementById(id);
+    if (hint.style.display === "none" || hint.style.display === "") {
+      hint.style.display = "block";
+    } else {
+      hint.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
